@@ -2,5 +2,10 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Bootcamp Preparation 2.0/Bai_Tap/Git&amp;HTML" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Bootcamp Preparation 2.0/Bai_Tap/GitProject" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Bootcamp Preparation 2.0/Thuc_Hanh" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Bootcamp Preparation 2.0/Thuc_Hanh/my_new_project" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Bootcamp Preparation 2.0/Thuc_Hanh/wf-hello" vcs="Git" />
   </component>
 </project>
