@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CaseStudy</title>
+</head>
+<body>
+<script>
+    let name;
+    let cmnd;
+    let birthday;
+    let email;
+    let address;
+    let typeService;
+    let typeroom;
+    let typecustomer;
+    let discount;
+    let quantityIncluded;
+    let rendDay;
+    let totalpay;
+    name= prompt("Input name: ");
+    cmnd= prompt("Input cmnd: ");
+    birthday= prompt("Input birthday: ");
+    email= prompt("Input email: ");
+    address= prompt("Input address: ");
+    typeService= prompt("Input typeService: ");
+    typeroom= prompt("Input typeroom");
+    typecustomer= prompt("Input typecustomer: ");
+    discount= prompt("Input discount: ");
+    quantityIncluded= prompt("Input quantityIncluded: ");
+    rendDay= prompt("Input rendDay: ");
+    totalpay= 300*rendDay*(1-discount/100);
+    alert("name: "+name+"cmnd: "+cmnd+"email: "+email+"address: "+address+"typeService: "+typeService+"rendDay: "+rendDay+"discount: "+discount+"totalpay: "+totalpay);
+
+</script>
+</body>
+</html>

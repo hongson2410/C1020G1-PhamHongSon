@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CaseStudy</title>
+</head>
+<body>
+<script>
+    let name= "Sơn";
+    let cmnd= "856325975";
+    let birthday="24/10/1997";
+    let email="phs2410@gmail.com";
+    let address="Đà Nẵng";
+    let typeService="Villa";
+    let typeroom="Vip";
+    let typecustomer="Platinum";
+    let discount=10;
+    let quantityIncluded=4;
+    let rendDay=5;
+    let totalpay;
+    let choose=parseInt(prompt("1. Hiển thị thông tin khách hàng."+ "\n"+
+    "2. Chỉnh sửa thông tin khách hàng."+ "\n"+
+    "3. Hiển thị giá sau khi được giảm giá."));
+    switch (choose) {
+         case 1: {
+             alert("Tên: "+name+ "\n"+
+             "cmnd: "+cmnd+ "\n"+
+             "Ngày sinh:"+birthday+ "\n"+
+             "email:"+email+ "\n"+
+             "Địa chỉ:"+address+ "\n"+
+             "Loại dịch vụ:"+typeService+ "\n"+
+             "Loại phòng:"+typeroom+ "\n"+
+             "Loại khách hàng:"+typecustomer+ "\n"+
+             "Giảm Giá:"+discount+ "\n"+
+             "Số lượng đi kèm:"+quantityIncluded+ "\n"+
+             "Số ngày thuê:"+rendDay)
+             break;
+         }
+         case 2: {
+             let chooseEdit= parseInt(prompt("1.Tên: "+name+ "\n"+
+                 "2.cmnd: "+cmnd+ "\n"+
+                 "3.Ngày sinh:"+birthday+ "\n"+
+                 "4.email:"+email+ "\n"+
+                 "5.Địa chỉ:"+address+ "\n"+
+                 "6.Loại dịch vụ:"+typeService+ "\n"+
+                 "7.Loại phòng:"+typeroom+ "\n"+
+                 "8.Loại khách hàng:"+typecustomer+ "\n"+
+                 "9.Giảm Giá:"+discount+ "\n"+
+                 "10.Số lượng đi kèm:"+quantityIncluded+ "\n"+
+                 "11.Số ngày thuê:"+rendDay));
+             switch (chooseEdit) {
+                 case 1: {
+                     name=prompt("Enter name: ");
+                     break;
+                 }
+                 default: {
+                     alert("Failed");
+                 }
+             }
+             alert("Tên: "+name+ "\n"+
+                 "cmnd: "+cmnd+ "\n"+
+                 "Ngày sinh:"+birthday+ "\n"+
+                 "email:"+email+ "\n"+
+                 "Địa chỉ:"+address+ "\n"+
+                 "Loại dịch vụ:"+typeService+ "\n"+
+                 "Loại phòng:"+typeroom+ "\n"+
+                 "Loại khách hàng:"+typecustomer+ "\n"+
+                 "Giảm Giá:"+discount+ "\n"+
+                 "Số lượng đi kèm:"+quantityIncluded+ "\n"+
+                 "Số ngày thuê:"+rendDay);
+                   break;
+         }
+         default: {
+             alert("Sự lựa chọn của bạn không có trong trình đơn");
+         }
+    }
+</script>
+</body>
+</html>
