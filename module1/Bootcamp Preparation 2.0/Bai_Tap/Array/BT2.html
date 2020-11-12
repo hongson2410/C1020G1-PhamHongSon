@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+</head>
+<body>
+<script>
+    let Vietnamese= ["Con chó", "Con gà", "Con lợn"];
+    let English= ["Dog", "Cock", "Pig" ];
+    let choose=parseInt(prompt("1. Dog."+ "\n"+
+    "2. Cock."+ "\n"+
+    "3. Pig."+ "\n"));
+    switch (choose) {
+        case 1: {
+           let index = English.indexOf("Dog");
+            alert("Tiếng Việt" + Vietnamese[index]);
+            break;
+        }
+        case 2: {
+            index= English.indexOf("Cock");
+            alert("Tiếng Việt"+ Vietnamese[index]);
+            break;
+        }
+        case 3: {
+            index= English.indexOf("Pig");
+            alert("Tiếng Việt"+ Vietnamese[index]);
+            break;
+        }
+        default: {
+            alert("Không tìm thấy");
+        }
+    }
+</script>
+</body>
+</html>
