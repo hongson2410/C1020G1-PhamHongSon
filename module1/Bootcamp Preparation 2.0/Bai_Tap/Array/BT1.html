@@ -27,9 +27,9 @@
     let b= "abcdefghijklmnopqrstuvwxyz";
     let result= [];
     for (let x=0; x<text.length;x++) {
-        if ( a.indexOf(text[x]) !==1 ) {
+        if ( a.indexOf(text[x]) !==-1 ) {
             result.push(text[x].toLowerCase());
-        }else if ( b.indexOf(text[x]) !== 0) {
+        }else if ( b.indexOf(text[x]) !== -1 ) {
             result.push(text[x].toUpperCase());
         }else {
             result.push(text[x]);
