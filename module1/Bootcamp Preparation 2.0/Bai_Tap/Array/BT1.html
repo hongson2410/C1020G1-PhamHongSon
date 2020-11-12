@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+</head>
+<body>
+<script>
+    // let mygirlfriend = ["Vy","Hạ","Trâm","Thư"];
+    // mygirlfriend = mygirlfriend.join("-");
+    // document.writeln(mygirlfriend);
+
+
+     // let x = [ 0,2,5,4,6,8];
+     // let b = [];
+     // for (let i=0; i< x.length; i++) {
+     //     if ( x[i] % 2 === 0 && x[i+1] % 2 === 0) {
+     //         b.push(x[i],"-");
+     //     } else {
+     //         b.push(x[i]);
+     //     }
+     // }
+     // document.writeln(b.join(""));
+
+    let text="The Quick Brown Fox";
+    let a= "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let b= "abcdefghijklmnopqrstuvwxyz";
+    let result= [];
+    for (let x=0; x<text.length;x++) {
+        if ( a.indexOf(text[x]) !==1 ) {
+            result.push(text[x].toLowerCase());
+        }else if ( b.indexOf(text[x]) !== 0) {
+            result.push(text[x].toUpperCase());
+        }else {
+            result.push(text[x]);
+        }
+    }
+    document.writeln(result.join(""));
+</script>
+</body>
+</html>
