@@ -5,32 +5,53 @@
     <title>Từ Điển</title>
 </head>
 <body>
+<div>
+    <h3>Từ điển Anh-Việt</h3>
+    <input type="text" id="enterenglish"  >
+    <input type="button" onclick="enterE()" name="button1" value="Translate">
+    <p id="result"></p>
+</div>
 <script>
-    let Vietnamese= ["Con chó", "Con gà", "Con lợn"];
-    let English= ["Dog", "Cock", "Pig" ];
-    let choose=parseInt(prompt("1. Dog."+ "\n"+
-    "2. Cock."+ "\n"+
-    "3. Pig."+ "\n"));
-    switch (choose) {
-        case 1: {
-           let index = English.indexOf("Dog");
-            alert("Tiếng Việt" + Vietnamese[index]);
-            break;
+    // let Vietnamese= ["Con chó", "Con gà", "Con lợn"];
+    // let English= ["Dog", "Cock", "Pig" ];
+    // let choose=parseInt(prompt("1. Dog."+ "\n"+
+    // "2. Cock."+ "\n"+
+    // "3. Pig."+ "\n"));
+    // switch (choose) {
+    //     case 1: {
+    //        let index = English.indexOf("Dog");
+    //         alert("Tiếng Việt" + Vietnamese[index]);
+    //         break;
+    //     }
+    //     case 2: {
+    //         index= English.indexOf("Cock");
+    //         alert("Tiếng Việt"+ Vietnamese[index]);
+    //         break;
+    //     }
+    //     case 3: {
+    //         index= English.indexOf("Pig");
+    //         alert("Tiếng Việt"+ Vietnamese[index]);
+    //         break;
+    //     }
+    //     default: {
+    //         alert("Không tìm thấy");
+    //     }
+    // }
+    let EE = document.getElementById("enterenglish");
+    let result = document.getElementById("result");
+    let english= ["hello", "student","class","phone","cat","dog"];
+    let vietnamese = ["xin chào", "sinh viên", "lớp học", "điện thoại","mèo","chó"];
+    function enterE() {
+        for (let i=0; i<english.length ; i++){
+            if (english[i]===EE.value){
+                result.innerHTML= vietnamese[i]
+            }
         }
-        case 2: {
-            index= English.indexOf("Cock");
-            alert("Tiếng Việt"+ Vietnamese[index]);
-            break;
-        }
-        case 3: {
-            index= English.indexOf("Pig");
-            alert("Tiếng Việt"+ Vietnamese[index]);
-            break;
-        }
-        default: {
-            alert("Không tìm thấy");
+        if (result.innerHTML == ""){
+            alert("khoong co trong tu dien");
         }
     }
+
 </script>
 </body>
 </html>

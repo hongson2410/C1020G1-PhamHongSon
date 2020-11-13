@@ -6,9 +6,16 @@
 </head>
 <body>
 <script>
-    for (var i = 0; i < 10; i++) {
-        console.log(i);
+    function turnOn(machine) {
+        machine = {
+            isOn: true
+        };
     }
+    let computer = {
+        isOn: false
+    };
+    turnOn(computer);
+    console.log(computer.isOn);
 </script>
 
 </body>
