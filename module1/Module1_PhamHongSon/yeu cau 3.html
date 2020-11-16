@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let name;
+    let cmnd;
+    let birthday;
+    let email;
+    let address;
+    let typeService;
+    let typeroom;
+    let typecustomer;
+    let discount;
+    let quantityIncluded;
+    let rendDay;
+    let check=false;
+    name= prompt("Input name: ");
+    cmnd= prompt("Input cmnd: ");
+    birthday= prompt("Input birthday: ")
+    do {
+        let coutAt=0;
+        let coutDoc=0;
+        email= prompt("Input email: ");
+        for (let i=0;i<email.length;i++) {
+            if (email.charAt(i) === "@") {
+                coutAt++ ;
+                for (let j=i+1;j<email.length;j++) {
+                    if (email.charAt(j) === "." ) {
+                        coutDoc++ ;
+                    }
+                }
+            }
+        }
+        if ( coutAt != 1 || coutDoc<1) {
+            alert("Email bạn nhập không đúng!!");
+        } else {
+            check=true;
+        }
+    } while (!check)
+    address= prompt("Input address: ");
+    typeService= prompt("Input typeService: ");
+    typeroom= prompt("Input typeroom");
+    typecustomer= prompt("Input typecustomer: ");
+    discount= prompt("Input discount: ");
+    quantityIncluded= prompt("Input quantityIncluded: ");
+    rendDay= prompt("Input rendDay: ");
+</script>
+</body>
+</html>

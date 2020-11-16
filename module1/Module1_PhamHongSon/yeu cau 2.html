@@ -108,7 +108,44 @@
                  "Số lượng đi kèm:"+quantityIncluded+ "\n"+
                  "Số ngày thuê:"+rendDay);
                    break;
-         }
+         } case 3:{
+             let money=0;
+             if (typeService==="Villa"){
+                 money=500;
+             }else if (typeService==="House"){
+                 money=300;
+             }else if (typeService==="Room"){
+                 money=100;
+             }
+             let temp=0;
+             if (address==="Đà Nẵng"){
+                 temp+=20;
+             }else if (address==="Huế"){
+                 temp+=10;
+             }else if (address==="Quảng Nam"){
+                 temp+=5;
+             }
+             if (rendDay>7){
+                 temp+=30;
+             }else if (rendDay>=5){
+                 temp+=20;
+             }else if (rendDay>=2){
+                 temp+=10;
+             }
+             if (typecustomer==="Diamond"){
+                 temp+=15;
+             }else if (typecustomer==="Platium"){
+                 temp+=10;
+             }else if(typecustomer==="Gold"){
+                 temp+=5;
+             }else if (typecustomer==="Silver"){
+                 temp+=2;
+             }else if (typecustomer==="Member"){
+                 temp+=0;
+             }
+             alert("Total pay: "+((money*rendDay)-temp));
+             break;
+        }
          default: {
              alert("Sự lựa chọn của bạn không có trong trình đơn");
          }
