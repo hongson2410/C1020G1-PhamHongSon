@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function start(starInput) {
+        let nameStar=["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        let nameConstellation=["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+        let count = 0;
+        for ( let i=0; i<nameStar.length;i++){
+            if (nameStar[i] === starInput){
+                count++;
+                return nameConstellation[i];
+            }
+        }
+        if(count != 1){
+            return -1;
+        }
+    }
+    let star = prompt("star?");
+    let check = start(star);
+    if (check==-1){
+        alert("Can't find star");
+    } else {
+        alert(check);
+    }
+</script>
+</body>
+</html>
