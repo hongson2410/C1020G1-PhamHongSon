@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let r=prompt("Nhập bán kính: ");
+    let choose=prompt("Nhập lựa chọn: \ns:Tính diện tích \np:Tính chu vi");
+    alert(caculate(choose));
+    
+    function caculate(a) {
+        switch (a) {
+            case "s":
+                return  r*r*Math.PI;
+                break;
+            case "p":
+                return r*2*Math.PI;
+                break;
+        }
+    }
+</script>
+</body>
+</html>
