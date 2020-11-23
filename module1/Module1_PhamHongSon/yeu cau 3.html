@@ -18,9 +18,59 @@
     let quantityIncluded;
     let rendDay;
     let check=false;
+    let tempName="";
+
     name= prompt("Input name: ");
-    cmnd= prompt("Input cmnd: ");
-    birthday= prompt("Input birthday: ")
+    name=name.trim().toLowerCase();
+    for (let i=0; i<name.length;i++){
+        if (name.charAt(i)===" " && name.charAt(i+1)===" "){
+              continue;
+        }
+        if (i===0 || name.charAt(i-1)===" "){
+            tempName+=name.charAt(i).toUpperCase();
+            continue;
+        }
+        tempName+=name.charAt(i);
+    }
+    name=tempName;
+    do {
+        cmnd= prompt("Input cmnd: ");
+        if(cmnd.length !== 8){
+            alert("CMND không đúng định dạng!");
+            continue;
+        }
+        if (!isNaN(cmnd)){
+            cmnd=Number.parseFloat(cmnd);
+        }
+        if (!Number.isInteger(cmnd)){
+            alert("CMND không đúng định dạng!");
+            continue;
+        }
+        check=true;
+    }while (!check);
+    check=false;
+    do {
+        birthday= prompt("Input birthday: ");
+        if (birthday.charAt(2)==="/" && birthday.charAt(5)==="/" ){
+            let day=birthday.substr(0,2);
+            let month=birthday.substr(3,2);
+            let year=birthday.substr(6,4);
+            if (!isNaN(day)&& !isNaN(month)&& !isNaN(year)){
+                day=Number.parseFloat(day);
+                month=Number.parseFloat(month);
+                year=Number.parseFloat(year);
+                if (Number.isInteger(day)&& Number.isInteger(month)&& Number.isInteger(year)){
+                    if (day<32&& month<13&& year>1950){
+                        check=true;
+                    }
+                }
+            }
+        }
+        if (!check){
+            alert("Ngày sinh không đúng định dạng!");
+        }
+    }while (!check);
+    check=false;
     do {
         let coutAt=0;
         let coutDoc=0;
@@ -35,19 +85,70 @@
                 }
             }
         }
-        if ( coutAt != 1 || coutDoc<1) {
+        if ( coutAt !== 1 || coutDoc<1) {
             alert("Email bạn nhập không đúng!!");
         } else {
             check=true;
         }
-    } while (!check)
+    } while (!check);
+    check=false;
+    let tempAddress="";
     address= prompt("Input address: ");
+    address=address.trim().toLowerCase();
+    for (let i=0;i<address.length;i++){
+        if (address.charAt(i)===" " && address.charAt(i+1)===" "){
+            continue;
+        }
+        if (i===0 || address.charAt(i-1)===" "){
+            tempAddress+=address.charAt(i).toUpperCase();
+            continue;
+        }
+        tempAddress+=address.charAt(i);
+    }
+    address=tempAddress;
     typeService= prompt("Input typeService: ");
     typeroom= prompt("Input typeroom");
+    let tempTypeCustomer="";
     typecustomer= prompt("Input typecustomer: ");
+    typecustomer=typecustomer.trim().toLowerCase();
+    for (let i=0; i<typecustomer.length;i++){
+        if (typecustomer.charAt(i)===" " && typecustomer.charAt(i+1)===" "){
+            continue;
+        }
+        if (i===0 || typecustomer.charAt(i-1)===" "){
+            tempTypeCustomer+=typecustomer.charAt(i).toUpperCase();
+            continue;
+        }
+        tempTypeCustomer+=typecustomer.charAt(i)
+    }
+    typecustomer=tempTypeCustomer;
     discount= prompt("Input discount: ");
-    quantityIncluded= prompt("Input quantityIncluded: ");
-    rendDay= prompt("Input rendDay: ");
+    do {
+        quantityIncluded= prompt("Input quantityIncluded: ");
+        if (!isNaN(quantityIncluded)){
+            quantityIncluded=Number.parseFloat(quantityIncluded);
+            if (Number.isInteger(quantityIncluded)&&(quantityIncluded>0)){
+                    check=true;
+            }
+        }
+        if (!check){
+            alert("Số người đi kèm phải là số nguyên dương!");
+        }
+    }while (!check);
+    check=false;
+    do {
+        rendDay= prompt("Input rendDay: ");
+        if (!isNaN(rendDay)){
+            rendDay=Number.parseFloat(rendDay);
+            if (Number.isInteger(rendDay)&&(rendDay>0)){
+                    check=true;
+            }
+        }
+        if (!check){
+            alert("Rendday phải là số nguyên dương!");
+        }
+    } while (!check);
+    check=false;
 </script>
 </body>
 </html>

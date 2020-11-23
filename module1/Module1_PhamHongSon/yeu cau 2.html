@@ -17,7 +17,6 @@
     let discount=10;
     let quantityIncluded=4;
     let rendDay=5;
-    let totalpay;
     let choose=parseInt(prompt("1. Hiển thị thông tin khách hàng."+ "\n"+
     "2. Chỉnh sửa thông tin khách hàng."+ "\n"+
     "3. Hiển thị giá sau khi được giảm giá."));
@@ -33,7 +32,7 @@
              "Loại khách hàng:"+typecustomer+ "\n"+
              "Giảm Giá:"+discount+ "\n"+
              "Số lượng đi kèm:"+quantityIncluded+ "\n"+
-             "Số ngày thuê:"+rendDay)
+             "Số ngày thuê:"+rendDay);
              break;
          }
          case 2: {
@@ -108,7 +107,8 @@
                  "Số lượng đi kèm:"+quantityIncluded+ "\n"+
                  "Số ngày thuê:"+rendDay);
                    break;
-         } case 3:{
+         }
+         case 3:{
              let money=0;
              if (typeService==="Villa"){
                  money=500;

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>nháp</title>
+</head>
+<body>
+<script>
+    function compareTriplets(s){
+        let hour = s.substr(0,2);
+        let hourAfter = 0;
+        let hourStr;
+        let aOrP = s.substr(8,2);
+        s = s.replace(aOrP,"");
+        if(aOrP === "PM"){
+            if(parseInt(hour) < 12){
+                hourAfter = parseInt(hour) + 12;
+            }else {
+                hourAfter = parseInt(hour);
+            }
+        }else{
+            if(parseInt(hour) == 12){
+                hourAfter = parseInt(hour) - 12;
+            }else{
+                hourAfter = parseInt(hour);
+            }
+        }
+        hourStr = hourAfter.toString();
+        if(hourAfter < 12){
+            hourStr = "0" + hourStr;
+        }
+        s = s.replace(hour,hourStr);
+        return s;
+    }
+    let a= '07:05:45PM';
+    alert(compareTriplets(a));
+</script>
+
+</body>
+</html>
