@@ -33,6 +33,7 @@
         tempName+=name.charAt(i);
     }
     name=tempName;
+    alert(name);
     do {
         cmnd= prompt("Input cmnd: ");
         if(cmnd.length !== 8){
@@ -85,7 +86,9 @@
                 }
             }
         }
-        if ( coutAt !== 1 || coutDoc<1) {
+        if (email.indexOf('@')<3){
+            alert("Email bạn nhập không đúng!!");
+        } else if ( coutAt !== 1 || coutDoc<1) {
             alert("Email bạn nhập không đúng!!");
         } else {
             check=true;
