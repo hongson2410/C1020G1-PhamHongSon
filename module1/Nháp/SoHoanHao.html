@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function kiemtrasohh() {
+        let sum=0;
+        let N = parseInt(prompt("Nhap N: "));
+        for (let i=1; i<N; i++){
+            if (N % i === 0){
+                sum +=i;
+            }
+        }
+        if (sum == N){
+            return true;
+        }return false;
+    }
+    if (kiemtrasohh() === true){
+        alert("day la so hoan thien");
+    } else alert("day khong phai la so hoan thien");
+</script>
+</body>
+</html>

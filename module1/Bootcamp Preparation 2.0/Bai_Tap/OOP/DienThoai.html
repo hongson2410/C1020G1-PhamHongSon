@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="myCSS.css">
+</head>
+<body>
+<div class="container">
+    <div class="phone">
+        <h3>Nokia</h3>
+        <p>Pin</p>
+        <div class="elm">
+            <textarea id="soanThaoNokia" onchange="soanThao(this.value)" rows="4" type="text"></textarea>
+        </div>
+        <div class="elm">
+            <button class="buttonNokia" onclick="guiTinNhan()">Gửi</button>
+            <button class="buttonNokia" onclick="xemSoanThao()">Đang soạn thảo</button>
+        </div>
+        <div class="elm">
+            <button class="buttonNokia">Đã gửi</button>
+            <button class="buttonNokia">Hộp thư đến</button>
+        </div>
+        <div class="elm">
+            <button onclick="nguon()">Nguồn</button>
+            <button>Sạc</button>
+        </div>
+    </div>
+
+    <div class="phone">
+        <h3>Iphone</h3>
+        <p>Pin</p>
+        <div class="elm">
+            <textarea id="soanThaoIphone" onchange="soanThao(this.value)" rows="4" type="text"></textarea>
+        </div>
+        <div class="elm">
+            <button>Gửi</button>
+            <button>Đang soạn thảo</button>
+        </div>
+        <div class="elm">
+            <button>Đã gửi</button>
+            <button onclick="nhanTinNhan()">Hộp thư đến</button>
+        </div>
+        <div class="elm">
+            <button>Nguồn</button>
+            <button>Sạc</button>
+        </div>
+    </div>
+</div>
+<script src="Mobile.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.phone h3 {
+    text-align: center;
+}
+
+.elm textarea {
+    height: 100%;
+}

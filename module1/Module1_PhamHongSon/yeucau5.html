@@ -1,0 +1,159 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 5</title>
+</head>
+<body>
+<script>
+    let thongTinCanNhap = ["Tên","CMND","Ngày , tháng , năm sinh","Email", "Địa chỉ", "Loại Customer", "Phần trăm giảm giá","Số lượng đi kèm",
+        "Số ngày thuê", "Loại dịch vụ","Loại phòng"];
+
+    let listCustomers = new Array();
+    let j = 0;
+    let info;
+
+
+
+    displayMainMenu();
+    function displayMainMenu() {
+        let choose = prompt("Enter the number below:\n 1. Add New Customer\n 2. Display Information Customer" +
+            "\n 3. Edit Information Customer\n 4. Delete Customer\n 5. Exit");
+        switch (choose) {
+            case "1":
+                return addNewCustomer();
+                break;
+            case "2":
+                if (listCustomers.length>0){
+                    return displayCustomer(listCustomers);
+                }else {
+                    alert("Ngộ??? Có gì đâu mà hiển thị!");
+                    displayMainMenu();
+                }
+                break;
+            case "3":
+                if (listCustomers.length>0){
+                    return editInformationCustomer(listCustomers,thongTinCanNhap);
+                }else {
+                    alert("Ngộ??? Có gì đâu mà sửa !");
+                    displayMainMenu();
+                }
+                break;
+            case "4":
+                if (listCustomers.length>0){
+                    return  deleteCustomer(listCustomers);
+                }else {
+                    alert("Ngộ??? Có gì đâu mà xóa !");
+                    displayMainMenu();
+                }
+                break;
+            case "5":
+                break;
+            default:
+                alert("Please, try again!");
+                displayMainMenu();
+        }
+    }
+
+
+
+    function addNewCustomer() {
+        listCustomers[j] = new Array();
+        for (let i=0;i<thongTinCanNhap.length;i++){
+            let nhapThongTin = prompt("Nhập " + thongTinCanNhap[i] + " : ");
+            listCustomers[j].push(thongTinCanNhap[i] + ' : ' + nhapThongTin);
+        }
+        alert(listCustomers[j].join("\n"));
+        j++;
+        displayMainMenu();
+    }
+
+
+
+    function displayCustomer(array) {
+        let infoNeedDisplay = displayNameAndIdCard(array);
+        if ( infoNeedDisplay === (array.length + 1)){
+            return displayMainMenu();
+        }else {
+            alert(displayInformation(infoNeedDisplay-1));
+            displayMainMenu();
+        }
+    }
+
+
+
+    function displayNameAndIdCard(array) {
+        let nameAndIdCard = "";
+        for (let i = 0; i < array.length; i++) {
+            nameAndIdCard += (i + 1) + " . " + array[i][0] + "\n     " + array[i][1] + "\n";
+        }
+        nameAndIdCard += (array.length+1) + ". Back";
+        let choose;
+        do {
+            choose = parseInt(prompt(nameAndIdCard));
+            if (choose > 0 && choose <= (array.length + 1)){
+                return choose;
+            }else alert("Lựa chọn của bạn không tồn tại !");
+        }while (1);
+    }
+
+
+
+    function displayInformation(choose) {
+        info = "";
+        for (let i=0;i < thongTinCanNhap.length ;i++){
+            info += (i+1) + ' . ' + listCustomers[choose][i] + '\n';
+        }
+        return info;
+    }
+
+
+
+    function editInformationCustomer(array,info) {
+        let customerNeedEdit = displayNameAndIdCard(array);
+        if ( customerNeedEdit === (array.length + 1)){
+            return displayMainMenu();
+        }else {
+            let infoNeedEdit;
+            do {
+                infoNeedEdit = parseInt(prompt("Nhập thông tin muốn chỉnh sửa :" + "\n" + displayInformation(customerNeedEdit-1) + "12 . Back"));
+                if ( infoNeedEdit === 12){
+                    return editInformationCustomer(array,info);
+                }
+                else if (infoNeedEdit > 0 && infoNeedEdit < 12){
+                    break;
+                }else alert("Lựa chọn của bạn không tồn tại !");
+            }while (1);
+            let edit = prompt("Nhập " + info[infoNeedEdit - 1] + ' muốn thay đổi :');
+            array[customerNeedEdit - 1][infoNeedEdit - 1] = info[infoNeedEdit - 1] + ' : ' + edit;
+            alert(displayInformation(customerNeedEdit-1));
+            displayMainMenu();
+        }
+    }
+
+
+
+    function deleteCustomer (array) {
+        let customerNeedDelete = displayNameAndIdCard(array);
+        if ( customerNeedDelete === (array.length + 1)){
+            return displayMainMenu();
+        }else {
+            let confirm = prompt("Bạn có thực sự muốn xóa Customer này hay không ?" + "\n" + "1. Yes" + "\n" + "2. No");
+            switch (confirm) {
+                case "1":
+                    array.splice((customerNeedDelete-1),1);
+                    alert('Yêu cầu xóa đã được thực hiện thành công !');
+                    break;
+                case "2":
+                    alert("Yêu cầu xóa đã được hủy bỏ !");
+                    break;
+                default:
+                    alert("Bạn chỉ có thể chọn :" + "\n1 là xóa" + "\n2 là không");
+                    return deleteCustomer(array);
+            }
+            displayMainMenu();
+        }
+    }
+</script>
+</body>
+</html>

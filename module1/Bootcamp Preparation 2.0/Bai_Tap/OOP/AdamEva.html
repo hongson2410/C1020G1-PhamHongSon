@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Apple {
+        constructor(weight) {
+            this.weight = weight;
+        }
+        checkApple() {
+            if (this.weight > 0) {
+                return true;
+            }
+            return false;
+        }
+        decrease() {
+            this.weight--;
+        }
+        getWeight() {
+            return this.weight;
+        }
+    }
+    class Human {
+        constructor(name, weight) {
+            this.name = name;
+            this.weight = weight;
+        }
+        eatApple(apple) {
+            if(apple.checkApple()) {
+                apple.decrease();
+                this.weight++;
+            } else {
+                alert("Táo đã hết. Xin mời ăn trộm trái khác.")
+            }
+        }
+        getName() {
+            return this.name;
+        }
+        getWeight() {
+            return this.weight;
+        }
+    }
+    function main() {
+        let adam = new Human("Adam",70);
+        let eva = new Human("Eva", 50);
+        let apple = new Apple(10);
+        while(apple.checkApple()) {
+            adam.eatApple(apple);
+            eva.eatApple(apple);
+        }
+        alert(adam.getName() +". Cân nặng hiện tại là: "+adam.getWeight())
+        alert(eva.getName() +". Cân nặng hiện tại là: "+eva.getWeight())
+    }
+    main();
+</script>
+</body>
+</html>
