@@ -18,12 +18,15 @@ public class giaiphuongtrinhbacnhat {
 
         if (a != 0) {
             double solution = (c-b)/a;
+
             System.out.println("Equation pass with x = \n" + solution);
         } else {
-            if (b==0){
-                System.out.println("The solution is all x!");
+            if (b==c){
+                System.out.println("The solution is all 'x'!");
+
             } else {
-                System.out.println("No solution");
+                System.out.println("Equation has no root!");
+
             }
         }
     }
