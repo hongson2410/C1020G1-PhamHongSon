@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class soTietKiem {
+        constructor(id,loaitietkiem,name,cmnd,date,money) {
+            this.id=id;
+            this.loaitietkiem=loaitietkiem;
+            this.name=name;
+            this.date=date;
+            this.money=money;
+        }
+        setId(id){
+            this.id=id;
+        }
+        getId(){
+            return this.id;
+        }
+        setName(name){
+            this.name=name;
+        }
+        getName(){
+            return this.name;
+        }
+        setLoaiTietKiem(loaitietkiem){
+            this.loaitietkiem=loaitietkiem;
+        }
+        getLoaiTietKiem(){
+            return this.loaitietkiem;
+        }
+        setCmnd(cmnd){
+            this.cmnd=cmnd;
+        }
+        getCmnd(){
+            return this.cmnd;
+        }
+        setDate(date){
+            this.date=date;
+        }
+        getDate(){
+            return this.date;
+        }
+        setMoney(money){
+            this.money=money;
+        }
+        getMoney(){
+            return this.money;
+        }
+    }
+
+    function display() {
+        document.body.innerHTML="";
+        let temp="<button onclick='create()'>Add product</button>"
+        temp+= "<table border='1'>"
+        for(let i = 0;i<listProduct.length;i++) {
+            temp+="<tr>"
+            temp+="<td>"+listProduct[i].id+"</td>"
+            temp+="<td>"+listProduct[i].name+"</td>"
+            temp+="<td>"+listProduct[i].price+"</td>"
+            temp+="<td>"+listProduct[i].description+"</td>"
+            temp+="<td>"+listProduct[i].id+"</td>"
+            temp+="<td>"+listProduct[i].id+"</td>"
+            temp+="<td><button onclick='editProduct()'>Edit</button></td>"
+            temp+="<td><button onclick='deleteProduct("+i+")'>Delete</button></td>"
+            temp+="</tr>"
+        }
+        temp+="</table>"
+        document.writeln(temp);
+    }
+    let listProduct = [];
+    listProduct.push(new Product(1,"Vip","Phạm Hồng Sơn","12345678","12/12/2012"));
+    listProduct.push(new Product(2,"diamond","Đinh Văn Nguyên","789465123","14/10/2012"));
+    listProduct.push(new Product(1,"vip","Nguyễn Hoàng","159759654","1/1/2012"));
+    display();
+</script>
+</body>
+</html>

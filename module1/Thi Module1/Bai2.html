@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function test(a,b,c,d) {
+        let check=false;
+        if (a/b===c/d){
+            check=true;
+        }
+        return check;
+    }
+    while (true) {
+        let a = parseInt(prompt("Tử số 1: "));
+        let b = parseInt(prompt("Mẫu số 1: "));
+        let c = parseInt(prompt("Tử số 2: "));
+        let d = parseInt(prompt("Mẫu số 2:"));
+        alert(test(a, b, c, d));
+    }
+</script>
+</body>
+</html>

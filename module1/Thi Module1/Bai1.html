@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isPrime(number) {
+        let test= true ;
+        if (number<2){
+            test= false;
+        } else {
+            for (let i=2;i<number;i++) {
+                if (number % i == 0) {
+                    test = false;
+                    break;
+                }
+            }
+            return test;
+        }
+    }
+    while (true) {
+        let a = [];
+        let ar = parseInt(prompt("Nhập độ dài mảng số nguyên: "));
+        if (ar > 50) {
+            alert("Chỉ được nhập dưới 50 số!");
+            continue;
+        }
+        for (let i = 0; i < ar; i++) {
+            a.push(parseInt(prompt("Nhập số nguyên: ")));
+        }
+        let b = [];
+        for (let i = 0; i < a.length; i++) {
+            if (isPrime(a[i])) {
+                b.push(a[i]);
+            }
+        }
+        alert(a);
+        alert(b);
+    }
+</script>
+</body>
+</html>
