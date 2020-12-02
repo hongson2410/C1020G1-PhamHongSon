@@ -67,9 +67,9 @@ public class HienThiCacLoaiHinh {
                     break;
                 case 3:
                     System.out.println("Enter the height: ");
-                    int a = input.nextInt();
-                    for (int i = 1; i <= a; i++) {
-                        for (int j =0 ; j< a-i; j++) {
+                    int height1 = input.nextInt();
+                    for (int i = 1; i <= height1; i++) {
+                        for (int j =0 ; j< height1-i; j++) {
                             System.out.print(" ");
                         }
                         for (int j = 0; j < i; j++) {
