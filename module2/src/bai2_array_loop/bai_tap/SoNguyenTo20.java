@@ -15,7 +15,7 @@ public class SoNguyenTo20 {
                 i++;
             }
             if (check){
-                System.out.println(number);
+                System.out.print(number+" ");
                 count++;
             }
             number++;
