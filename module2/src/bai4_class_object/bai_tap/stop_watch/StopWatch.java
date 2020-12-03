@@ -1,28 +1,26 @@
 package bai4_class_object.bai_tap.stop_watch;
 import java.time.LocalTime;
 public class StopWatch {
-    private long startLong;
-    private long endLong;
-
-
+    private long startTime;
+    private long endTime;
 
     public void start() {
-        this.startLong=System.currentTimeMillis();
+        this.startTime=System.currentTimeMillis();
     }
 
     public void end() {
-        this.endLong=System.currentTimeMillis();
+        this.endTime=System.currentTimeMillis();
     }
 
-    public long getLongStartTime() {
-        return this.startLong;
+    public long getStartTime() {
+        return this.startTime;
     }
 
-    public long getLongEndTime() {
-        return this.endLong;
+    public long getEndTime() {
+        return this.endTime;
     }
 
     public long getElapsedTime() {
-        return getLongStartTime()-getLongEndTime();
+        return getEndTime()-getStartTime();
     }
 }

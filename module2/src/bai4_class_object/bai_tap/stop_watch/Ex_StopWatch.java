@@ -10,6 +10,6 @@ public class Ex_StopWatch {
             }
         }
         stopWatch.end();
-        System.out.println( stopWatch.getElapsedTime());
+        System.out.println( "Elapsed Time is: "+stopWatch.getElapsedTime()+" millisecond");
     }
 }
