@@ -12,6 +12,7 @@ public class TimMax {
                 System.out.println("Size should not exceed 20");
             }
         } while (size > 20);
+
         array = new int[size];
         int i = 0;
         while (i < array.length) {
@@ -28,10 +29,10 @@ public class TimMax {
         for (int j = 0; j < array.length; j++) {
             if (array[j] > max) {
                 max = array[j];
-                index = j + 1;
+                index = j;
             }
         }
         System.out.println("");
-        System.out.println("The largest property value in the list is " + max + " ,at position " + index);
+        System.out.println("The largest property value in the list is " + max + " ,at index " + index);
     }
 }

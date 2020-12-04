@@ -1,6 +1,6 @@
 package bai1_introduction_to_java.thuc_hanh;
 import java.util.Scanner;
-public class Operator {
+public class RectangleProgram {
     public static void main(String[] args) {
         float width;
         float height;
