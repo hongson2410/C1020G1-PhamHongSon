@@ -48,7 +48,7 @@ public class Fan {
         if (isOn()){
             return getSpeed()+" "+getColor()+" "+getRadius()+" fan is on";
         }else {
-            return getSpeed()+" "+getColor()+" "+getRadius()+" fan is off";
+            return getColor()+" "+getRadius()+" fan is off";
         }
     }
 }
