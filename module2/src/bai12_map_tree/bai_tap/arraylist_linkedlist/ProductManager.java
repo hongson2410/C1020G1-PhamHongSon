@@ -62,7 +62,6 @@ public class ProductManager {
         System.out.println("Enter id product you want set:");
         int id = Integer.parseInt(scanner.nextLine());
         product = searchProductById(id);
-//        System.out.println(product);
         do {
             System.out.println(product);
             System.out.println("You want set:" + "\n" + "1. Id." + "\n" + "2. Name." + "\n" + "3. Price."+ "\n"+ "0. Exit");
