@@ -11,7 +11,7 @@ public class MyTreeMap {
         myMap.put(new Student(3, "Nguyen Van C"), "Top3");
         myMap.put(new Student(4, "Nguyen Van D"), "Top4");
         myMap.put(new Student(2, "Nguyen Van B"), "Top2");
-        myMap.put(null,"Top");
+//        myMap.put(null,"Top");
 
 
         System.out.println(myMap.size());

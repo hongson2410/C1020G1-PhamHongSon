@@ -25,7 +25,7 @@ public class ProductManager {
         list.remove(product);
     }
 
-    public Product searchProductById(int id) {
+    private Product searchProductById(int id) {
         for (Product product : list) {
             if (product.getId() == id) {
                 return product;
@@ -34,14 +34,14 @@ public class ProductManager {
         return null;
     }
 
-    private Product searchName(String name) {
-        for (Product product : list) {
-            if (product.getName().equals(name)) {
-                return product;
-            }
-        }
-        return null;
-    }
+//    private Product searchName(String name) {
+//        for (Product product : list) {
+//            if (product.getName().equals(name)) {
+//                return product;
+//            }
+//        }
+//        return null;
+//    }
 
     public List<Product> searchProductByName(String name) {
         List<Product> listSearchByName = new ArrayList<>();

@@ -17,11 +17,11 @@ public class Main {
         manager.removeProduct(id);
     }
 
-    private static Product searchById() {
-        System.out.println("Enter id you want search:");
-        int id = Integer.parseInt(scanner.nextLine());
-        return manager.searchProductById(id);
-    }
+//    private static Product searchById() {
+//        System.out.println("Enter id you want search:");
+//        int id = Integer.parseInt(scanner.nextLine());
+//        return manager.searchProductById(id);
+//    }
 
     private static List<Product> searchByName() {
         System.out.println("Enter name product you want search:");
