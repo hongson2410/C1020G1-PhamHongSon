@@ -7,7 +7,8 @@ import java.util.Scanner;
 
 public class ProductManager {
     private List<Product> list;
-    private static final Scanner scanner= new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
+
     public ProductManager() {
         list = new ArrayList<>();
     }
@@ -64,13 +65,13 @@ public class ProductManager {
         product = searchProductById(id);
         do {
             System.out.println(product);
-            System.out.println("You want set:" + "\n" + "1. Id." + "\n" + "2. Name." + "\n" + "3. Price."+ "\n"+ "0. Exit");
+            System.out.println("You want set:" + "\n" + "1. Id." + "\n" + "2. Name." + "\n" + "3. Price." + "\n" + "0. Exit");
             choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
                     System.out.println("Set id to: ");
                     product.setId(Integer.parseInt(scanner.nextLine()));
-                   break;
+                    break;
                 case 2:
                     System.out.println("Set name to: ");
                     product.setName(scanner.nextLine());
@@ -78,22 +79,22 @@ public class ProductManager {
                 case 3:
                     System.out.println("Set prime to: ");
                     product.setPrice(Integer.parseInt(scanner.nextLine()));
-                   break;
+                    break;
                 case 0:
                     break;
                 default:
                     System.out.println("Choice not found!!");
             }
-        } while (choice!=0);
+        } while (choice != 0);
         return product;
     }
 
-    public void up(){
+    public void up() {
         Comparator<Product> priceUp = new SortPriceUp();
         list.sort(priceUp);
     }
 
-    public void down(){
+    public void down() {
         Comparator<Product> priceDown = new SortPriceDown();
         list.sort(priceDown);
     }
