@@ -1,12 +1,12 @@
 package bai15_exception_debug.bai_tap.illegaltriangleexception;
 
-public class CheckedTriangleException extends Exception {
+public class IllegalTriangleException extends Exception {
 
-    public CheckedTriangleException(){
+    public IllegalTriangleException(){
         super("Không được nhập số âm!!");
     }
 
-    public CheckedTriangleException(String msg){
+    public IllegalTriangleException(String msg){
         super(msg);
     }
 
