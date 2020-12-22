@@ -11,8 +11,8 @@ public class TriangleExample {
         if ((a + b > c) && (a + c > b) && (c + b > a)) {
             System.out.println("Tam giác có độ dài 3 cạnh là: ");
             System.out.println("Cạnh thứ nhất: " + a);
-            System.out.println("Cạnh thứ hai: " + b);
-            System.out.println("Cạnh thứ ba: " + c);
+            System.out.println("Cạnh thứ hai : " + b);
+            System.out.println("Cạnh thứ ba  : " + c);
         } else {
             throw new IllegalTriangleException("Tổng 2 cạnh phải lớn hơn cạnh còn lại!!!");
         }
@@ -34,6 +34,9 @@ public class TriangleExample {
             check(a, b, c);
         } catch (IllegalTriangleException e) {
             e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        System.out.println("Finish programing.");
     }
 }

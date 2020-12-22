@@ -22,7 +22,7 @@ public class TestTryCatch {
         } catch (Exception e) {
             System.err.println("Xu ly all exception!");
         } finally {
-            System.out.println("Finally, xu ly gi thi xu ly di!");
+            System.err.println("Finally, xu ly gi thi xu ly di!");
         }
 
         System.out.println("Finish programming.");
