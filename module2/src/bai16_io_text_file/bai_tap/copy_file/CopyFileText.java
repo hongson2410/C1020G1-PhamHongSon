@@ -29,6 +29,7 @@ public class CopyFileText {
     }
 
     public void writeFileText(String filePath) {
+        BufferedWriter bufferedWriter= null;
         try {
             File file = new File(filePath);
 
@@ -36,7 +37,7 @@ public class CopyFileText {
                 throw new FileNotFoundException();
             }
 
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true));
+            bufferedWriter = new BufferedWriter(new FileWriter(file, true));
             for (String w : list) {
                 bufferedWriter.write(w);
                 bufferedWriter.newLine();
@@ -44,6 +45,14 @@ public class CopyFileText {
             bufferedWriter.close();
         } catch (Exception e) {
             System.err.println("Fie không tồn tại or nội dung có lỗi!");
+        } finally {
+            if (bufferedWriter != null){
+                try {
+                    bufferedWriter.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 

@@ -18,17 +18,6 @@ public class TriangleExample {
         }
     }
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Hãy nhập a: ");
-        int a = scanner.nextInt();
-        System.out.println("Hãy nhập b: ");
-        int b = scanner.nextInt();
-        System.out.println("Hãy nhập c: ");
-        int c = scanner.nextInt();
-        test(a, b, c);
-    }
-
     private static void test(int a, int b, int c) {
         try {
             check(a, b, c);
@@ -38,5 +27,16 @@ public class TriangleExample {
             e.printStackTrace();
         }
         System.out.println("Finish programing.");
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Hãy nhập a: ");
+        int a = scanner.nextInt();
+        System.out.println("Hãy nhập b: ");
+        int b = scanner.nextInt();
+        System.out.println("Hãy nhập c: ");
+        int c = scanner.nextInt();
+        test(a, b, c);
     }
 }
