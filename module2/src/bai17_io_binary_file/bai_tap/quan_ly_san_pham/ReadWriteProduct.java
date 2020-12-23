@@ -65,7 +65,7 @@ public class ReadWriteProduct {
 
     private static List<Product> searchProductByName() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter name product you want search:");
+        System.out.println("Enter name product you want search: ");
         String name = scanner.nextLine();
         List<Product> listSearchByName = new ArrayList<>();
         if (!list.isEmpty()) {
