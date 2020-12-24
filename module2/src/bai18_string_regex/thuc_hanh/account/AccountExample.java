@@ -9,7 +9,6 @@ public class AccountExample {
     public AccountExample() {
     }
 
-
     public boolean validate(String regex) {
         Pattern pattern = Pattern.compile(ACCOUNT_REGEX);
         Matcher matcher = pattern.matcher(regex);
