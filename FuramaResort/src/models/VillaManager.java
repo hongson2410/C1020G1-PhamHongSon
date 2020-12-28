@@ -6,22 +6,24 @@ import java.util.List;
 
 public class VillaManager {
     private static List<Villa> listVilla;
-
+    private static List<String> list = new ArrayList<>();
     public VillaManager() {
-        listVilla=new ArrayList<>();
+        listVilla = new ArrayList<>();
     }
 
     public void showVilla() {
-        for (Villa villa : listVilla) {
-            villa.showInfo();
+        readFileVilla();
+        for (String villa : list) {
+            System.out.println(villa);
         }
     }
 
-    public void addVilla(Villa villa){
+    public void addVilla(Villa villa) {
         listVilla.add(villa);
+        writeFileVilla();
     }
 
-    public void writeFileVilla() {
+    private static void writeFileVilla() {
         BufferedWriter bufferedWriter = null;
         try {
             File file = new File("src/models/Villa.csv");
@@ -47,6 +49,26 @@ public class VillaManager {
                     e.printStackTrace();
                 }
             }
+        }
+    }
+
+    private static void readFileVilla() {
+        try {
+            list.clear();
+            File file = new File("src/models/Villa.csv");
+            if (!file.exists()) {
+                throw new FileNotFoundException();
+            }
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+            String line = null;
+            while ((line = bufferedReader.readLine()) != null) {
+                list.add(line);
+            }
+            bufferedReader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

@@ -6,22 +6,25 @@ import java.util.List;
 
 public class RoomManager {
     private static List<Room>listRoom;
+    private static List<String> list= new ArrayList<>();
 
     public RoomManager() {
         listRoom=new ArrayList<>();
     }
 
     public void showRoom(){
-        for (Room room: listRoom){
-            room.showInfo();
+        readFileRoom();
+        for (String room: list){
+            System.out.println(room);
         }
     }
 
     public void addRoom(Room room){
         listRoom.add(room);
+        writeFileRoom();
     }
 
-    public void writeFileRoom() {
+    private static void writeFileRoom() {
         BufferedWriter bufferedWriter = null;
         try {
             File file = new File("src/models/Room.csv");
@@ -49,4 +52,25 @@ public class RoomManager {
             }
         }
     }
+
+    private static void readFileRoom(){
+        try {
+            list.clear();
+            File file= new File("src/models/Room.csv");
+            if (!file.exists()){
+                throw new FileNotFoundException();
+            }
+            BufferedReader bufferedReader= new BufferedReader(new FileReader(file));
+            String line= null;
+            while ((line= bufferedReader.readLine())!= null){
+                list.add(line);
+            }
+            bufferedReader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

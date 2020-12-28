@@ -115,7 +115,6 @@ public class MainController {
         int floors= Integer.parseInt(scanner.nextLine());
 
         villaManager.addVilla(new Villa(nameService,areaUsing,price,numberTenants,rentalType,roomStandard,roomFurniture,poolArea,floors));
-        villaManager.writeFileVilla();
     }
 
     static void addNewHouse() {
@@ -132,7 +131,6 @@ public class MainController {
         int floors= Integer.parseInt(scanner.nextLine());
 
         houseManager.addHouse(new House(nameService,areaUsing,price,numberTenants,rentalType,roomStandard,roomFurniture,floors));
-        houseManager.writeFileHouse();
     }
 
     static void addNewRoom() {
@@ -145,7 +143,6 @@ public class MainController {
         String freeService=scanner.nextLine();
 
         roomManager.addRoom(new Room(nameService,areaUsing,price,numberTenants,rentalType,freeService));
-        roomManager.writeFileRoom();
     }
 
     static void showService() {
