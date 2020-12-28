@@ -1,0 +1,1 @@
+House{Services{idService='SVHO-0001', nameService='House', areaUsing=35.0, price=3000.0, numberTenants=4, rentalType='Week'}roomStandard='Gold', roomFurniture='not fully furnished', floors=2}

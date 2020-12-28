@@ -1,8 +1,9 @@
 package models;
 
 public abstract class Services {
+    private String idService;
     private String nameService;
-    private int areaUsing;
+    private double areaUsing;
     private double price;
     private int numberTenants;
     private String rentalType;
@@ -10,12 +11,21 @@ public abstract class Services {
     public Services() {
     }
 
-    public Services(String nameService, int areaUsing, double price, int numberTenants, String rentalType) {
+    public Services(String idService, String nameService, double areaUsing, double price, int numberTenants, String rentalType) {
+        this.idService= idService;
         this.nameService = nameService;
         this.areaUsing = areaUsing;
         this.price = price;
         this.numberTenants = numberTenants;
         this.rentalType = rentalType;
+    }
+
+    public String getIdService() {
+        return idService;
+    }
+
+    public void setIdService(String idService) {
+        this.idService = idService;
     }
 
     public String getNameService() {
@@ -26,11 +36,11 @@ public abstract class Services {
         this.nameService = nameService;
     }
 
-    public int getAreaUsing() {
+    public double getAreaUsing() {
         return areaUsing;
     }
 
-    public void setAreaUsing(int areaUsing) {
+    public void setAreaUsing(double areaUsing) {
         this.areaUsing = areaUsing;
     }
 
@@ -60,7 +70,8 @@ public abstract class Services {
 
     public String showInfo() {
         return "Services{" +
-                "nameService='" + nameService + '\'' +
+                "idService='" + idService + '\'' +
+                ", nameService='" + nameService + '\'' +
                 ", areaUsing=" + areaUsing +
                 ", price=" + price +
                 ", numberTenants=" + numberTenants +

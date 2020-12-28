@@ -1,2 +1,1 @@
-Villa{Services{nameService='asd', areaUsing=12, price=123.0, numberTenants=3, rentalType='dsada'}roomStandard=weqwe, roomFurniture='cxzxc', poolArea=14, floors=2}
-Villa{Services{nameService='poi', areaUsing=78, price=789.0, numberTenants=4, rentalType='oyiy'}roomStandard=itiyj, roomFurniture='hkiho', poolArea=45, floors=6}
+Villa{Services{idService='SVVL-0001', nameService='Villa', areaUsing=40.0, price=5000.0, numberTenants=4, rentalType='Year'}roomStandard=Vip, roomFurniture='fully furnished', poolArea=40.0, floors=3}

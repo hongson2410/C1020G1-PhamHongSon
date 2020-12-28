@@ -8,7 +8,7 @@ public class MainController {
     private static VillaManager villaManager = new VillaManager();
     private static HouseManager houseManager = new HouseManager();
     private static RoomManager roomManager = new RoomManager();
-
+    private static Regex regex =new Regex();
     private static Scanner scanner = new Scanner(System.in);
 
     static void displayMainMenu() {
@@ -75,74 +75,69 @@ public class MainController {
                 System.out.println("Choice not found!!!");
         }
     }
+
+    static String idService(){
+        return regex.regexIdService();
+    }
+
     static String nameService(){
-        System.out.println("Name Service: ");
-        return scanner.nextLine();
+        return regex.regexNameService();
     }
     
-    static int areaUsing(){
-        System.out.println("Area Using: ");
-        return Integer.parseInt(scanner.nextLine());
+    static double areaUsing(){
+        return regex.regexAreaUsing();
     }
     
-    static double price(){
-        System.out.println("Price: ");
-        return Integer.parseInt(scanner.nextLine());
+    static int price(){
+        return regex.regexPrice();
     }
     
     static int numberTenants(){
-        System.out.println("Number Tenants: ");
-        return Integer.parseInt(scanner.nextLine());
+        return regex.regexNumberTenants();
     }
     
     static String rentalType(){
-        System.out.println("Rental Type: ");
-        return scanner.nextLine();
+        return regex.regexRentalType();
     }
     static void addNewVilla() {
+        String idService= idService();
         String nameService= nameService();
-        int areaUsing= areaUsing();
+        double areaUsing= areaUsing();
         double price= price();
         int numberTenants= numberTenants();
         String rentalType= rentalType();
-        System.out.println("Room Standard: ");
-        String roomStandard= scanner.nextLine();
-        System.out.println("Room Furniture: ");
-        String roomFurniture=scanner.nextLine();
-        System.out.println("Pool Area: ");
-        int poolArea=Integer.parseInt(scanner.nextLine());
-        System.out.println("Floors: ");
-        int floors= Integer.parseInt(scanner.nextLine());
+        String roomStandard= regex.regexRoomStandard();
+        String roomFurniture=regex.regexRoomFurniture();
+        double poolArea= regex.regexPoolArea();
+        int floors= regex.regexFloors();
 
-        villaManager.addVilla(new Villa(nameService,areaUsing,price,numberTenants,rentalType,roomStandard,roomFurniture,poolArea,floors));
+        villaManager.addVilla(new Villa(idService,nameService,areaUsing,price,numberTenants,rentalType,roomStandard,roomFurniture,poolArea,floors));
     }
 
     static void addNewHouse() {
+        String idService= idService();
         String nameService= nameService();
-        int areaUsing= areaUsing();
+        double areaUsing= areaUsing();
         double price= price();
         int numberTenants= numberTenants();
         String rentalType= rentalType();
-        System.out.println("Room Standard: ");
-        String roomStandard= scanner.nextLine();
-        System.out.println("Room Furniture: ");
-        String roomFurniture=scanner.nextLine();
-        System.out.println("Floors: ");
-        int floors= Integer.parseInt(scanner.nextLine());
+        String roomStandard= regex.regexRoomStandard();
+        String roomFurniture=regex.regexRoomFurniture();
+        int floors= regex.regexFloors();
 
-        houseManager.addHouse(new House(nameService,areaUsing,price,numberTenants,rentalType,roomStandard,roomFurniture,floors));
+        houseManager.addHouse(new House(idService,nameService,areaUsing,price,numberTenants,rentalType,roomStandard,roomFurniture,floors));
     }
 
     static void addNewRoom() {
+        String idService= idService();
         String nameService= nameService();
-        int areaUsing= areaUsing();
+        double areaUsing= areaUsing();
         double price= price();
         int numberTenants= numberTenants();
         String rentalType= rentalType();
-        System.out.println("Free Service: ");
-        String freeService=scanner.nextLine();
+        String freeService=regex.regexFreeService();
 
-        roomManager.addRoom(new Room(nameService,areaUsing,price,numberTenants,rentalType,freeService));
+        roomManager.addRoom(new Room(idService,nameService,areaUsing,price,numberTenants,rentalType,freeService));
     }
 
     static void showService() {
