@@ -1,1 +1,1 @@
-Villa{Services{idService='SVVL-0001', nameService='Villa', areaUsing=40.0, price=5000.0, numberTenants=4, rentalType='Year'}roomStandard=Vip, roomFurniture='fully furnished', poolArea=40.0, floors=3}
+Villa{Services{idService='SVVL-0001', nameService='Villa', areaUsing=40.0, price=5000.0, numberTenants=4, rentalType='Week'}roomStandard=Vip, roomFurniture='fully', poolArea=40.0, floors=4}

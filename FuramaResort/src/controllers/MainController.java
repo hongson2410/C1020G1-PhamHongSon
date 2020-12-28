@@ -8,44 +8,46 @@ public class MainController {
     private static VillaManager villaManager = new VillaManager();
     private static HouseManager houseManager = new HouseManager();
     private static RoomManager roomManager = new RoomManager();
-    private static Regex regex =new Regex();
+    private static Regex regex = new Regex();
     private static Scanner scanner = new Scanner(System.in);
 
     static void displayMainMenu() {
         int choice;
-        System.out.println("1. Add New Services. " + "\n" +
-                "2. Show Services. " + "\n" +
-                "3. Add New Customer. " + "\n" +
-                "4. Show Information of Customer. " + "\n" +
-                "5. Add New Booking. " + "\n" +
-                "6. Show Information. " + "\n" +
-                "7. Exit.");
-        choice = Integer.parseInt(scanner.nextLine());
-        switch (choice) {
-            case 1:
-                addNewService();
-                break;
-            case 2:
-                showService();
-                break;
-            case 3:
-                addNewCustomer();
-                break;
-            case 4:
-                showInfoCustomer();
-                break;
-            case 5:
-                addNewBooking();
-                break;
-            case 6:
-                showInfoEmployee();
-                break;
-            case 7:
-                System.exit(0);
-            default:
-                System.out.println("Choice not found!!!");
-                break;
-        }
+        do {
+            System.out.println("1. Add New Services. " + "\n" +
+                    "2. Show Services. " + "\n" +
+                    "3. Add New Customer. " + "\n" +
+                    "4. Show Information of Customer. " + "\n" +
+                    "5. Add New Booking. " + "\n" +
+                    "6. Show Information. " + "\n" +
+                    "7. Exit.");
+            choice = Integer.parseInt(scanner.nextLine());
+            switch (choice) {
+                case 1:
+                    addNewService();
+                    break;
+                case 2:
+                    showService();
+                    break;
+                case 3:
+                    addNewCustomer();
+                    break;
+                case 4:
+                    showInfoCustomer();
+                    break;
+                case 5:
+                    addNewBooking();
+                    break;
+                case 6:
+                    showInfoEmployee();
+                    break;
+                case 7:
+                    System.exit(0);
+                default:
+                    System.out.println("Choice not found!!!");
+                    break;
+            }
+        } while (choice != 7);
     }
 
     static void addNewService() {
@@ -76,68 +78,69 @@ public class MainController {
         }
     }
 
-    static String idService(){
+    static String idService() {
         return regex.regexIdService();
     }
 
-    static String nameService(){
+    static String nameService() {
         return regex.regexNameService();
     }
-    
-    static double areaUsing(){
+
+    static double areaUsing() {
         return regex.regexAreaUsing();
     }
-    
-    static int price(){
+
+    static int price() {
         return regex.regexPrice();
     }
-    
-    static int numberTenants(){
+
+    static int numberTenants() {
         return regex.regexNumberTenants();
     }
-    
-    static String rentalType(){
+
+    static String rentalType() {
         return regex.regexRentalType();
     }
-    static void addNewVilla() {
-        String idService= idService();
-        String nameService= nameService();
-        double areaUsing= areaUsing();
-        double price= price();
-        int numberTenants= numberTenants();
-        String rentalType= rentalType();
-        String roomStandard= regex.regexRoomStandard();
-        String roomFurniture=regex.regexRoomFurniture();
-        double poolArea= regex.regexPoolArea();
-        int floors= regex.regexFloors();
 
-        villaManager.addVilla(new Villa(idService,nameService,areaUsing,price,numberTenants,rentalType,roomStandard,roomFurniture,poolArea,floors));
+    static void addNewVilla() {
+        String idService = idService();
+        String nameService = nameService();
+        double areaUsing = areaUsing();
+        double price = price();
+        int numberTenants = numberTenants();
+        String rentalType = rentalType();
+        String roomStandard = regex.regexRoomStandard();
+        String roomFurniture = regex.regexRoomFurniture();
+        double poolArea = regex.regexPoolArea();
+        int floors = regex.regexFloors();
+
+        villaManager.addVilla(new Villa(idService, nameService, areaUsing, price, numberTenants, rentalType, roomStandard, roomFurniture, poolArea, floors));
     }
 
     static void addNewHouse() {
-        String idService= idService();
-        String nameService= nameService();
-        double areaUsing= areaUsing();
-        double price= price();
-        int numberTenants= numberTenants();
-        String rentalType= rentalType();
-        String roomStandard= regex.regexRoomStandard();
-        String roomFurniture=regex.regexRoomFurniture();
-        int floors= regex.regexFloors();
+        String idService = idService();
+        String nameService = nameService();
+        double areaUsing = areaUsing();
+        double price = price();
+        int numberTenants = numberTenants();
+        String rentalType = rentalType();
+        String roomStandard = regex.regexRoomStandard();
+        String roomFurniture = regex.regexRoomFurniture();
+        int floors = regex.regexFloors();
 
-        houseManager.addHouse(new House(idService,nameService,areaUsing,price,numberTenants,rentalType,roomStandard,roomFurniture,floors));
+        houseManager.addHouse(new House(idService, nameService, areaUsing, price, numberTenants, rentalType, roomStandard, roomFurniture, floors));
     }
 
     static void addNewRoom() {
-        String idService= idService();
-        String nameService= nameService();
-        double areaUsing= areaUsing();
-        double price= price();
-        int numberTenants= numberTenants();
-        String rentalType= rentalType();
-        String freeService=regex.regexFreeService();
+        String idService = idService();
+        String nameService = nameService();
+        double areaUsing = areaUsing();
+        double price = price();
+        int numberTenants = numberTenants();
+        String rentalType = rentalType();
+        String freeService = regex.regexFreeService();
 
-        roomManager.addRoom(new Room(idService,nameService,areaUsing,price,numberTenants,rentalType,freeService));
+        roomManager.addRoom(new Room(idService, nameService, areaUsing, price, numberTenants, rentalType, freeService));
     }
 
     static void showService() {
