@@ -27,7 +27,7 @@ public class CustomerManager {
     private static void writeFile() {
         BufferedWriter bufferedWriter = null;
         try {
-            File file = new File("src/models/Customer.csv");
+            File file = new File("src/data/Customer.csv");
             if (!file.exists()) {
                 throw new FileNotFoundException();
             }
@@ -53,7 +53,7 @@ public class CustomerManager {
         list.clear();
         BufferedReader bufferedReader = null;
         try {
-            File file = new File("src/models/Customer.csv");
+            File file = new File("src/data/Customer.csv");
             if (!file.exists()) {
                 throw new FileNotFoundException();
             }

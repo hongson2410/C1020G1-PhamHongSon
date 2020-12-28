@@ -27,7 +27,7 @@ public class RoomManager {
     private static void writeFileRoom() {
         BufferedWriter bufferedWriter = null;
         try {
-            File file = new File("src/models/Room.csv");
+            File file = new File("src/data/Room.csv");
             if (!file.exists()) {
                 throw new FileNotFoundException();
             }
@@ -56,7 +56,7 @@ public class RoomManager {
     private static void readFileRoom(){
         try {
             list.clear();
-            File file= new File("src/models/Room.csv");
+            File file= new File("src/data/Room.csv");
             if (!file.exists()){
                 throw new FileNotFoundException();
             }

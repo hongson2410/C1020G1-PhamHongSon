@@ -1,5 +1,6 @@
 package controllers;
 
+import commons.BirthdayException;
 import models.*;
 
 import java.util.Scanner;
@@ -185,16 +186,22 @@ public class MainController {
     }
 
     static void addNewCustomer() {
-        String fullName = scanner.nextLine();
-        String birthday = scanner.nextLine();
-        String gender = scanner.nextLine();
-        String cmnd = scanner.nextLine();
-        String phoneNumber = scanner.nextLine();
-        String email = scanner.nextLine();
-        String customerType = scanner.nextLine();
-        String address = scanner.nextLine();
+        try {
+            System.out.println("name");
+            String fullName = scanner.nextLine();
+            String birthday = regex.regexBirthday();
+            System.out.println("gender:");
+            String gender = scanner.nextLine();
+            String cmnd = scanner.nextLine();
+            String phoneNumber = scanner.nextLine();
+            String email = scanner.nextLine();
+            String customerType = scanner.nextLine();
+            String address = scanner.nextLine();
 
-        customerManager.addCustomer(new Customer(fullName, birthday, gender, cmnd, phoneNumber, email, customerType, address));
+            customerManager.addCustomer(new Customer(fullName, birthday, gender, cmnd, phoneNumber, email, customerType, address));
+        } catch (BirthdayException e) {
+            e.printStackTrace();
+        }
     }
 
     static void showInfoCustomer() {

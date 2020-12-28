@@ -26,7 +26,7 @@ public class VillaManager {
     private static void writeFileVilla() {
         BufferedWriter bufferedWriter = null;
         try {
-            File file = new File("src/models/Villa.csv");
+            File file = new File("src/data/Villa.csv");
             if (!file.exists()) {
                 throw new FileNotFoundException();
             }
@@ -55,7 +55,7 @@ public class VillaManager {
     private static void readFileVilla() {
         try {
             list.clear();
-            File file = new File("src/models/Villa.csv");
+            File file = new File("src/data/Villa.csv");
             if (!file.exists()) {
                 throw new FileNotFoundException();
             }

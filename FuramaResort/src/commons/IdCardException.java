@@ -1,4 +1,4 @@
-package models;
+package commons;
 
 public class IdCardException extends Exception {
     public IdCardException(){

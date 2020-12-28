@@ -27,7 +27,7 @@ public class HouseManager {
     public static void writeFileHouse() {
         BufferedWriter bufferedWriter = null;
         try {
-            File file = new File("src/models/House.csv");
+            File file = new File("src/data/House.csv");
             if (!file.exists()) {
                 throw new FileNotFoundException();
             }
@@ -56,7 +56,7 @@ public class HouseManager {
     private static void readFileHouse(){
         try {
             list.clear();
-            File file= new File("src/models/House.csv");
+            File file= new File("src/data/House.csv");
             if (!file.exists()){
                 throw new FileNotFoundException();
             }

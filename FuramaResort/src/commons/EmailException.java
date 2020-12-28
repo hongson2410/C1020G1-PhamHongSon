@@ -1,4 +1,4 @@
-package models;
+package commons;
 
 public class EmailException extends Exception {
     public EmailException(){
