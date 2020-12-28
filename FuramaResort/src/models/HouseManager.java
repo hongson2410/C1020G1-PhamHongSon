@@ -33,7 +33,7 @@ public class HouseManager {
             }
 
             bufferedWriter = new BufferedWriter(
-                    new FileWriter(file, true)
+                    new FileWriter(file)
             );
 
             for (House w : listHouse) {

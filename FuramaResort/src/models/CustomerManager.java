@@ -4,39 +4,36 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VillaManager {
-    private static List<Villa> listVilla;
+public class CustomerManager {
+    private static List<Customer> listCustomer;
     private static List<String> list = new ArrayList<>();
-    public VillaManager() {
-        listVilla = new ArrayList<>();
+
+    public CustomerManager() {
+        listCustomer = new ArrayList<>();
     }
 
-    public void showVilla() {
-        readFileVilla();
-        for (String villa : list) {
-            System.out.println(villa);
+    public void addCustomer(Customer customer) {
+        listCustomer.add(customer);
+        writeFile();
+    }
+
+    public void showInformationCustomers() {
+        readFile();
+        for (String customer : list) {
+            System.out.println(customer);
         }
     }
 
-    public void addVilla(Villa villa) {
-        listVilla.add(villa);
-        writeFileVilla();
-    }
-
-    private static void writeFileVilla() {
+    private static void writeFile() {
         BufferedWriter bufferedWriter = null;
         try {
-            File file = new File("src/models/Villa.csv");
+            File file = new File("src/models/Customer.csv");
             if (!file.exists()) {
                 throw new FileNotFoundException();
             }
-
-            bufferedWriter = new BufferedWriter(
-                    new FileWriter(file)
-            );
-
-            for (Villa w : listVilla) {
-                bufferedWriter.write(w.showInfo());
+            bufferedWriter = new BufferedWriter(new FileWriter(file));
+            for (Customer customer : listCustomer) {
+                bufferedWriter.write(customer.showInfo());
                 bufferedWriter.newLine();
             }
         } catch (Exception e) {
@@ -52,14 +49,15 @@ public class VillaManager {
         }
     }
 
-    private static void readFileVilla() {
+    private static void readFile() {
+        list.clear();
+        BufferedReader bufferedReader = null;
         try {
-            list.clear();
-            File file = new File("src/models/Villa.csv");
+            File file = new File("src/models/Customer.csv");
             if (!file.exists()) {
                 throw new FileNotFoundException();
             }
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+            bufferedReader = new BufferedReader(new FileReader(file));
             String line = null;
             while ((line = bufferedReader.readLine()) != null) {
                 list.add(line);

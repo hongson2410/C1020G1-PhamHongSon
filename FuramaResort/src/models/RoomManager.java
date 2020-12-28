@@ -33,7 +33,7 @@ public class RoomManager {
             }
 
             bufferedWriter = new BufferedWriter(
-                    new FileWriter(file, true)
+                    new FileWriter(file)
             );
 
             for (Room w : listRoom) {

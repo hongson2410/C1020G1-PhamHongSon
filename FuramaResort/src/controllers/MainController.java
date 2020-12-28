@@ -10,6 +10,7 @@ public class MainController {
     private static RoomManager roomManager = new RoomManager();
     private static Regex regex = new Regex();
     private static Scanner scanner = new Scanner(System.in);
+    private static CustomerManager customerManager = new CustomerManager();
 
     static void displayMainMenu() {
         int choice;
@@ -184,11 +185,20 @@ public class MainController {
     }
 
     static void addNewCustomer() {
+        String fullName = scanner.nextLine();
+        String birthday = scanner.nextLine();
+        String gender = scanner.nextLine();
+        String cmnd = scanner.nextLine();
+        String phoneNumber = scanner.nextLine();
+        String email = scanner.nextLine();
+        String customerType = scanner.nextLine();
+        String address = scanner.nextLine();
 
+        customerManager.addCustomer(new Customer(fullName, birthday, gender, cmnd, phoneNumber, email, customerType, address));
     }
 
     static void showInfoCustomer() {
-
+        customerManager.showInformationCustomers();
     }
 
     static void addNewBooking() {
