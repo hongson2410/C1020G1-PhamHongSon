@@ -1,37 +1,64 @@
 package models;
 
-public class Villa extends Services{
+public class Villa extends Services {
     private String roomStandard;
-    private String convenient;
-    private float areaPool;
-    private int floor;
+    private String roomFurniture;
+    private int poolArea;
+    private int floors;
 
     public Villa() {
     }
 
-    public Villa(String roomStandard, String convenient, float areaPool, int floor) {
+    public Villa(String nameService, int areaUsing, double price, int numberTenants, String rentalType, String roomStandard, String roomFurniture, int poolArea, int floors) {
+        super(nameService, areaUsing, price, numberTenants, rentalType);
         this.roomStandard = roomStandard;
-        this.convenient = convenient;
-        this.areaPool = areaPool;
-        this.floor = floor;
+        this.roomFurniture = roomFurniture;
+        this.poolArea = poolArea;
+        this.floors = floors;
     }
 
-    public Villa(String id, String nameService, float area, float price, int maxPeople, String rentTime, String roomStandard, String convenient, float areaPool, int floor) {
-        super(id, nameService, area, price, maxPeople, rentTime);
+    public String getRoomStandard() {
+        return roomStandard;
+    }
+
+    public void setRoomStandard(String roomStandard) {
         this.roomStandard = roomStandard;
-        this.convenient = convenient;
-        this.areaPool = areaPool;
-        this.floor = floor;
+    }
+
+    public String getRoomFurniture() {
+        return roomFurniture;
+    }
+
+    public void setRoomFurniture(String roomFurniture) {
+        this.roomFurniture = roomFurniture;
+    }
+
+    public int getPoolArea() {
+        return poolArea;
+    }
+
+    public void setPoolArea(int poolArea) {
+        this.poolArea = poolArea;
+    }
+
+    public int getFloors() {
+        return floors;
+    }
+
+    public void setFloors(int floors) {
+        this.floors = floors;
     }
 
 
     @Override
     public String showInfo() {
-        return "Villa{" +
-                "roomStandard='" + roomStandard + '\'' +
-                ", convenient='" + convenient + '\'' +
-                ", areaPool=" + areaPool +
-                ", floor=" + floor +
+        return "Villa{" + super.showInfo() +
+                "roomStandard=" + roomStandard +
+                ", roomFurniture='" + roomFurniture + '\'' +
+                ", poolArea=" + poolArea +
+                ", floors=" + floors +
                 '}';
     }
+
+
 }
