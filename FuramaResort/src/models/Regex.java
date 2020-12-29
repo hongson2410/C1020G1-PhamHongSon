@@ -1,6 +1,6 @@
 package models;
 
-import commons.BirthdayException;
+import commons.exception.*;
 
 import java.util.Date;
 import java.util.Scanner;
@@ -36,10 +36,15 @@ public class Regex {
     }
 
     public double regexAreaUsing() {
-        double areaUsing;
+        double areaUsing = 0;
         do {
             System.out.println("Area Using: ");
-            areaUsing = Double.parseDouble(scanner.nextLine());
+            try {
+                areaUsing = Double.parseDouble(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.err.println(e.getMessage());
+                continue;
+            }
             if (areaUsing <= AREA_REGEX) {
                 System.err.println("The Area Must Be Greater Than 30!!!");
             }
@@ -48,10 +53,15 @@ public class Regex {
     }
 
     public double regexPoolArea() {
-        double poolArea;
+        double poolArea = 0;
         do {
             System.out.println("Pool Area: ");
-            poolArea = Double.parseDouble(scanner.nextLine());
+            try {
+                poolArea = Double.parseDouble(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.err.println(e.getMessage());
+                continue;
+            }
             if (poolArea <= AREA_REGEX) {
                 System.err.println("The Area Must Be Greater Than 30!!!");
             }
@@ -60,10 +70,15 @@ public class Regex {
     }
 
     public int regexPrice() {
-        int price;
+        int price = 0;
         do {
             System.out.println("Price: ");
-            price = Integer.parseInt(scanner.nextLine());
+            try {
+                price = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.err.println(e.getMessage());
+                continue;
+            }
             if (price <= 0) {
                 System.err.println("The Price Must Be A Positive Integer!!!");
             }
@@ -72,10 +87,15 @@ public class Regex {
     }
 
     public int regexNumberTenants() {
-        int numberTenants;
+        int numberTenants = 0;
         do {
             System.out.println("Number Tenants: ");
-            numberTenants = Integer.parseInt(scanner.nextLine());
+            try {
+                numberTenants = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.err.println(e.getMessage());
+                continue;
+            }
             if (numberTenants <= 0 | numberTenants >= 20) {
                 System.err.println("The maximum number of people must be> 0 and less than <20!!");
             }
@@ -97,10 +117,15 @@ public class Regex {
     }
 
     public int regexFloors() {
-        int floors;
+        int floors = 0;
         do {
             System.out.println("Floor: ");
-            floors = Integer.parseInt(scanner.nextLine());
+            try {
+                floors = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.err.println(e.getMessage());
+                continue;
+            }
             if (floors <= 0) {
                 System.err.println("The Floor Must Be A Positive Integer!!!");
             }
@@ -133,93 +158,16 @@ public class Regex {
     }
 
     public String regexRoomFurniture() {
-        final String ROOM_FURNITURE_REGEX = "(fully|not fully)";
+        final String ROOM_FURNITURE_REGEX = "(classic|modern|normal)";
         String roomFurniture;
         do {
             System.out.println("Room Furniture: ");
             roomFurniture = scanner.nextLine();
             if (!roomFurniture.matches(ROOM_FURNITURE_REGEX)) {
-                System.err.println("fully or not fully furnished!!!");
+                System.err.println("classic or modern or normal");
             }
         } while (!roomFurniture.matches(ROOM_FURNITURE_REGEX));
         return roomFurniture;
-    }
-
-    public String regexBirthday() throws BirthdayException {
-        String regex = "[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}";
-        Date now = new Date();
-        int yearNow = now.getYear() + 1900;
-        int monthNow = now.getMonth() + 1;
-        int dayNow = now.getDate();
-        String date;
-        boolean check = false;
-        do {
-            System.out.println("Birthday: ");
-            date = scanner.nextLine();
-            StringBuilder stringBuilder = new StringBuilder(date);
-            int yearCustomer;
-            int dayCustomer;
-            int monthCustomer;
-            if (date.matches(regex)) {
-                yearCustomer = Integer.parseInt(stringBuilder.substring(6));
-                dayCustomer = Integer.parseInt(stringBuilder.substring(0, 2));
-                monthCustomer = Integer.parseInt(stringBuilder.substring(3, 5));
-                if ((yearNow - yearCustomer) < 18) {
-                    throw new BirthdayException();
-                }
-                if (yearNow - yearCustomer == 18) {
-                    if (monthNow < monthCustomer) {
-                        throw new BirthdayException();
-                    } else if (monthCustomer == monthNow) {
-                        if (dayNow < dayCustomer) {
-                            throw new BirthdayException();
-                        }
-                    }
-                }
-                if (yearCustomer < 1900) {
-                    throw new BirthdayException();
-                }
-                if (monthCustomer > 12) {
-                    System.err.println("Max months is 12!!");
-                    check = true;
-                }
-                switch (monthCustomer) {
-                    case 2:
-                        if (checkLeapYear(yearCustomer)) {
-                            if (dayCustomer > 29) {
-                                System.err.println("Max days is 29!!");
-                                check = true;
-                            }
-                        } else {
-                            if (dayCustomer > 28) {
-                                System.err.println("Max days is 28!!");
-                                check = true;
-                            }
-                        }
-                        break;
-                    case 1:
-                    case 3:
-                    case 5:
-                    case 7:
-                    case 8:
-                    case 10:
-                    case 12:
-                        if (dayCustomer > 31) {
-                            System.err.println("Max days is 31!!");
-                            check = true;
-                        }
-                        break;
-                    default:
-                        if (dayCustomer > 30) {
-                            System.err.println("Max days is 30!!");
-                            check = true;
-                        }
-                }
-            } else {
-                throw new BirthdayException();
-            }
-        } while (check);
-        return date;
     }
 
     private boolean checkLeapYear(int year) {
@@ -238,4 +186,127 @@ public class Regex {
     }
 
 
+    public void validateBirthday(String date) throws BirthdayException {
+        String regex = "[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}";
+        Date now = new Date();
+        int yearNow = now.getYear() + 1900;
+        int monthNow = now.getMonth() + 1;
+        int dayNow = now.getDate();
+        StringBuilder stringBuilder = new StringBuilder(date);
+        int yearCustomer;
+        int dayCustomer;
+        int monthCustomer;
+        if (date.matches(regex)) {
+            yearCustomer = Integer.parseInt(stringBuilder.substring(6));
+            dayCustomer = Integer.parseInt(stringBuilder.substring(0, 2));
+            monthCustomer = Integer.parseInt(stringBuilder.substring(3, 5));
+            if ((yearNow - yearCustomer) < 18) {
+                throw new BirthdayException("Customer > 18 year old");
+            }
+            if (yearNow - yearCustomer == 18) {
+                if (monthNow < monthCustomer) {
+                    throw new BirthdayException("Customer > 18 year old");
+                } else if (monthCustomer == monthNow) {
+                    if (dayNow < dayCustomer) {
+                        throw new BirthdayException("Customer > 18 year old");
+                    }
+                }
+            }
+            if (yearCustomer < 1901) {
+                throw new BirthdayException("Year > 1900");
+            }
+            if (monthCustomer > 12) {
+                throw new BirthdayException("Max month is 12");
+            }
+            switch (monthCustomer) {
+                case 2:
+                    if (checkLeapYear(yearCustomer)) {
+                        if (dayCustomer > 29) {
+                            throw new BirthdayException("Max days is 29");
+                        }
+                    } else {
+                        if (dayCustomer > 28) {
+                            throw new BirthdayException("Max days is 28!!");
+                        }
+                    }
+                    break;
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    if (dayCustomer > 31) {
+                        throw new BirthdayException("Max days is 31!!");
+                    }
+                    break;
+                default:
+                    if (dayCustomer > 30) {
+                        throw new BirthdayException("Max days is 30!!");
+                    }
+            }
+        } else {
+            throw new BirthdayException("Wrong input format");
+        }
+    }
+
+    public void validateName(String name) throws NameException {
+        String regex = "([\\p{Lu}][\\p{Ll}]{0,8})(\\s([\\p{Lu}]|[\\p{Lu}][\\p{Ll}]{1,10})){1,10}$";
+        if (!name.matches(regex)) {
+            throw new NameException("Client Name must capitalize first letter of each word");
+        }
+    }
+
+    public void validateEmail(String email) throws EmailException {
+        String regex = "\\w+@[a-z0-9]+.[a-z0-9]+(\\.[a-z0-9]+)*";
+        if (!email.matches(regex)) {
+            throw new EmailException("Email must be in the correct format abc@abc.abc");
+        }
+    }
+
+    public String validateGender(String gender) throws GenderException {
+        String regex = "(?i)(male|female|unknown)";
+        if (gender.matches(regex)) {
+            gender = gender.toLowerCase();
+            StringBuilder stringBuilder = new StringBuilder(gender);
+            stringBuilder.replace(0, 1, stringBuilder.substring(0, 1).toUpperCase());
+            gender = stringBuilder.toString();
+        } else {
+            throw new GenderException("Enter Male, Female, Unknown!!");
+        }
+        return gender;
+    }
+
+    public void validateIdCard(String idCard) throws IdCardException {
+        String regex = "\\d{3}\\s\\d{3}\\s\\d{3}";
+        if (!idCard.matches(regex)) {
+            throw new IdCardException("Id Card must be 9 digits and in XXX XXX XXX format");
+        }
+    }
+
+    public String validatePhoneNumber() {
+        String regex = "(\\+84|0)\\d{9}";
+        String phoneNumber;
+        do {
+            System.out.println("Phone Numbers: ");
+            phoneNumber = scanner.nextLine();
+            if (!phoneNumber.matches(regex)) {
+                System.err.println("The phone number must have 10 numbers!!!");
+            }
+        } while (!phoneNumber.matches(regex));
+        return phoneNumber;
+    }
+
+    public String validateCustomerType() {
+        String customerType;
+        do {
+            System.out.println("Customer Type: ");
+            customerType = scanner.nextLine();
+            if (!customerType.matches(TYPE_REGEX)) {
+                System.err.println("Wrong Input Format!!!");
+            }
+        } while (!customerType.matches(TYPE_REGEX));
+        return customerType;
+    }
 }

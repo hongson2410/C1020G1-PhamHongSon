@@ -1,6 +1,6 @@
 package controllers;
 
-import commons.BirthdayException;
+import commons.exception.*;
 import models.*;
 
 import java.util.Scanner;
@@ -186,22 +186,79 @@ public class MainController {
     }
 
     static void addNewCustomer() {
-        try {
-            System.out.println("name");
-            String fullName = scanner.nextLine();
-            String birthday = regex.regexBirthday();
-            System.out.println("gender:");
-            String gender = scanner.nextLine();
-            String cmnd = scanner.nextLine();
-            String phoneNumber = scanner.nextLine();
-            String email = scanner.nextLine();
-            String customerType = scanner.nextLine();
-            String address = scanner.nextLine();
+        String birthday = null;
+        String fullName = null;
+        String email = null;
+        String gender = null;
+        String idCard = null;
+        boolean isValid = true;
 
-            customerManager.addCustomer(new Customer(fullName, birthday, gender, cmnd, phoneNumber, email, customerType, address));
-        } catch (BirthdayException e) {
-            e.printStackTrace();
-        }
+        do {
+            isValid = true;
+            try {
+                System.out.println("Full Name Customer: ");
+                fullName = scanner.nextLine();
+                regex.validateName(fullName);
+            } catch (NameException e) {
+                isValid = false;
+                System.err.println(e.getMessage());
+            }
+        } while (!isValid);
+
+        do {
+            isValid = true;
+            try {
+                System.out.println("Birthday Customer: ");
+                birthday = scanner.nextLine();
+                regex.validateBirthday(birthday);
+            } catch (BirthdayException e) {
+                isValid = false;
+                System.err.println(e.getMessage());
+            }
+        } while (!isValid);
+
+        do {
+            isValid = true;
+            try {
+                System.out.println("Email: ");
+                email = scanner.nextLine();
+                regex.validateEmail(email);
+            } catch (EmailException e) {
+                isValid = false;
+                System.err.println(e.getMessage());
+            }
+        } while (!isValid);
+
+        do {
+            isValid = true;
+            try {
+                System.out.println("Gender's Customer:");
+                gender = scanner.nextLine();
+                gender = regex.validateGender(gender);
+            } catch (GenderException e) {
+                isValid = false;
+                System.err.println(e.getMessage());
+            }
+        } while (!isValid);
+
+        do {
+            isValid = true;
+            try {
+                System.out.println("Id Card: ");
+                idCard = scanner.nextLine();
+                regex.validateIdCard(idCard);
+            } catch (IdCardException e) {
+                isValid = false;
+                System.err.println(e.getMessage());
+            }
+        } while (!isValid);
+
+        String phoneNumber = regex.validatePhoneNumber();
+        String customerType = regex.validateCustomerType();
+        System.out.println("Address: ");
+        String address = scanner.nextLine();
+
+        customerManager.addCustomer(new Customer(fullName, birthday, gender, idCard, phoneNumber, email, customerType, address));
     }
 
     static void showInfoCustomer() {

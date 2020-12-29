@@ -101,5 +101,15 @@ public class Customer {
                 '}';
     }
 
-
+    @Override
+    public String toString() {
+        return fullName + ','
+                + birthday + ','
+                + gender + ','
+                + idCard + ','
+                + phoneNumber + ','
+                + email + ','
+                + customerType + ','
+                + address;
+    }
 }

@@ -2,11 +2,11 @@ package models;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CustomerManager {
     private static List<Customer> listCustomer;
-    private static List<String> list = new ArrayList<>();
 
     public CustomerManager() {
         listCustomer = new ArrayList<>();
@@ -19,8 +19,10 @@ public class CustomerManager {
 
     public void showInformationCustomers() {
         readFile();
-        for (String customer : list) {
-            System.out.println(customer);
+        SortCustomer sortCustomer = new SortCustomer();
+        Collections.sort(listCustomer, sortCustomer);
+        for (Customer customer : listCustomer) {
+            System.out.println(customer.showInfo());
         }
     }
 
@@ -33,7 +35,7 @@ public class CustomerManager {
             }
             bufferedWriter = new BufferedWriter(new FileWriter(file));
             for (Customer customer : listCustomer) {
-                bufferedWriter.write(customer.showInfo());
+                bufferedWriter.write(customer.toString());
                 bufferedWriter.newLine();
             }
         } catch (Exception e) {
@@ -50,7 +52,7 @@ public class CustomerManager {
     }
 
     private static void readFile() {
-        list.clear();
+        listCustomer.clear();
         BufferedReader bufferedReader = null;
         try {
             File file = new File("src/data/Customer.csv");
@@ -60,7 +62,9 @@ public class CustomerManager {
             bufferedReader = new BufferedReader(new FileReader(file));
             String line = null;
             while ((line = bufferedReader.readLine()) != null) {
-                list.add(line);
+                String[] array = line.split(",");
+                Customer customer = new Customer(array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]);
+                listCustomer.add(customer);
             }
             bufferedReader.close();
         } catch (FileNotFoundException e) {
