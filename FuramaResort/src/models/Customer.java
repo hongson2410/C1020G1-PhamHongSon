@@ -9,7 +9,7 @@ public class Customer {
     private String email;
     private String customerType;
     private String address;
-
+    Services services;
     public Customer() {
     }
 
@@ -86,6 +86,14 @@ public class Customer {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Services getServices() {
+        return services;
+    }
+
+    public void setServices(Services services) {
+        this.services = services;
     }
 
     public String showInfo() {

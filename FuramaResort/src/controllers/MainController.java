@@ -9,9 +9,9 @@ public class MainController {
     private static VillaManager villaManager = new VillaManager();
     private static HouseManager houseManager = new HouseManager();
     private static RoomManager roomManager = new RoomManager();
+    private static CustomerManager customerManager = new CustomerManager();
     private static Regex regex = new Regex();
     private static Scanner scanner = new Scanner(System.in);
-    private static CustomerManager customerManager = new CustomerManager();
 
     static void displayMainMenu() {
         int choice;
