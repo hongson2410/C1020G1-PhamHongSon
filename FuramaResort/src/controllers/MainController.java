@@ -1,6 +1,7 @@
 package controllers;
 
 import commons.exception.*;
+import commons.regular_expression.Regex;
 import models.*;
 
 import java.util.Scanner;
