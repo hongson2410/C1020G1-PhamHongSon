@@ -10,6 +10,7 @@ public class Customer {
     private String customerType;
     private String address;
     Services services;
+
     public Customer() {
     }
 
@@ -22,6 +23,18 @@ public class Customer {
         this.email = email;
         this.customerType = customerType;
         this.address = address;
+    }
+
+    public Customer(String fullName, String birthday, String gender, String idCard, String phoneNumber, String email, String customerType, String address, Services services) {
+        this.fullName = fullName;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.idCard = idCard;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.customerType = customerType;
+        this.address = address;
+        this.services = services;
     }
 
     public String getFullName() {
@@ -101,7 +114,7 @@ public class Customer {
                 "fullName='" + fullName + '\'' +
                 ", birthday='" + birthday + '\'' +
                 ", gender='" + gender + '\'' +
-                ", cmnd='" + idCard + '\'' +
+                ", idCard='" + idCard + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
                 ", customerType='" + customerType + '\'' +

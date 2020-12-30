@@ -1,20 +1,27 @@
-package models;
+package controllers;
+
+import models.Villa;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class VillaManager {
     private static List<Villa> listVilla;
-    private static List<String> list = new ArrayList<>();
+
     public VillaManager() {
         listVilla = new ArrayList<>();
     }
 
     public void showVilla() {
         readFileVilla();
-        for (String villa : list) {
-            System.out.println(villa);
+        if (!listVilla.isEmpty()) {
+            for (Villa villa : listVilla) {
+                System.out.println(villa.showInfo());
+            }
+        } else {
+            System.out.println("Do not has Villa in List");
         }
     }
 
@@ -36,7 +43,7 @@ public class VillaManager {
             );
 
             for (Villa w : listVilla) {
-                bufferedWriter.write(w.showInfo());
+                bufferedWriter.write(w.toString());
                 bufferedWriter.newLine();
             }
         } catch (Exception e) {
@@ -54,7 +61,7 @@ public class VillaManager {
 
     private static void readFileVilla() {
         try {
-            list.clear();
+            listVilla.clear();
             File file = new File("src/data/Villa.csv");
             if (!file.exists()) {
                 throw new FileNotFoundException();
@@ -62,7 +69,10 @@ public class VillaManager {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
             String line = null;
             while ((line = bufferedReader.readLine()) != null) {
-                list.add(line);
+                String[] array = line.split(",");
+                Villa villa = new Villa(array[0], array[1], Double.parseDouble(array[2]), Double.parseDouble(array[3]),
+                        Integer.parseInt(array[4]), array[5], array[6], array[7], Double.parseDouble(array[8]), Integer.parseInt(array[9]));
+                listVilla.add(villa);
             }
             bufferedReader.close();
         } catch (FileNotFoundException e) {
@@ -70,5 +80,39 @@ public class VillaManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public Villa findVillaCheck(String idService) throws NullPointerException {
+        readFileVilla();
+        Villa villa_1 = null;
+        boolean check = false;
+        for (Villa villa : listVilla) {
+            if (idService.equals(villa.getIdService())) {
+                check = true;
+                villa_1 = villa;
+            }
+        }
+        if (!check) {
+            throw new NullPointerException("Can't find it, just re-enter");
+        }
+        return villa_1;
+    }
+
+    public Villa findVilla() {
+        Scanner scanner = new Scanner(System.in);
+        Villa villa = null;
+        boolean check = false;
+        do {
+            check = true;
+            System.out.println("Selection Villa By Id: ");
+            String serviceId = scanner.nextLine();
+            try {
+                villa = findVillaCheck(serviceId);
+            } catch (NullPointerException e) {
+                check = false;
+                System.err.println(e.getMessage());
+            }
+        } while (!check);
+        return villa;
     }
 }

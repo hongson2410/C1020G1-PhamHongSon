@@ -10,6 +10,7 @@ public class MainController {
     private static HouseManager houseManager = new HouseManager();
     private static RoomManager roomManager = new RoomManager();
     private static CustomerManager customerManager = new CustomerManager();
+    private static BookingManager bookingManager = new BookingManager();
     private static Regex regex = new Regex();
     private static Scanner scanner = new Scanner(System.in);
 
@@ -266,7 +267,30 @@ public class MainController {
     }
 
     static void addNewBooking() {
-
+        int choice;
+        Customer customer;
+        customerManager.manipulationCustomer();
+        customer = customerManager.findCustomer();
+        System.out.println("1. Booking Villa." + "\n" +
+                "2. Booking House." + "\n" +
+                "3. Booking Room.");
+        choice = Integer.parseInt(scanner.nextLine());
+        switch (choice) {
+            case 1:
+                showAllVilla();
+                bookingManager.addBooking(new Booking(villaManager.findVilla(), customer));
+                break;
+            case 2:
+                showAllHouse();
+                bookingManager.addBooking(new Booking(houseManager.findHouse(), customer));
+                break;
+            case 3:
+                showAllRoom();
+                bookingManager.addBooking(new Booking(roomManager.findRoom(), customer));
+                break;
+            default:
+                System.out.println("Choice not found!!");
+        }
     }
 
     static void showInfoEmployee() {

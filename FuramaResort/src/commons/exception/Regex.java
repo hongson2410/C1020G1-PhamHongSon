@@ -1,6 +1,4 @@
-package models;
-
-import commons.exception.*;
+package commons.exception;
 
 import java.util.Date;
 import java.util.Scanner;

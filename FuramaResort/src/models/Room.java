@@ -25,4 +25,10 @@ public class Room extends Services {
                 "freeService='" + freeService + '\'' +
                 '}';
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + ','
+                + freeService;
+    }
 }

@@ -1,10 +1,11 @@
-package models;
+package controllers;
+
+import models.Customer;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.SimpleTimeZone;
 
 public class SortCustomer implements Comparator<Customer> {
     @Override
@@ -12,8 +13,8 @@ public class SortCustomer implements Comparator<Customer> {
         Date date1 = null;
         Date date2 = null;
         try {
-            date1 = new SimpleDateFormat("dd/MM/YYYY").parse(o1.getBirthday());
-            date2 = new SimpleDateFormat("dd/MM/YYYY").parse(o2.getBirthday());
+            date1 = new SimpleDateFormat("dd/MM/yyyy").parse(o1.getBirthday());
+            date2 = new SimpleDateFormat("dd/MM/yyyy").parse(o2.getBirthday());
         } catch (ParseException e) {
             e.printStackTrace();
         }

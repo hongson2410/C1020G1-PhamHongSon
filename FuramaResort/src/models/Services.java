@@ -12,7 +12,7 @@ public abstract class Services {
     }
 
     public Services(String idService, String nameService, double areaUsing, double price, int numberTenants, String rentalType) {
-        this.idService= idService;
+        this.idService = idService;
         this.nameService = nameService;
         this.areaUsing = areaUsing;
         this.price = price;
@@ -77,5 +77,15 @@ public abstract class Services {
                 ", numberTenants=" + numberTenants +
                 ", rentalType='" + rentalType + '\'' +
                 '}';
+    }
+
+    @Override
+    public String toString() {
+        return idService + ','
+                + nameService + ','
+                + areaUsing + ','
+                + price + ','
+                + numberTenants + ','
+                + rentalType;
     }
 }

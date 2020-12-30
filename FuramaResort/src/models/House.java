@@ -47,4 +47,12 @@ public class House extends Services {
                 ", floors=" + floors +
                 '}';
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + ',' +
+                roomStandard + ','
+                + roomFurniture + ','
+                + floors;
+    }
 }
