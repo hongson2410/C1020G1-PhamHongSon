@@ -5,9 +5,7 @@ import models.House;
 import models.Villa;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class HouseManager {
     private static List<House> listHouse;
@@ -84,7 +82,7 @@ public class HouseManager {
         }
     }
 
-    public House findHouseCheck(String idService) throws NullPointerException {
+    public House findHouseCheck(String idService) {
         readFileHouse();
         House house_1 = null;
         boolean check = false;
@@ -116,6 +114,17 @@ public class HouseManager {
             }
         } while (!check);
         return house;
+    }
+
+    public void showHouseNotDup() {
+        readFileHouse();
+        Set<String> listNotDup = new TreeSet<>();
+        for (House house : listHouse) {
+            listNotDup.add(house.getNameService());
+        }
+        for (String house : listNotDup) {
+            System.out.println(house);
+        }
     }
 
 }

@@ -12,19 +12,25 @@ public class MainController {
     private static RoomManager roomManager = new RoomManager();
     private static CustomerManager customerManager = new CustomerManager();
     private static BookingManager bookingManager = new BookingManager();
+    private static EmployeeManager employeeManager = new EmployeeManager();
+    private static CinemaManager cinemaManager= new CinemaManager();
+    private static Cabinets cabinets= new Cabinets();
     private static Regex regex = new Regex();
     private static Scanner scanner = new Scanner(System.in);
 
     static void displayMainMenu() {
         int choice;
         do {
+            System.out.println("=/Menu/=");
             System.out.println("1. Add New Services. " + "\n" +
                     "2. Show Services. " + "\n" +
                     "3. Add New Customer. " + "\n" +
                     "4. Show Information of Customer. " + "\n" +
                     "5. Add New Booking. " + "\n" +
-                    "6. Show Information. " + "\n" +
-                    "7. Exit.");
+                    "6. Show Information of Employee. " + "\n" +
+                    "7. Cinema Manager." + "\n" +
+                    "8. Find Employee In Cabinets. "+ "\n"+
+                    "9. Exit.");
             choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
@@ -46,12 +52,18 @@ public class MainController {
                     showInfoEmployee();
                     break;
                 case 7:
+                    cinemaManager();
+                    break;
+                case 8:
+                    findEmployeeInCabinets();
+                    break;
+                case 9:
                     System.exit(0);
                 default:
                     System.out.println("Choice not found!!!");
                     break;
             }
-        } while (choice != 7);
+        } while (choice != 9);
     }
 
     static void addNewService() {
@@ -268,34 +280,50 @@ public class MainController {
     }
 
     static void addNewBooking() {
-        int choice;
-        Customer customer;
-        customerManager.manipulationCustomer();
-        customer = customerManager.findCustomer();
-        System.out.println("1. Booking Villa." + "\n" +
-                "2. Booking House." + "\n" +
-                "3. Booking Room.");
-        choice = Integer.parseInt(scanner.nextLine());
-        switch (choice) {
-            case 1:
-                showAllVilla();
-                bookingManager.addBooking(new Booking(villaManager.findVilla(), customer));
-                break;
-            case 2:
-                showAllHouse();
-                bookingManager.addBooking(new Booking(houseManager.findHouse(), customer));
-                break;
-            case 3:
-                showAllRoom();
-                bookingManager.addBooking(new Booking(roomManager.findRoom(), customer));
-                break;
-            default:
-                System.out.println("Choice not found!!");
-        }
+        Customer customer = null;
+        do {
+            int choice;
+            System.out.println("1. Customer Booking." + "\n" +
+                    "2. Booking Service." + "\n" +
+                    "3. Back To Menu.");
+            choice = Integer.parseInt(scanner.nextLine());
+            switch (choice) {
+                case 1:
+                    customerManager.manipulationCustomer();
+                    customer = customerManager.findCustomer();
+                    break;
+                case 2:
+                    System.out.println("1. Booking Villa." + "\n" +
+                            "2. Booking House." + "\n" +
+                            "3. Booking Room.");
+                    choice = Integer.parseInt(scanner.nextLine());
+                    switch (choice) {
+                        case 1:
+                            showAllVilla();
+                            bookingManager.addBooking(new Booking(villaManager.findVilla(), customer));
+                            break;
+                        case 2:
+                            showAllHouse();
+                            bookingManager.addBooking(new Booking(houseManager.findHouse(), customer));
+                            break;
+                        case 3:
+                            showAllRoom();
+                            bookingManager.addBooking(new Booking(roomManager.findRoom(), customer));
+                            break;
+                        default:
+                            System.out.println("Choice not found!!");
+                    }
+                    break;
+                case 3:
+                    displayMainMenu();
+                default:
+                    System.out.println("Choice Not Found!");
+            }
+        }while (true);
     }
 
     static void showInfoEmployee() {
-
+        employeeManager.showEmployee();
     }
 
     static void showAllVilla() {
@@ -311,15 +339,44 @@ public class MainController {
     }
 
     static void showAllNameVillaNotDup() {
-
+        villaManager.showVillaNotDup();
     }
 
     static void showAllNameHouseNotDup() {
-
+        houseManager.showHouseNotDup();
     }
 
     static void showAllNameRoomNotDup() {
+        roomManager.showRoomNotDup();
+    }
 
+    static void cinemaManager(){
+        Customer customer;
+        do {
+            System.out.println("1. Add Customer." + "\n" +
+                    "2. Show Queue." + "\n" +
+                    "3. Back To Menu.");
+            int choice = Integer.parseInt(scanner.nextLine());
+            switch (choice) {
+                case 1:
+                    customerManager.manipulationCustomer();
+                    customer = customerManager.findCustomerByIndex();
+                    cinemaManager.addCustomer(customer);
+                    break;
+                case 2:
+                    cinemaManager.showCustomerCinema();
+                    break;
+                case 3:
+                    displayMainMenu();
+                    break;
+                default:
+                    System.out.println("Choice Not Found!");
+            }
+        }while (true);
+    }
+
+    static void findEmployeeInCabinets(){
+        cabinets.showStackEmployee();
     }
 
     public static void main(String[] args) {

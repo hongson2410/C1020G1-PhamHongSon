@@ -3,9 +3,7 @@ package controllers;
 import models.Villa;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class VillaManager {
     private static List<Villa> listVilla;
@@ -82,7 +80,7 @@ public class VillaManager {
         }
     }
 
-    public Villa findVillaCheck(String idService) throws NullPointerException {
+    public Villa findVillaCheck(String idService) {
         readFileVilla();
         Villa villa_1 = null;
         boolean check = false;
@@ -114,5 +112,16 @@ public class VillaManager {
             }
         } while (!check);
         return villa;
+    }
+
+    public void showVillaNotDup() {
+        readFileVilla();
+        Set<String> listNotDup = new TreeSet<>();
+        for (Villa villa : listVilla) {
+            listNotDup.add(villa.getNameService());
+        }
+        for (String villa : listNotDup) {
+            System.out.println(villa);
+        }
     }
 }

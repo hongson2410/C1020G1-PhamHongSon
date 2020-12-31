@@ -4,9 +4,7 @@ import models.Room;
 import models.Villa;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class RoomManager {
     private static List<Room> listRoom;
@@ -83,7 +81,7 @@ public class RoomManager {
         }
     }
 
-    public Room findRoomCheck(String serviceId) throws NullPointerException {
+    public Room findRoomCheck(String serviceId) {
         readFileRoom();
         Room room_1 = null;
         boolean check = false;
@@ -115,5 +113,16 @@ public class RoomManager {
             }
         } while (!check);
         return room;
+    }
+
+    public void showRoomNotDup() {
+        readFileRoom();
+        Set<String> listNotDup = new TreeSet<>();
+        for (Room room : listRoom) {
+            listNotDup.add(room.getNameService());
+        }
+        for (String room : listNotDup) {
+            System.out.println(room);
+        }
     }
 }

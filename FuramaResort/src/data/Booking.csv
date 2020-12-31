@@ -1,5 +1,0 @@
-Booking: 
-Customer{fullName='Nguyen Van B', birthday='08/12/1995', gender='Male', idCard='121 121 121', phoneNumber='0123456987', email='das@dasd.vn', customerType='Diamond', address='09 NT'}
-Room{Services{idService='SVRO-0001', nameService='Room_1', areaUsing=30.5, price=50.0, numberTenants=2, rentalType='Days'}freeService='drink'}Booking: 
-Customer{fullName='Nguyen Van A', birthday='23/07/2000', gender='Male', idCard='456 789 123', phoneNumber='0123659874', email='das@dak.vn', customerType='Gold', address='76 NT'}
-Room{Services{idService='SVRO-0001', nameService='Room_1', areaUsing=30.5, price=50.0, numberTenants=2, rentalType='Days'}freeService='drink'}

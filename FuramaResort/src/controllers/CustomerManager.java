@@ -91,7 +91,7 @@ public class CustomerManager {
         }
     }
 
-    public Customer findCustomerCheck(String customerId) throws NullPointerException {
+    private Customer findCustomerCheck(String customerId) {
         Customer customer_1 = null;
         boolean check = false;
         for (Customer customer : listCustomer) {
@@ -122,5 +122,38 @@ public class CustomerManager {
             }
         } while (!check);
         return customer;
+    }
+
+    public Customer findCustomerByIndex() {
+        Scanner scanner = new Scanner(System.in);
+        Customer customer = null;
+        boolean check;
+        do {
+            System.out.println("Choose the customer by index: ");
+            int index = Integer.parseInt(scanner.nextLine());
+            try {
+                check = true;
+                customer=findIndex(index);
+            } catch (NullPointerException e) {
+                check = false;
+                System.err.println(e.getMessage());
+            }
+        } while (!check);
+        return customer;
+    }
+
+    private Customer findIndex(int index) {
+        Customer customer_1 = null;
+        boolean check = false;
+        for (int i = 0; i < listCustomer.size(); i++) {
+            if ((index - 1) == i) {
+                check = true;
+                customer_1 = listCustomer.get(i);
+            }
+        }
+        if (!check) {
+            throw new NullPointerException("Can't find it, just re-enter");
+        }
+        return customer_1;
     }
 }
