@@ -1,0 +1,3 @@
+Booking:
+Customer{fullName='Manh Dung', birthday='08/12/1995', gender='Male', idCard='121 121 121', phoneNumber='0123456987', email='das@dasd.vn', customerType='Sliver', address='Sai Gon'}
+Room{Services{idService='SVRO-0003', nameService='A2', areaUsing=35.0, price=80.0, numberTenants=1, rentalType='Days'}freeService='drink'}
