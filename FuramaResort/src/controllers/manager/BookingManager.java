@@ -14,12 +14,11 @@ public class BookingManager {
     }
 
     public void addBooking(Booking booking){
-        listBooking.clear();
         listBooking.add(booking);
-        writeFile();
+        writeFile(booking);
     }
 
-    private static void writeFile(){
+    private static void writeFile(Booking booking){
         BufferedWriter bufferedWriter = null;
         try {
             File file = new File("src/data/Booking.csv");
@@ -30,15 +29,12 @@ public class BookingManager {
             bufferedWriter = new BufferedWriter(
                     new FileWriter(file,true)
             );
-
-            for (Booking booking : listBooking) {
                 bufferedWriter.write("Booking: ");
                 bufferedWriter.newLine();
                 bufferedWriter.write(booking.getCustomer().showInfo());
                 bufferedWriter.newLine();
                 bufferedWriter.write(booking.getServices().showInfo());
                 bufferedWriter.newLine();
-            }
         } catch (Exception e) {
             System.err.println(e.getMessage());
         } finally {

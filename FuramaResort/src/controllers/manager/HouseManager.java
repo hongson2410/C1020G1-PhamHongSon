@@ -24,10 +24,10 @@ public class HouseManager {
 
     public void addHouse(House house) {
         listHouse.add(house);
-        writeFileHouse();
+        writeFileHouse(house);
     }
 
-    public static void writeFileHouse() {
+    public static void writeFileHouse(House house) {
         BufferedWriter bufferedWriter = null;
         try {
             File file = new File("src/data/House.csv");
@@ -36,13 +36,10 @@ public class HouseManager {
             }
 
             bufferedWriter = new BufferedWriter(
-                    new FileWriter(file)
+                    new FileWriter(file,true)
             );
-
-            for (House w : listHouse) {
-                bufferedWriter.write(w.toString());
-                bufferedWriter.newLine();
-            }
+            bufferedWriter.write(house.toString());
+            bufferedWriter.newLine();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

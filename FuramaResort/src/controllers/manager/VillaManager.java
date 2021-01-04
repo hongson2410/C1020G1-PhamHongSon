@@ -24,10 +24,10 @@ public class VillaManager {
 
     public void addVilla(Villa villa) {
         listVilla.add(villa);
-        writeFileVilla();
+        writeFileVilla(villa);
     }
 
-    private static void writeFileVilla() {
+    private static void writeFileVilla(Villa villa) {
         BufferedWriter bufferedWriter = null;
         try {
             File file = new File("src/data/Villa.csv");
@@ -36,13 +36,10 @@ public class VillaManager {
             }
 
             bufferedWriter = new BufferedWriter(
-                    new FileWriter(file)
+                    new FileWriter(file,true)
             );
-
-            for (Villa w : listVilla) {
-                bufferedWriter.write(w.toString());
-                bufferedWriter.newLine();
-            }
+            bufferedWriter.write(villa.toString());
+            bufferedWriter.newLine();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

@@ -24,10 +24,10 @@ public class RoomManager {
 
     public void addRoom(Room room) {
         listRoom.add(room);
-        writeFileRoom();
+        writeFileRoom(room);
     }
 
-    private static void writeFileRoom() {
+    private static void writeFileRoom(Room room) {
         BufferedWriter bufferedWriter = null;
         try {
             File file = new File("src/data/Room.csv");
@@ -36,13 +36,10 @@ public class RoomManager {
             }
 
             bufferedWriter = new BufferedWriter(
-                    new FileWriter(file)
+                    new FileWriter(file, true)
             );
-
-            for (Room w : listRoom) {
-                bufferedWriter.write(w.toString());
-                bufferedWriter.newLine();
-            }
+            bufferedWriter.write(room.toString());
+            bufferedWriter.newLine();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

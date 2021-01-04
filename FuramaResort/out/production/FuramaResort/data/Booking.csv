@@ -1,3 +1,9 @@
 Booking:
 Customer{fullName='Manh Dung', birthday='08/12/1995', gender='Male', idCard='121 121 121', phoneNumber='0123456987', email='das@dasd.vn', customerType='Sliver', address='Sai Gon'}
 Room{Services{idService='SVRO-0003', nameService='A2', areaUsing=35.0, price=80.0, numberTenants=1, rentalType='Days'}freeService='drink'}
+Booking: 
+Customer{fullName='Pham Hong Son', birthday='24/10/1997', gender='Male', idCard='123 123 123', phoneNumber='0123456789', email='dsa@lak.vn', customerType='Gold', address='Tay Ninh'}
+Villa{Services{idService='SVVL-0001', nameService='Violet', areaUsing=120.0, price=1500.0, numberTenants=2, rentalType='Years'}roomStandard=Bussines, roomFurniture='modern', poolArea=40.0, floors=3}
+Booking: 
+Customer{fullName='Manh Dung', birthday='08/12/1995', gender='Male', idCard='121 121 121', phoneNumber='0123456987', email='das@dasd.vn', customerType='Sliver', address='Sai Gon'}
+Villa{Services{idService='SVVL-0006', nameService='Rose', areaUsing=110.0, price=1000.0, numberTenants=4, rentalType='Weeks'}roomStandard=Vip, roomFurniture='normal', poolArea=35.0, floors=2}

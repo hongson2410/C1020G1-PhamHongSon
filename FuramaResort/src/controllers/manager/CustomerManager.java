@@ -17,7 +17,7 @@ public class CustomerManager {
 
     public void addCustomer(Customer customer) {
         listCustomer.add(customer);
-        writeFile();
+        writeFile(customer);
     }
 
     public void showInformationCustomers() {
@@ -28,18 +28,16 @@ public class CustomerManager {
         }
     }
 
-    private static void writeFile() {
+    private static void writeFile(Customer customer) {
         BufferedWriter bufferedWriter = null;
         try {
             File file = new File("src/data/Customer.csv");
             if (!file.exists()) {
                 throw new FileNotFoundException();
             }
-            bufferedWriter = new BufferedWriter(new FileWriter(file));
-            for (Customer customer : listCustomer) {
-                bufferedWriter.write(customer.toString());
-                bufferedWriter.newLine();
-            }
+            bufferedWriter = new BufferedWriter(new FileWriter(file, true));
+            bufferedWriter.write(customer.toString());
+            bufferedWriter.newLine();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -130,7 +128,7 @@ public class CustomerManager {
             int index = Integer.parseInt(scanner.nextLine());
             try {
                 check = true;
-                customer=findIndex(index);
+                customer = findIndex(index);
             } catch (NullPointerException e) {
                 check = false;
                 System.err.println(e.getMessage());
@@ -154,3 +152,4 @@ public class CustomerManager {
         return customer_1;
     }
 }
+
