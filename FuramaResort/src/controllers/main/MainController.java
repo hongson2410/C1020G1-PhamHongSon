@@ -18,8 +18,8 @@ public class MainController {
     private static CustomerManager customerManager = new CustomerManager();
     private static BookingManager bookingManager = new BookingManager();
     private static EmployeeManager employeeManager = new EmployeeManager();
-    private static CinemaManager cinemaManager= new CinemaManager();
-    private static Cabinets cabinets= new Cabinets();
+    private static CinemaManager cinemaManager = new CinemaManager();
+    private static Cabinets cabinets = new Cabinets();
     private static Regex regex = new Regex();
     private static Scanner scanner = new Scanner(System.in);
 
@@ -34,7 +34,7 @@ public class MainController {
                     "5. Add New Booking. " + "\n" +
                     "6. Show Information of Employee. " + "\n" +
                     "7. Cinema Manager." + "\n" +
-                    "8. Find Employee In Cabinets. "+ "\n"+
+                    "8. Find Employee In Cabinets. " + "\n" +
                     "9. Exit.");
             choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
@@ -124,7 +124,7 @@ public class MainController {
     }
 
     static void addNewVilla() {
-        String idService = idService();
+        String idService = villaManager.idVilla();
         String nameService = nameService();
         double areaUsing = areaUsing();
         double price = price();
@@ -321,7 +321,7 @@ public class MainController {
                 default:
                     System.out.println("Choice Not Found!");
             }
-        }while (true);
+        } while (true);
     }
 
     static void showInfoEmployee() {
@@ -352,7 +352,7 @@ public class MainController {
         roomManager.showRoomNotDup();
     }
 
-    static void cinemaManager(){
+    static void cinemaManager() {
         Customer customer;
         do {
             System.out.println("1. Add Customer." + "\n" +
@@ -374,10 +374,10 @@ public class MainController {
                 default:
                     System.out.println("Choice Not Found!");
             }
-        }while (true);
+        } while (true);
     }
 
-    static void findEmployeeInCabinets(){
+    static void findEmployeeInCabinets() {
         cabinets.showStackEmployee();
     }
 
@@ -389,6 +389,8 @@ public class MainController {
         HouseManager.readFileHouse();
         Cabinets.readFile();
         displayMainMenu();
+//        VillaManager.containsVilla();
+//        VillaManager.setVilla();
+//        villaManager.removeVilla();
     }
-
 }
