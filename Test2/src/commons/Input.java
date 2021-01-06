@@ -1,4 +1,4 @@
-package controllers.manager;
+package commons;
 
 import java.util.Scanner;
 
@@ -15,7 +15,7 @@ public class Input {
             } catch (NumberFormatException e) {
                 check = false;
                 System.err.println(e.getMessage());
-                System.err.println("replay input:");
+                System.err.println("Mời nhập lại:");
             }
         } while (!check);
         return input;
@@ -30,7 +30,7 @@ public class Input {
             } catch (NumberFormatException e) {
                 check = false;
                 System.err.println(e.getMessage());
-                System.err.println("replay input:");
+                System.err.println("Mời nhập lại:");
             }
         } while (!check);
         return input;

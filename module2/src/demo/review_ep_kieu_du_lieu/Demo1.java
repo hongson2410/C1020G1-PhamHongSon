@@ -17,10 +17,10 @@ public class Demo1 {
         Student student = new Student("B", 22);
         Human human = new Human("C", 55);
 
-        //person = student;
+//        person = student;
         //student = (Student) person;
         human = (Human) person;
 
-        System.out.println(human.getName());
+        System.out.println(person.getName());
     }
 }

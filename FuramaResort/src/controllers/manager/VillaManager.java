@@ -8,7 +8,7 @@ import java.util.*;
 
 public class VillaManager {
     private static List<Villa> listVilla;
-    private Input input= new Input();
+    private Input input = new Input();
 
     public VillaManager() {
         listVilla = new ArrayList<>();
@@ -242,7 +242,7 @@ public class VillaManager {
                 int choose = Integer.parseInt(scanner.nextLine());
                 for (int i = 0; i < listVilla.size(); i++) {
                     if (choose - 1 == i) {
-                        check=true;
+                        check = true;
                         do {
                             int choice = 0;
                             System.out.println("1. Set Name Service." + "\n" +
@@ -255,39 +255,39 @@ public class VillaManager {
                                     "8. Set Pool Area." + "\n" +
                                     "9. Set Floors.");
 
-                                System.out.println("Choice you want set:");
-                                do {
-                                    try {
-                                        check= true;
-                                        choice = Integer.parseInt(scanner.nextLine());
-                                    } catch (NumberFormatException e) {
-                                        check=false;
-                                        System.err.println(e.getMessage());
-                                    }
-                                }while (!check);
-                                switch (choice) {
-                                    case 1:
-                                        listVilla.get(i).setNameService(regex.regexNameService());
-                                        writeFileVilla(listVilla);
-                                        if (!choose()) {
-                                            setVilla();
-                                        }
-                                        break;
-                                    case 2:
-                                        listVilla.get(i).setAreaUsing(regex.regexAreaUsing());
-                                        writeFileVilla(listVilla);
-                                        if (!choose()){
-                                            setVilla();
-                                        }
-                                        break;
-                                    default:
-                                        System.out.println("Choice Not Found!!");
-                                        break;
+                            System.out.println("Choice you want set:");
+                            do {
+                                try {
+                                    check = true;
+                                    choice = Integer.parseInt(scanner.nextLine());
+                                } catch (NumberFormatException e) {
+                                    check = false;
+                                    System.err.println(e.getMessage());
                                 }
-                        }while (true);
+                            } while (!check);
+                            switch (choice) {
+                                case 1:
+                                    listVilla.get(i).setNameService(regex.regexNameService());
+                                    writeFileVilla(listVilla);
+                                    if (!choose()) {
+                                        setVilla();
+                                    }
+                                    break;
+                                case 2:
+                                    listVilla.get(i).setAreaUsing(regex.regexAreaUsing());
+                                    writeFileVilla(listVilla);
+                                    if (!choose()) {
+                                        setVilla();
+                                    }
+                                    break;
+                                default:
+                                    System.out.println("Choice Not Found!!");
+                                    break;
+                            }
+                        } while (true);
                     }
                 }
-                if (!check){
+                if (!check) {
                     System.err.println("Villa not found!!");
                 }
             } catch (NumberFormatException e) {
@@ -296,9 +296,9 @@ public class VillaManager {
         } while (!check);
     }
 
-    private static boolean choose(){
-        Scanner scanner= new Scanner(System.in);
-        boolean check= false;
+    private static boolean choose() {
+        Scanner scanner = new Scanner(System.in);
+        boolean check = false;
         boolean choose = false;
         do {
             try {
@@ -306,25 +306,25 @@ public class VillaManager {
                         "2. Exit To List Villa.");
                 int cc = Integer.parseInt(scanner.nextLine());
                 if (cc == 1) {
-                    check=true;
-                    choose= true;
-                } else if (cc==2){
-                    check= true;
-                    choose= false;
+                    check = true;
+                    choose = true;
+                } else if (cc == 2) {
+                    check = true;
+                    choose = false;
                 }
-                if (!check){
+                if (!check) {
                     System.err.println("choice not found!!");
                 }
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.err.println(e.getMessage());
             }
-        }while (!check);
+        } while (!check);
         return choose;
     }
 
-    public void removeVilla(){
-        int index=1;
-        boolean check=false;
+    public void removeVilla() {
+        int index = 1;
+        boolean check = false;
         for (Villa villa : listVilla) {
             System.out.println(index + "." + villa.showInfo());
             index++;
@@ -335,18 +335,18 @@ public class VillaManager {
                 int choose = input.inputInt();
                 for (int i = 0; i < listVilla.size(); i++) {
                     if (choose - 1 == i) {
-                        check=true;
+                        check = true;
                         listVilla.remove(i);
                     }
                 }
-                if (!check){
+                if (!check) {
                     System.err.println("Villa not found!!");
                 }
             } catch (NullPointerException e) {
-                check=false;
+                check = false;
                 System.err.println(e.getMessage());
             }
-        }while (!check);
+        } while (!check);
         writeFileVilla(listVilla);
     }
 }

@@ -16,7 +16,7 @@ public class SortCustomer implements Comparator<Customer> {
             date1 = new SimpleDateFormat("dd/MM/yyyy").parse(o1.getBirthday());
             date2 = new SimpleDateFormat("dd/MM/yyyy").parse(o2.getBirthday());
         } catch (ParseException e) {
-            e.printStackTrace();
+             
         }
 
         int a = o1.getFullName().compareTo(o2.getFullName());
