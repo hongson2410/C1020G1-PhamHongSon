@@ -1,7 +1,5 @@
 package commons;
 
-import com.sun.org.apache.regexp.internal.RE;
-
 public class Regex {
     private static Input input = new Input();
     private static boolean status = true;
