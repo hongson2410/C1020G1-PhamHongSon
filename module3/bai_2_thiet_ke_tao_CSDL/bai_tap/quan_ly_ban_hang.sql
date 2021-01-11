@@ -91,4 +91,3 @@ PRIMARY KEY (order_number,product_code),
 FOREIGN KEY (order_number) REFERENCES orders(order_number),
 FOREIGN KEY (product_code) REFERENCES products(product_code)
 );
-
