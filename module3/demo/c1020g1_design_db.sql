@@ -24,14 +24,16 @@ create table class (
 );
 
 create table student (
-	id int primary key,
+	id int primary key auto_increment,
     `name` varchar(50),
     date_of_birth date,
     account_james_account varchar(50),
+    email varchar(100),
     class_id int,
     
-    foreign key (account_james_account) references account_james (`account`),
-    foreign key (class_id) references class(id)
+    constraint fk_student_to_account_james foreign key (account_james_account) references account_james (`account`),
+    foreign key (class_id) references class(id),
+    unique (email)
 );
 
 create table instructor (
@@ -54,11 +56,11 @@ values
 (1, 'Full time'),
 (2, 'Half time');
 
-insert into class
+insert into class (`name`, type_of_class_id)
 values
-(1, 'C1020G1', 1),
-(2, 'C0520G1', 1),
-(3, 'A0720I1', 2);
+('C1020G1', 1),
+('C0520G1', 1),
+('A0720I1', 2);
 
 insert into account_james
 values
@@ -67,12 +69,12 @@ values
 ('chuong.kim', '12345678'),
 ('long.duong', '12345678');
 
-insert into student
+insert into student (name, date_of_birth, account_james_account, email, class_id)
 values
-(1, 'Tien', '2000-07-14', 'tien.nguyen', 1),
-(2, 'Toan', '2002-05-03', 'toan.le', 2),
-(3, 'Chuong', '2001-04-03', 'chuong.kim', 2),
-(4, 'Long', '2002-01-25', 'long.duong', null);
+('Tien', '2000-07-14', 'tien.nguyen', 'a', 1),
+('Toan', '2002-05-03', 'toan.le', 'b',  2),
+('Chuong', '2001-04-03', 'chuong.kim', 'c', 2),
+('Long', '2002-01-25', 'long.duong', 'd', null);
 
 insert into instructor
 values
