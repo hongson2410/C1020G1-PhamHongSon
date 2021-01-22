@@ -1,0 +1,44 @@
+.content {
+    text-align: center;
+    padding: 10px;
+    border-right: 1px solid black;
+    float: left;
+}
+
+.header {
+    background-color: #80bdff;
+    width: 100%;
+    float: left;
+}
+
+.header_2 {
+    background-color: #6f42c1;
+    width: 100%;
+    float: left;
+}
+
+.main {
+    overflow: unset;
+    height: 400px;
+    width: 80%;
+    margin: 0 10%;
+    padding: 0;
+}
+
+.big_box {
+    margin-top: 1%;
+    margin-left: 1.5%;
+    border: 1px solid black ;
+    float: left;
+    height: 100%;
+    width: 20%;
+}
+
+.small_box {
+    margin-top: 1%;
+    margin-left: 1.5%;
+    border: 1px solid black;
+    float: left;
+    width: 10%;
+    height: 50%;
+}
