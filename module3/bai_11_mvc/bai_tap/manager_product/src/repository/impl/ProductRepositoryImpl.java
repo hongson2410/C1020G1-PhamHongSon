@@ -44,13 +44,14 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public Product findByName(String name) {
-        Product product = null;
-        for (Integer key: productMap.keySet()){
-            if (productMap.get(key).getName().equals(name)){
-                product=productMap.get(key);
+    public List<Product> findByName(String name) {
+        List<Product> tempProduct = new ArrayList<>();
+        List<Product> productList = new ArrayList<>(productMap.values());
+        for (Product product: productList){
+            if (product.getName().contains(name)){
+                tempProduct.add(product);
             }
         }
-        return product;
+        return tempProduct;
     }
 }

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "ProductServlet", urlPatterns = {"", "/productServlet"})
 public class ProductServlet extends HttpServlet {
@@ -151,14 +152,26 @@ public class ProductServlet extends HttpServlet {
 
     private void findProduct(HttpServletRequest request, HttpServletResponse response){
         String name= request.getParameter("name");
-        Product product= this.productService.findByName(name);
+        List<Product> productList= productService.findByName(name);
         RequestDispatcher dispatcher;
-        if (product == null) {
+        if (productList == null) {
             dispatcher = request.getRequestDispatcher("error-404.jsp");
         } else {
-            request.setAttribute("product", product);
-            dispatcher = request.getRequestDispatcher("view.jsp");
+            request.setAttribute("productListFromServlet", productList);
+            dispatcher = request.getRequestDispatcher("search.jsp");
         }
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadList(HttpServletRequest request, HttpServletResponse response) {
+        request.setAttribute("productListFromServlet", productService.findAll());
+        RequestDispatcher dispatcher = request.getRequestDispatcher("list_product.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -211,23 +224,12 @@ public class ProductServlet extends HttpServlet {
             case "view":
                 viewProduct(request, response);
                 break;
-            case "find":
+            case "search":
                 findProduct(request,response);
                 break;
             default:
                 loadList(request, response);
-        }
-    }
-
-    private void loadList(HttpServletRequest request, HttpServletResponse response) {
-        request.setAttribute("productListFromServlet", productService.findAll());
-        RequestDispatcher dispatcher = request.getRequestDispatcher("list_product.jsp");
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+                break;
         }
     }
 }

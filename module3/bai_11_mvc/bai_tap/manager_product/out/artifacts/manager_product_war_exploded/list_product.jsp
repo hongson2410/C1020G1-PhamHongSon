@@ -9,12 +9,12 @@
 <p>
     <a href="/productServlet?actionUser=create">Create New Product</a>
 </p>
+<form>
+    <input type="hidden" name="actionUser" value="search"/>
+    <input type="text" name="name" placeholder="Search"/>
+    <input type="submit" value="Search"/>
+</form>
 <table border="1">
-    <tr>
-        <td>Enter name you want find: </td>
-        <td><input type="text" name="name" id="name"/></td>
-        <td><a href="/productServlet?actionUser=find"><input type="submit" value="Find product"/></a></td>
-    </tr>
     <tr>
         <th>Name</th>
         <th>Description</th>
@@ -24,7 +24,7 @@
     <c:forEach items="${productListFromServlet}" var="product">
         <tr>
             <td><a href="/productServlet?actionUser=view&id=${product.id}">${product.getName()}</a></td>
-            <td>${product.getDescription()}</td>
+            <td><c:out value="${product.getDescription()}"/></td>
             <td><a href="/productServlet?actionUser=edit&id=${product.id}">Edit</a></td>
             <td><a href="/productServlet?actionUser=delete&id=${product.id}">Delete</a></td>
         </tr>
