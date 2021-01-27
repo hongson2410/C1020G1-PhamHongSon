@@ -1,26 +1,31 @@
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
     <title>$Title$</title>
   </head>
   <body>
-  <h2>Simple Calculator</h2>
-  <form action="calculator.jsp" method="post">
-    <fieldset>
-      <legend>Calculator</legend>
-  <label>First operand:  </label>
-    <input type="text" name="operand" placeholder="Number-1"/><br/>
-  <label>Operator:  </label>
+  <form action="/abc" method="post">
+    <label>Calculator</label>
+    <label>First Operand</label>
+    <input type="text" name="first">
+    <label>Second Operand</label>
+    <input type="text" name="second">
     <select name="operator">
-      <option value="Addition">Addition</option>
-      <option value="subtraction">subtraction</option>
-      <option value="multiplication">multiplication</option>
-      <option value="division">division</option>
-    </select><br/>
-  <label>Second operand</label>
-    <input type="text" name="second" placeholder="Number-2"/><br/>
-  <input type="submit" id="submit" value="Calculate"/>
-    </fieldset>
+      <option>
+        Addition
+      </option>
+      <option>
+        Subtraction
+      </option>
+      <option>
+        Division
+      </option>
+      <option>
+        Multiplication
+      </option>
+    </select>
+    <input type="submit">
   </form>
   </body>
 </html>
