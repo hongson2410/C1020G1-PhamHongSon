@@ -161,7 +161,9 @@ public class UserRepositoryImpl implements UserRepository {
             callableStatement.setString(1, String.valueOf(id));
 
             ResultSet resultSet = callableStatement.executeQuery();
+
             resultSet.next();
+
             String name = resultSet.getString("name");
 
             String email = resultSet.getString("email");
@@ -169,7 +171,7 @@ public class UserRepositoryImpl implements UserRepository {
             String country = resultSet.getString("country");
 
             user = new User(id, name, email, country);
-            
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -201,5 +203,60 @@ public class UserRepositoryImpl implements UserRepository {
 
         }
 
+    }
+
+    @Override
+    public String addUserTransaction(User user, int[] permission) {
+        String msg = "OK, transaction successfully!";
+        int userId = 0;
+        Connection connection = this.baseRepository.getConnection();
+
+        try {
+            connection.setAutoCommit(false);
+
+            PreparedStatement pSInsertUser =
+                    connection.prepareStatement("insert into users(`name`, email, country)\n" +
+                            "values (?, ?,?)");
+            pSInsertUser.setString(1, user.getName());
+            pSInsertUser.setString(2, user.getEmail());
+            pSInsertUser.setString(3, user.getCountry());
+
+            ResultSet resultSet= pSInsertUser.getGeneratedKeys();
+
+            if (resultSet.next()) {
+
+                userId = resultSet.getInt(1);
+            }
+
+            int rowAffect = pSInsertUser.executeUpdate();
+
+            PreparedStatement pSInsertUserPermission =
+                    connection.prepareStatement("insert into User_Permision(permision_id, user_id)\n" +
+                            "values (?, ?)");
+            for (int index=0;index < permission.length;index++){
+                pSInsertUserPermission.setInt(1, permission[index]);
+                pSInsertUserPermission.setInt(2, userId);
+            }
+
+            rowAffect += pSInsertUserPermission.executeUpdate();
+
+            if (rowAffect == 2) {
+                connection.commit();
+            } else {
+                msg = "rollback try";
+                connection.rollback();
+            }
+
+        } catch (SQLException e) {
+            try {
+                msg = "rollback catch";
+                connection.rollback();
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        return msg;
     }
 }

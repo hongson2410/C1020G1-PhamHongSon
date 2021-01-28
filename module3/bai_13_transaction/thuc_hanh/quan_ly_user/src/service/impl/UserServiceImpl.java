@@ -46,4 +46,9 @@ public class UserServiceImpl implements UserService {
     public void insertUserStore(User user) throws SQLException {
         userRepository.insertUserStore(user);
     }
+
+    @Override
+    public String addUserTransaction(User user, int[] permission) {
+        return userRepository.addUserTransaction(user,permission);
+    }
 }

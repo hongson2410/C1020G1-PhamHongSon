@@ -60,9 +60,29 @@ public class UserServlet extends HttpServlet {
             case "searchById":
                 findUserById(request,response);
                 break;
+            case "permission":
+                addUserPermission(request,response);
+                break;
             default:
                 loadList(request, response);
                 break;
+        }
+
+    }
+
+    private void addUserPermission(HttpServletRequest request, HttpServletResponse response) {
+
+        User user = new User("Trang", "tranghoang@gmail.com", "Quang Ngai");
+
+        int[] permission = {1, 2, 4};
+        String msg = userService.addUserTransaction(user, permission);
+        request.setAttribute("msgInfo", msg);
+        try {
+            request.getRequestDispatcher("transaction.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }
