@@ -3,13 +3,37 @@ package repository.impl;
 import bean.User;
 import repository.UserRepository;
 
+import java.math.BigDecimal;
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserRepositoryImpl implements UserRepository {
 
     private BaseRepository baseRepository = new BaseRepository();
+
+    private static final String SQL_INSERT = "INSERT INTO EMPLOYEE (NAME, SALARY, CREATED_DATE) VALUES (?,?,?)";
+
+    private static final String SQL_UPDATE_EMPLOYEE = "UPDATE EMPLOYEE SET SALARY=? WHERE NAME=?";
+
+    private static final String SQL_TABLE_CREATE = "CREATE TABLE EMPLOYEE"
+
+            + "("
+
+            + " ID serial,"
+
+            + " NAME varchar(100) NOT NULL,"
+
+            + " SALARY numeric(15, 2) NOT NULL,"
+
+            + " CREATED_DATE timestamp,"
+
+            + " PRIMARY KEY (ID)"
+
+            + ")";
+
+    private static final String SQL_TABLE_DROP = "DROP TABLE IF EXISTS EMPLOYEE";
 
     private final String SQL_FIND_ALL = "select id, `name`, email, country " +
             "from users";
@@ -216,11 +240,12 @@ public class UserRepositoryImpl implements UserRepository {
 
             PreparedStatement pSInsertUser =
                     connection.prepareStatement("insert into users(`name`, email, country)\n" +
-                            "values (?, ?,?)");
+                            "values (?, ?,?)", Statement.RETURN_GENERATED_KEYS);
             pSInsertUser.setString(1, user.getName());
             pSInsertUser.setString(2, user.getEmail());
             pSInsertUser.setString(3, user.getCountry());
 
+            int rowAffect = pSInsertUser.executeUpdate();
             ResultSet resultSet= pSInsertUser.getGeneratedKeys();
 
             if (resultSet.next()) {
@@ -228,19 +253,16 @@ public class UserRepositoryImpl implements UserRepository {
                 userId = resultSet.getInt(1);
             }
 
-            int rowAffect = pSInsertUser.executeUpdate();
-
             PreparedStatement pSInsertUserPermission =
                     connection.prepareStatement("insert into User_Permision(permision_id, user_id)\n" +
                             "values (?, ?)");
             for (int index=0;index < permission.length;index++){
                 pSInsertUserPermission.setInt(1, permission[index]);
                 pSInsertUserPermission.setInt(2, userId);
+                rowAffect += pSInsertUserPermission.executeUpdate();
             }
 
-            rowAffect += pSInsertUserPermission.executeUpdate();
-
-            if (rowAffect == 2) {
+            if (rowAffect == 4 ) {
                 connection.commit();
             } else {
                 msg = "rollback try";
@@ -258,5 +280,125 @@ public class UserRepositoryImpl implements UserRepository {
         }
 
         return msg;
+    }
+
+    @Override
+    public void insertUpdateWithoutTransaction() {
+        Connection connection = this.baseRepository.getConnection();
+        try (
+             Statement statement = connection.createStatement();
+
+             PreparedStatement psInsert = connection.prepareStatement(SQL_INSERT);
+
+             PreparedStatement psUpdate = connection.prepareStatement(SQL_UPDATE_EMPLOYEE)) {
+
+            statement.execute(SQL_TABLE_DROP);
+
+            statement.execute(SQL_TABLE_CREATE);
+
+
+            psInsert.setString(1, "Quynh");
+
+            psInsert.setBigDecimal(2, new BigDecimal(10));
+
+            psInsert.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
+
+            psInsert.execute();
+
+
+
+            psInsert.setString(1, "Ngan");
+
+            psInsert.setBigDecimal(2, new BigDecimal(20));
+
+            psInsert.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
+
+            psInsert.execute();
+
+            // below line caused error, test transaction
+
+            psUpdate.setBigDecimal(2, new BigDecimal(999.99));
+
+            psUpdate.setString(2, "Quynh");
+
+            psUpdate.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void insertUpdateUseTransaction() {
+        Connection connection = this.baseRepository.getConnection();
+        try (
+             Statement statement = connection.createStatement();
+
+             PreparedStatement psInsert = connection.prepareStatement(SQL_INSERT);
+
+             PreparedStatement psUpdate = connection.prepareStatement(SQL_UPDATE_EMPLOYEE)) {
+
+            statement.execute(SQL_TABLE_DROP);
+
+            statement.execute(SQL_TABLE_CREATE);
+
+            // start transaction block
+
+            connection.setAutoCommit(false); // default true
+
+            // Run list of insert commands
+
+            psInsert.setString(1, "Quynh");
+
+            psInsert.setBigDecimal(2, new BigDecimal(10));
+
+            psInsert.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
+
+            psInsert.execute();
+
+
+
+            psInsert.setString(1, "Ngan");
+
+            psInsert.setBigDecimal(2, new BigDecimal(20));
+
+            psInsert.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
+
+            psInsert.execute();
+
+
+
+            // Run list of update commands
+
+
+            // below line caused error, test transaction
+
+            // org.postgresql.util.PSQLException: No value specified for parameter 1.
+
+            psUpdate.setBigDecimal(1, new BigDecimal(999.99));
+
+
+            //psUpdate.setBigDecimal(1, new BigDecimal(999.99));
+
+            psUpdate.setString(2, "Quynh");
+
+            psUpdate.execute();
+
+            // end transaction block, commit changes
+
+            connection.commit();
+
+            // good practice to set it back to default true
+
+            connection.setAutoCommit(true);
+
+        } catch (Exception e) {
+
+            System.out.println(e.getMessage());
+
+            e.printStackTrace();
+
+        }
+
     }
 }

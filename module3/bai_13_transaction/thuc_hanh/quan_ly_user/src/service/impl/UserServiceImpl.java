@@ -51,4 +51,14 @@ public class UserServiceImpl implements UserService {
     public String addUserTransaction(User user, int[] permission) {
         return userRepository.addUserTransaction(user,permission);
     }
+
+    @Override
+    public void insertUpdateWithoutTransaction() {
+        userRepository.insertUpdateWithoutTransaction();
+    }
+
+    @Override
+    public void insertUpdateUseTransaction() {
+        userRepository.insertUpdateUseTransaction();
+    }
 }

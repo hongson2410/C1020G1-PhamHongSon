@@ -63,11 +63,25 @@ public class UserServlet extends HttpServlet {
             case "permission":
                 addUserPermission(request,response);
                 break;
+            case "test-without-tran":
+                testWithoutTran(request,response);
+                break;
+            case "test-use-tran":
+                testUseTran(request, response);
+                break;
             default:
                 loadList(request, response);
                 break;
         }
 
+    }
+
+    private void testWithoutTran(HttpServletRequest request, HttpServletResponse response) {
+        userService.insertUpdateWithoutTransaction();
+    }
+
+    private void testUseTran(HttpServletRequest request, HttpServletResponse response) {
+        userService.insertUpdateUseTransaction();
     }
 
     private void addUserPermission(HttpServletRequest request, HttpServletResponse response) {
