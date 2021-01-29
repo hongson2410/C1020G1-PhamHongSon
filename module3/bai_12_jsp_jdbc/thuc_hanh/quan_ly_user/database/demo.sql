@@ -79,4 +79,3 @@ insert into Permision(name) values('edit');
 insert into Permision(name) values('delete');
 
 insert into Permision(name) values('view');
-

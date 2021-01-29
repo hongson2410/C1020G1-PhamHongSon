@@ -31,7 +31,8 @@
     </table>
 </c:if>
 <c:if test="${messenger.equals('not found')}">
-    <c:out value="${'User not found'}"/>
+<%--    <c:out value="${'User not found'}"/>--%>
+    <p style="color: red"><c:out value="${messenger}"/></p>
 </c:if>
 
 </body>

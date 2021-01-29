@@ -44,7 +44,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     private final String SQL_FIND_BY_NAME = "select * " +
             "from users " +
-            "where `name` like ? ";
+            "where `name` like concat ('%',?,'%')";
 
     private final String SQL_UPDATE = "update users " +
             "set `name` = ?, email = ?, country = ? " +
@@ -141,19 +141,21 @@ public class UserRepositoryImpl implements UserRepository {
     public List<User> findByName(String name) {
         List<User> users = new ArrayList<>();
         try {
-            PreparedStatement preparedStatement =
-                    this.baseRepository.getConnection().prepareStatement(SQL_FIND_BY_NAME);
-            preparedStatement.setString(1, "%" + name + "%");
-
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                User user = new User();
-                user.setId(Integer.parseInt(resultSet.getString("id")));
-                user.setName(resultSet.getString("name"));
-                user.setEmail(resultSet.getString("email"));
-                user.setCountry(resultSet.getString("country"));
-
-                users.add(user);
+            if (name.equals("")){
+                return users;
+            } else {
+                PreparedStatement preparedStatement =
+                        this.baseRepository.getConnection().prepareStatement(SQL_FIND_BY_NAME);
+                preparedStatement.setString(1, name);
+                ResultSet resultSet = preparedStatement.executeQuery();
+                while (resultSet.next()) {
+                    User user = new User();
+                    user.setId(Integer.parseInt(resultSet.getString("id")));
+                    user.setName(resultSet.getString("name"));
+                    user.setEmail(resultSet.getString("email"));
+                    user.setCountry(resultSet.getString("country"));
+                    users.add(user);
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();

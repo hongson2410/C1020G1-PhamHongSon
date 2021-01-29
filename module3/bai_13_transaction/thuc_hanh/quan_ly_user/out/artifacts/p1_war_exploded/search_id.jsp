@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -8,6 +9,7 @@
 <p>
     <a href="/UserServlet">Back to User list</a>
 </p>
+<p style="color: red"><c:out value="${message}"/></p>
 <p>
     Name:
     <input type="text" value="${userInfo.name}" name="name">

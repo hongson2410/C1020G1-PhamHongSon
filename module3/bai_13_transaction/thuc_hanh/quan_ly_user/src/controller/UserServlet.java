@@ -30,7 +30,7 @@ public class UserServlet extends HttpServlet {
                 deleteUser(request, response);
                 break;
             case "update":
-                updateUser(request,response);
+                updateUser(request, response);
             default:
                 break;
         }
@@ -46,7 +46,7 @@ public class UserServlet extends HttpServlet {
 
         switch (actionUser) {
             case "update":
-                showFormUpdate(request,response);
+                showFormUpdate(request, response);
                 break;
             case "create":
                 showCreateForm(request, response);
@@ -58,13 +58,13 @@ public class UserServlet extends HttpServlet {
                 viewCustomer(request, response);
                 break;
             case "searchById":
-                findUserById(request,response);
+                findUserById(request, response);
                 break;
             case "permission":
-                addUserPermission(request,response);
+                addUserPermission(request, response);
                 break;
             case "test-without-tran":
-                testWithoutTran(request,response);
+                testWithoutTran(request, response);
                 break;
             case "test-use-tran":
                 testUseTran(request, response);
@@ -101,9 +101,9 @@ public class UserServlet extends HttpServlet {
 
     }
 
-    private void showFormUpdate(HttpServletRequest request, HttpServletResponse response){
+    private void showFormUpdate(HttpServletRequest request, HttpServletResponse response) {
         Integer id = Integer.parseInt(request.getParameter("id"));
-        request.setAttribute("userInfo",userService.getUserById(id));
+        request.setAttribute("userInfo", userService.getUserById(id));
         try {
             request.getRequestDispatcher("update.jsp").forward(request, response);
         } catch (ServletException e) {
@@ -113,11 +113,23 @@ public class UserServlet extends HttpServlet {
         }
     }
 
-    private void findUserById(HttpServletRequest request, HttpServletResponse response){
-        Integer id = Integer.parseInt(request.getParameter("id"));
-        request.setAttribute("userInfo",userService.getUserById(id));
+    private void findUserById(HttpServletRequest request, HttpServletResponse response) {
+        String id = request.getParameter("id");
+        if (id.matches("\\d*")) {
+            User user = userService.getUserById(Integer.parseInt(id));
+            if (user == null) {
+                String msg = "not found";
+                request.setAttribute("message", msg);
+                request.setAttribute("userInfo", user);
+            } else {
+                request.setAttribute("userInfo", user);
+            }
+        } else {
+            String msg = "Input number";
+            request.setAttribute("message", msg);
+        }
         try {
-            request.getRequestDispatcher("search_id.jsp").forward(request,response);
+            request.getRequestDispatcher("search_id.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -125,17 +137,23 @@ public class UserServlet extends HttpServlet {
         }
     }
 
-    private void updateUser(HttpServletRequest request, HttpServletResponse response){
+    private void updateUser(HttpServletRequest request, HttpServletResponse response) {
         Integer id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String country = request.getParameter("country");
 
         User user = new User(id, name, email, country);
-        userService.save(user);
-
+        String msg = userService.save(user);
         try {
-            loadList(request, response);
+            if (msg.equals("Please Input")) {
+                request.setAttribute("userInfo", user);
+                request.setAttribute("message", msg);
+
+                request.getRequestDispatcher("update.jsp").forward(request, response);
+            } else {
+                loadList(request, response);
+            }
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -216,21 +234,20 @@ public class UserServlet extends HttpServlet {
         }
     }
 
-        private void viewCustomer(HttpServletRequest request, HttpServletResponse response) {
+    private void viewCustomer(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
         List<User> user = this.userService.findByName(name);
         RequestDispatcher dispatcher;
         String messenger;
-        if(user.isEmpty()){
+        if (user.isEmpty()) {
             messenger = "not found";
             request.setAttribute("messenger", messenger);
-            dispatcher = request.getRequestDispatcher("view.jsp");
         } else {
             messenger = "";
             request.setAttribute("messenger", messenger);
             request.setAttribute("userListFromServlet", user);
-            dispatcher = request.getRequestDispatcher("view.jsp");
         }
+        dispatcher = request.getRequestDispatcher("view.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {

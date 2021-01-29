@@ -13,8 +13,13 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository = new UserRepositoryImpl();
 
     @Override
-    public void save(User user) {
-        userRepository.save(user);
+    public String save(User user) {
+        if (user.getName().equals("") || user.getEmail().equals("") || user.getCountry().equals("")){
+            return "Please Input";
+        } else {
+            userRepository.save(user);
+            return "User was update";
+        }
     }
 
     @Override

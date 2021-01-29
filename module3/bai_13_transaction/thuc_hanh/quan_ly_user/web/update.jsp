@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -7,6 +8,7 @@
 <p>
     <a href="/UserServlet">Back to User list</a>
 </p>
+<h5 style="color: red"><c:out value="${message}"/></h5>
 <form action="/UserServlet" method="post">
     <input type="hidden" name="actionUser" value="update"/>
     <input type="hidden" name="id" value="${userInfo.id}"/>
