@@ -6,11 +6,36 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b82cd98c-11df-4608-a055-1d2999d26f14" name="Default Changelist" comment="" />
+    <list default="true" id="b82cd98c-11df-4608-a055-1d2999d26f14" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/src/main/java/controller/FuramaServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/src/main/java/model/bean/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/src/main/java/model/bean/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/src/main/java/model/repository/FuramaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/src/main/java/model/repository/impl/BaseRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/src/main/java/model/repository/impl/FuramaRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/src/main/java/model/service/FuramaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/src/main/java/model/service/impl/FuramaServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/src/main/webapp/create_customer.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/src/main/webapp/list_customer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai_12_jsp_jdbc/thuc_hanh/quan_ly_user/database/demo.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai_12_jsp_jdbc/thuc_hanh/quan_ly_user/database/demo.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../c10g-jsp-jstl/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../c10g-jsp-jstl/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -20,6 +45,7 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectId" id="1ndDCBgrua6p13Cn9ccnJjJSWp1" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -30,7 +56,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="D:/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/repository/impl" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -150,6 +176,7 @@
       <option name="presentableId" value="Default" />
       <updated>1611710943090</updated>
       <workItem from="1611710949618" duration="4064000" />
+      <workItem from="1612014546044" duration="44000" />
     </task>
     <servers />
   </component>

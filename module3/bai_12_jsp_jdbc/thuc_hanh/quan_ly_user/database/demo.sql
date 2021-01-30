@@ -64,12 +64,9 @@ name varchar(50)
 
  
 
-create table User_Permision(
-
-permision_id int(11),
-
-user_id int(11)
-
+CREATE TABLE User_Permision (
+    permision_id INT(11),
+    user_id INT(11)
 );
 
 insert into Permision(name) values('add');
