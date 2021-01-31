@@ -7,18 +7,9 @@
 <body>
 <h2>List Customer</h2>
 <p>
-    <a href="/furamaServlet?actionUser=create">Create new customer</a>
+    <a href="/furamaServlet">Back</a>
 </p>
-<form>
-    <input type="hidden" name="actionUser" value="searchByName"/>
-    <input type="text" name="name" placeholder="Search By Name"/>
-    <input type="submit" value="Search"/>
-</form>
-<form>
-    <input type="hidden" name="actionUser" value="searchById">
-    <input type="text" name="id" placeholder="Search By Id"/>
-    <input type="submit" value="Search"/>
-</form>
+<p style="color: red"><c:out value="${message}"/></p>
 <table border="1">
     <tr>
         <td>Customer Id</td>

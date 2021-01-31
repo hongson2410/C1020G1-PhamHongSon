@@ -140,5 +140,4 @@ value
 ('silver'),
 ('bronze');
 
-
 -- select * from customer;
