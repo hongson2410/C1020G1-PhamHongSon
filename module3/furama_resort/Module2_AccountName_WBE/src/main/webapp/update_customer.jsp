@@ -6,7 +6,7 @@
 </head>
 <body>
 <p>
-    <a href="/furamaServlet">Back to customer list</a>
+    <a href="/furamaServlet?actionUser=listCustomer">Back to customer list</a>
 </p>
 <h3 style="color: red"><c:out value="${message}"/></h3>
 <form method="post">

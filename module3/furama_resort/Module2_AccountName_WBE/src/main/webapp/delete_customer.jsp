@@ -2,11 +2,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Deleting user</title>
+    <title>Deleting customer</title>
 </head>
 <body>
 <p>
-    <a href="/furamaServlet">Back to user list</a>
+    <a href="/furamaServlet?actionUser=listCustomer">Back to customer list</a>
 </p>
 <form method="post">
     <input type="hidden" name="actionUser" value="delete"/>

@@ -19,11 +19,6 @@ division_id int auto_increment primary key,
 division_name varchar(45)
 );
 
-create table `user`(
-username varchar(255) primary key,
-`password` varchar(255)
-);
-
 create table employee(
 employee_id int auto_increment primary key,
 employee_name varchar(45) not null,
@@ -36,24 +31,9 @@ employee_address varchar(45),
 position_id int not null,
 education_degree_id int not null,
 division_id int not null,
-username varchar(45),
 foreign key(position_id) references `position`(position_id),
 foreign key(education_degree_id) references education_degree(education_degree_id),
-foreign key(division_id) references division(division_id),
-foreign key(username) references `user`(username)
-);
-
-create table `role`(
-role_id int auto_increment primary key,
-role_name varchar(255)
-);
-
-create table user_role(
-role_id int,
-username varchar(255),
-primary key(role_id,username),
-foreign key(role_id) references `role`(role_id),
-foreign key(username) references `user`(username)
+foreign key(division_id) references division(division_id)
 );
 
 create table customer_type(
@@ -65,7 +45,7 @@ create table customer(
 customer_id int auto_increment primary key,
 customer_type_id int not null,
 customer_name varchar(45) not null,
-customer_birthday varchar(45) not null,
+customer_birthday date not null,
 customer_gender int not null,
 customer_id_card varchar(45) not null,
 customer_phone varchar(45) not null,
@@ -78,6 +58,7 @@ create table service_type(
 service_type_id int auto_increment primary key,
 service_type_name varchar(45)
 );
+
 
 create table rent_type(
 rent_type_id int auto_increment primary key,
@@ -132,12 +113,33 @@ foreign key(contract_id) references contract(contract_id),
 foreign key(attach_service_id) references attach_service(attach_service_id)
 );
 
-insert into customer_type(customer_type_name)
-value 
-('dianmond'),
-('platinum'),
-('gold'),
-('silver'),
-('bronze');
+insert into rent_type ( rent_type_name, rent_type_cost)
+value
+('hour',10),
+('day', 100),
+('week',500),
+('month',2500),
+('year',20000);
 
--- select * from customer;
+insert into `position` (position_name)
+value
+('Receptionist'),
+('serve'),
+('expert'),
+('monitoring'),
+('manage'),
+('president');
+
+insert into education_degree(education_degree_name)
+value
+('Intermediate'),
+('Colleges'),
+('University'),
+('After university');
+
+insert into division(division_name)
+value
+('Sale – Marketing'),
+('Administration'),
+('Serve'),
+('Manage');

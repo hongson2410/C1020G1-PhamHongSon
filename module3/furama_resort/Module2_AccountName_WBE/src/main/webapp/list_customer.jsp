@@ -9,6 +9,10 @@
 <p>
     <a href="/furamaServlet?actionUser=create">Create new customer</a>
 </p>
+<p>
+    <a href="/furamaServlet">Back to Menu</a>
+</p>
+
 <form>
     <input type="hidden" name="actionUser" value="searchByName"/>
     <input type="text" name="name" placeholder="Search By Name"/>

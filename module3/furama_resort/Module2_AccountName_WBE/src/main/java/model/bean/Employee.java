@@ -12,14 +12,13 @@ public class Employee {
     private int position_id;
     private int education_degree_id;
     private int division_id;
-    private String username;
 
     public Employee() {
     }
 
     public Employee(String employee_name, String employee_birthday, String employee_id_card, double employee_salary,
                     String employee_phone, String employee_email, String employee_address, int position_id,
-                    int education_degree_id, int division_id, String username) {
+                    int education_degree_id, int division_id) {
         this.employee_name = employee_name;
         this.employee_birthday = employee_birthday;
         this.employee_id_card = employee_id_card;
@@ -30,12 +29,11 @@ public class Employee {
         this.position_id = position_id;
         this.education_degree_id = education_degree_id;
         this.division_id = division_id;
-        this.username = username;
     }
 
     public Employee(Integer employee_id, String employee_name, String employee_birthday, String employee_id_card,
                     double employee_salary, String employee_phone, String employee_email, String employee_address,
-                    int position_id, int education_degree_id, int division_id, String username) {
+                    int position_id, int education_degree_id, int division_id) {
         this.employee_id = employee_id;
         this.employee_name = employee_name;
         this.employee_birthday = employee_birthday;
@@ -47,7 +45,6 @@ public class Employee {
         this.position_id = position_id;
         this.education_degree_id = education_degree_id;
         this.division_id = division_id;
-        this.username = username;
     }
 
     public Integer getEmployee_id() {
@@ -136,13 +133,5 @@ public class Employee {
 
     public void setDivision_id(int division_id) {
         this.division_id = division_id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 }

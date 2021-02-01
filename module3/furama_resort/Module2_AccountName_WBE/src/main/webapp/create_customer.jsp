@@ -17,9 +17,10 @@
     </c:if>
 </p>
 <p>
-    <a href="/furamaServlet">Back to User list</a>
+    <a href="/furamaServlet?actionUser=listCustomer">Back to customer list Customer</a>
 </p>
 <form method="post">
+    <input type="hidden" name="actionUser" value="create"/>
     <fieldset>
         <legend>Customer information</legend>
         <table>
@@ -57,7 +58,7 @@
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" value="Create user"></td>
+                <td><input type="submit" value="Create Customer"></td>
             </tr>
         </table>
     </fieldset>

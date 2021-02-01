@@ -7,7 +7,7 @@
 <body>
 <h2>Customer Info</h2>
 <p>
-    <a href="/furamaServlet">Back to User list</a>
+    <a href="/furamaServlet?actionUser=listCustomer">Back to customer list</a>
 </p>
 <p style="color: red"><c:out value="${message}"/></p>
 <table border="1">
