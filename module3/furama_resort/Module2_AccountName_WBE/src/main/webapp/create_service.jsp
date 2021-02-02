@@ -25,6 +25,10 @@
         <legend>Service information</legend>
         <table>
             <tr>
+                <td>Service Code: </td>
+                <td><input type="text" name="service_code" id="service_code"></td>
+            </tr>
+            <tr>
                 <td>Service Name: </td>
                 <td><input type="text" name="service_name" id="service_name"></td>
             </tr>

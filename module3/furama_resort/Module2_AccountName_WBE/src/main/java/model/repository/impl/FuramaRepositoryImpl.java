@@ -14,14 +14,14 @@ import java.util.List;
 public class FuramaRepositoryImpl implements FuramaRepository {
     private BaseRepository baseRepository = new BaseRepository();
 
-    private static final String SQL_INSERT_CUSTOMER = "INSERT INTO customer (customer_type_id, customer_name, " +
+    private static final String SQL_INSERT_CUSTOMER = "INSERT INTO customer (customer_code,customer_type_id, customer_name, " +
             "customer_birthday, customer_gender, customer_id_card, customer_phone, customer_email, customer_address) " +
-            " VALUES (?,?,?,?,?,?,?,?)";
+            " VALUES (?,?,?,?,?,?,?,?,?)";
 
-    private static final String SQL_INSERT_SERVICE = "insert into service (service_name, service_area, service_cost, " +
+    private static final String SQL_INSERT_SERVICE = "insert into service (service_code,service_name, service_area, service_cost, " +
             "service_max_people,rent_type_id, service_type_id, standard_room,description_other_convenience, pool_area, " +
-            "number_floors) " +
-            " values (?,?,?,?,?,?,?,?,?,?)";
+            "number_of_floors) " +
+            " values (?,?,?,?,?,?,?,?,?,?,?)";
 
     private static final String SQL_FIND_ALL_CUSTOMER = "select * " +
             "from customer";
@@ -34,7 +34,7 @@ public class FuramaRepositoryImpl implements FuramaRepository {
             "where customer_id = ?";
 
     private static final String SQL_UPDATE_CUSTOMER = "update customer " +
-            "set customer_type_id = ? , customer_name = ? , customer_birthday = ? , customer_gender = ?, " +
+            "set customer_code = ? customer_type_id = ? , customer_name = ? , customer_birthday = ? , customer_gender = ?, " +
             "customer_id_card = ? , customer_phone = ? , customer_email = ? , customer_address = ? " +
             "where customer_id = ?";
 
@@ -77,6 +77,7 @@ public class FuramaRepositoryImpl implements FuramaRepository {
             Customer customer;
             while (resultSet.next()) {
                 customer = new Customer();
+                customer.setCustomer_code(resultSet.getString("customer_code"));
                 customer.setCustomer_id(Integer.parseInt(resultSet.getString("customer_id")));
                 customer.setCustomer_type_id(Integer.parseInt(resultSet.getString("customer_type_id")));
                 customer.setCustomer_name(resultSet.getString("customer_name"));
@@ -106,6 +107,7 @@ public class FuramaRepositoryImpl implements FuramaRepository {
             ResultSet resultSet = preparedStatement.executeQuery();
             resultSet.next();
             int customer_id = Integer.parseInt(resultSet.getString("customer_id"));
+            String customer_code = resultSet.getString("customer_code");
             int customer_type_id = Integer.parseInt(resultSet.getString("customer_type_id"));
             String customer_name = resultSet.getString("customer_name");
             String customer_birthday = resultSet.getString("customer_birthday");
@@ -114,7 +116,7 @@ public class FuramaRepositoryImpl implements FuramaRepository {
             String customer_phone = resultSet.getString("customer_phone");
             String customer_email = resultSet.getString("customer_email");
             String customer_address = resultSet.getString("customer_address");
-            customer = new Customer(customer_id, customer_type_id, customer_name, customer_birthday, customer_gender, customer_id_card,
+            customer = new Customer(customer_id,customer_code, customer_type_id, customer_name, customer_birthday, customer_gender, customer_id_card,
                     customer_phone, customer_email, customer_address);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -133,6 +135,7 @@ public class FuramaRepositoryImpl implements FuramaRepository {
             while (resultSet.next()) {
                 Customer customer = new Customer();
                 customer.setCustomer_id(Integer.parseInt(resultSet.getString("customer_id")));
+                customer.setCustomer_code(resultSet.getString("customer_code"));
                 customer.setCustomer_type_id(Integer.parseInt(resultSet.getString("customer_type_id")));
                 customer.setCustomer_name(resultSet.getString("customer_name"));
                 customer.setCustomer_birthday(resultSet.getString("customer_birthday"));
@@ -168,14 +171,15 @@ public class FuramaRepositoryImpl implements FuramaRepository {
             try {
                 PreparedStatement preparedStatement =
                         this.baseRepository.getConnection().prepareStatement(SQL_INSERT_CUSTOMER);
-                preparedStatement.setInt(1, customer.getCustomer_type_id());
-                preparedStatement.setString(2, customer.getCustomer_name());
-                preparedStatement.setString(3, customer.getCustomer_birthday());
-                preparedStatement.setInt(4, customer.isCustomer_gender());
-                preparedStatement.setString(5, customer.getCustomer_id_card());
-                preparedStatement.setString(6, customer.getCustomer_phone());
-                preparedStatement.setString(7, customer.getCustomer_email());
-                preparedStatement.setString(8, customer.getCustomer_address());
+                preparedStatement.setString(1,customer.getCustomer_code());
+                preparedStatement.setInt(2, customer.getCustomer_type_id());
+                preparedStatement.setString(3, customer.getCustomer_name());
+                preparedStatement.setString(4, customer.getCustomer_birthday());
+                preparedStatement.setInt(5, customer.isCustomer_gender());
+                preparedStatement.setString(6, customer.getCustomer_id_card());
+                preparedStatement.setString(7, customer.getCustomer_phone());
+                preparedStatement.setString(8, customer.getCustomer_email());
+                preparedStatement.setString(9, customer.getCustomer_address());
 
                 preparedStatement.executeUpdate();
             } catch (SQLException e) {
@@ -183,19 +187,20 @@ public class FuramaRepositoryImpl implements FuramaRepository {
             }
         } else {
             try {
-                PreparedStatement preparedStatement =
+                PreparedStatement preparedStatement2 =
                         this.baseRepository.getConnection().prepareStatement(SQL_UPDATE_CUSTOMER);
-                preparedStatement.setInt(1, customer.getCustomer_type_id());
-                preparedStatement.setString(2, customer.getCustomer_name());
-                preparedStatement.setString(3, customer.getCustomer_birthday());
-                preparedStatement.setInt(4, customer.isCustomer_gender());
-                preparedStatement.setString(5, customer.getCustomer_id_card());
-                preparedStatement.setString(6, customer.getCustomer_phone());
-                preparedStatement.setString(7, customer.getCustomer_email());
-                preparedStatement.setString(8, customer.getCustomer_address());
-                preparedStatement.setString(9, String.valueOf(customer.getCustomer_id()));
+                preparedStatement2.setString(1, customer.getCustomer_code());
+                preparedStatement2.setString(2, String.valueOf(customer.getCustomer_type_id()));
+                preparedStatement2.setString(3, customer.getCustomer_name());
+                preparedStatement2.setString(4, customer.getCustomer_birthday());
+                preparedStatement2.setString(5, String.valueOf(customer.isCustomer_gender()));
+                preparedStatement2.setString(6, customer.getCustomer_id_card());
+                preparedStatement2.setString(7, customer.getCustomer_phone());
+                preparedStatement2.setString(8, customer.getCustomer_email());
+                preparedStatement2.setString(9, customer.getCustomer_address());
+                preparedStatement2.setString(10, String.valueOf(customer.getCustomer_id()));
 
-                preparedStatement.executeUpdate();
+                preparedStatement2.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -348,16 +353,17 @@ public class FuramaRepositoryImpl implements FuramaRepository {
     public void saveService(Service service) {
         try {
             PreparedStatement preparedStatement = this.baseRepository.getConnection().prepareStatement(SQL_INSERT_SERVICE);
-            preparedStatement.setString(1, service.getService_name());
-            preparedStatement.setInt(2, service.getService_area());
-            preparedStatement.setDouble(3, service.getService_cost());
-            preparedStatement.setInt(4, service.getService_max_people());
-            preparedStatement.setInt(5, service.getRent_type_id());
-            preparedStatement.setInt(6, service.getService_type_id());
-            preparedStatement.setString(7, service.getStandard_room());
-            preparedStatement.setString(8, service.getDescription_other_convenience());
-            preparedStatement.setDouble(9, service.getPool_area());
-            preparedStatement.setInt(10, service.getNumber_floors());
+            preparedStatement.setString(1,service.getService_code());
+            preparedStatement.setString(2, service.getService_name());
+            preparedStatement.setInt(3, service.getService_area());
+            preparedStatement.setDouble(4, service.getService_cost());
+            preparedStatement.setInt(5, service.getService_max_people());
+            preparedStatement.setInt(6, service.getRent_type_id());
+            preparedStatement.setInt(7, service.getService_type_id());
+            preparedStatement.setString(8, service.getStandard_room());
+            preparedStatement.setString(9, service.getDescription_other_convenience());
+            preparedStatement.setDouble(10, service.getPool_area());
+            preparedStatement.setInt(11, service.getNumber_floors());
 
             preparedStatement.executeUpdate();
         } catch (SQLException e) {

@@ -15,6 +15,10 @@
         <legend>Customer information</legend>
         <table>
             <tr>
+                <td>Customer Code: </td>
+                <td><c:out value="${customerInfo.customer_code}"/></td>
+            </tr>
+            <tr>
                 <td>Customer Type Id: </td>
                 <td><c:out value="${customerInfo.customer_type_id}"/></td>
             </tr>

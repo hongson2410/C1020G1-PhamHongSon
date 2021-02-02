@@ -15,7 +15,7 @@ public interface FuramaService {
 
     void deleteCustomer(int id);
 
-    String saveCustomer(String customer_id, String customer_type_id, String customer_name, String customer_birthday,
+    String saveCustomer(String customer_id, String customer_code, String customer_type_id, String customer_name, String customer_birthday,
                         String customer_gender, String customer_id_card, String customer_phone, String customer_email,
                         String customer_address);
 
@@ -31,7 +31,7 @@ public interface FuramaService {
                         String employee_phone, String employee_email, String employee_address, String position_id,
                         String education_degree_id, String division_id);
 
-    String saveService(String service_name, String service_area, String service_cost,
+    String saveService(String service_code,String service_name, String service_area, String service_cost,
                      String service_max_people, String rent_type_id, String service_type_id, String standard_room,
                      String description_other_convenience, String pool_area, String number_floors);
 }

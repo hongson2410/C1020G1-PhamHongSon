@@ -43,6 +43,7 @@ customer_type_name varchar(45)
 
 create table customer(
 customer_id int auto_increment primary key,
+customer_code varchar(45) unique not null,
 customer_type_id int not null,
 customer_name varchar(45) not null,
 customer_birthday date not null,
@@ -68,6 +69,7 @@ rent_type_cost double
 
 create table service(
 service_id int auto_increment primary key,
+service_code varchar(45) unique not null,
 service_name varchar(45) not null,
 service_area int,
 service_cost double not null,
@@ -143,3 +145,11 @@ value
 ('Administration'),
 ('Serve'),
 ('Manage');
+
+insert into customer_type(customer_type_name)
+value 
+('diamond'),
+('platinum'),
+('gold'),
+('sliver'),
+('member');

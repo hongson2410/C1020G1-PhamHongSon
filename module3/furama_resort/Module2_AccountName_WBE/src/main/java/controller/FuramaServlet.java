@@ -25,9 +25,6 @@ public class FuramaServlet extends HttpServlet {
             case "create":
                 createCustomer(request, response);
                 break;
-            case "delete":
-                deleteCustomer(request, response);
-                break;
             case "update":
                 updateCustomer(request, response);
                 break;
@@ -60,7 +57,7 @@ public class FuramaServlet extends HttpServlet {
                 showFormCreateCustomer(request, response);
                 break;
             case "delete":
-                showFormDeleteCustomer(request, response);
+                deleteCustomer(request,response);
                 break;
             case "update":
                 showFormUpdate(request, response);
@@ -174,6 +171,7 @@ public class FuramaServlet extends HttpServlet {
 
     private void updateCustomer(HttpServletRequest request, HttpServletResponse response) {
         String customer_id = request.getParameter("id");
+        String customer_code = request.getParameter("customer_code");
         String customer_type_id = request.getParameter("customer_type_id");
         String customer_name = request.getParameter("customer_name");
         String customer_birthday = request.getParameter("customer_birthday");
@@ -183,10 +181,10 @@ public class FuramaServlet extends HttpServlet {
         String customer_email = request.getParameter("customer_email");
         String customer_address = request.getParameter("customer_address");
 
-        String msg = furamaService.saveCustomer(customer_id, customer_type_id, customer_name, customer_birthday, customer_gender,
+        String msg = furamaService.saveCustomer(customer_id, customer_code, customer_type_id, customer_name, customer_birthday, customer_gender,
                 customer_id_card, customer_phone, customer_email, customer_address);
         try {
-            if (msg.equals("Please Input!!!") || msg.equals("Please Input Number!!!")) {
+            if (msg.equals("Please Input!!!")) {
                 request.setAttribute("message", msg);
                 showFormUpdate(request, response);
             } else {
@@ -235,6 +233,7 @@ public class FuramaServlet extends HttpServlet {
     }
 
     private void createCustomer(HttpServletRequest request, HttpServletResponse response) {
+        String customer_code = request.getParameter("customer_code");
         String customer_type_id = request.getParameter("customer_type_id");
         String customer_name = request.getParameter("customer_name");
         String customer_birthday = request.getParameter("customer_birthday");
@@ -244,7 +243,7 @@ public class FuramaServlet extends HttpServlet {
         String customer_email = request.getParameter("customer_email");
         String customer_address = request.getParameter("customer_address");
 
-        String msg = furamaService.saveCustomer("", customer_type_id, customer_name, customer_birthday, customer_gender,
+        String msg = furamaService.saveCustomer("",customer_code, customer_type_id, customer_name, customer_birthday, customer_gender,
                 customer_id_card, customer_phone, customer_email, customer_address);
         RequestDispatcher dispatcher = request.getRequestDispatcher("create_customer.jsp");
         request.setAttribute("message", msg);
@@ -257,20 +256,20 @@ public class FuramaServlet extends HttpServlet {
         }
     }
 
-    private void showFormDeleteCustomer(HttpServletRequest request, HttpServletResponse response) {
-        String id = request.getParameter("id");
-        Customer customer = furamaService.findCustomerById(id);
-
-        request.setAttribute("customerInfo", customer);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("delete_customer.jsp");
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    private void showFormDeleteCustomer(HttpServletRequest request, HttpServletResponse response) {
+//        String id = request.getParameter("id");
+//        Customer customer = furamaService.findCustomerById(id);
+//
+//        request.setAttribute("customerInfo", customer);
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("delete_customer.jsp");
+//        try {
+//            dispatcher.forward(request, response);
+//        } catch (ServletException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) {
         Integer id = Integer.parseInt(request.getParameter("id"));
@@ -435,6 +434,7 @@ public class FuramaServlet extends HttpServlet {
     }
 
     private void createService(HttpServletRequest request, HttpServletResponse response){
+        String service_code = request.getParameter("service_code");
         String service_name = request.getParameter("service_name");
         String service_area = request.getParameter("service_area");
         String service_cost = request.getParameter("service_cost");
@@ -446,7 +446,7 @@ public class FuramaServlet extends HttpServlet {
         String pool_area = request.getParameter("pool_area");
         String number_of_floors= request.getParameter("number_of_floors");
 
-        String msg = furamaService.saveService(service_name,service_area,service_cost,service_max_people,rent_type_id,
+        String msg = furamaService.saveService(service_code,service_name,service_area,service_cost,service_max_people,rent_type_id,
                 service_type_id,standard_room,description_other_convenience,pool_area,number_of_floors);
         request.setAttribute("message",msg);
         try {
