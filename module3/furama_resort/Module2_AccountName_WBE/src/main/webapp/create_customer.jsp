@@ -64,11 +64,18 @@
         <div class="col-lg-8" style="padding: 0">
             <div class="body" style="text-align: center; margin-left: 10px">
                 <h2 style="text-align: left; color: dodgerblue">Create Customer</h2>
-                <p>
-                    <c:if test='${requestScope["message"] != null}'>
-                        <span class="message">${requestScope["message"]}</span>
+                <div style="clear:both">
+                    <c:if test='${requestScope["messenger"] == "Customer was create"}'>
+                        <div class="alert alert-success" role="alert">
+                            Customer created successfully
+                        </div>
                     </c:if>
-                </p>
+                    <c:if test='${(requestScope["messenger"] != "Customer was create") && (requestScope["messenger"] != null)}'>
+                        <div class="alert alert-danger" role="alert">
+                                ${requestScope["messenger"]}
+                        </div>
+                    </c:if>
+                </div>
                 <form method="post">
                     <input type="hidden" name="actionUser" value="create"/>
                     <table cellpadding="5">

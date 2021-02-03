@@ -184,8 +184,8 @@ public class FuramaServlet extends HttpServlet {
         String msg = furamaService.saveCustomer(customer_id, customer_code, customer_type_id, customer_name, customer_birthday, customer_gender,
                 customer_id_card, customer_phone, customer_email, customer_address);
         try {
-            if (msg.equals("Please Input!!!")) {
-                request.setAttribute("message", msg);
+            if (!msg.equals("Customer was update")) {
+                request.setAttribute("messenger", msg);
                 showFormUpdate(request, response);
             } else {
                 loadListCustomer(request, response);
@@ -246,7 +246,7 @@ public class FuramaServlet extends HttpServlet {
         String msg = furamaService.saveCustomer("",customer_code, customer_type_id, customer_name, customer_birthday, customer_gender,
                 customer_id_card, customer_phone, customer_email, customer_address);
         RequestDispatcher dispatcher = request.getRequestDispatcher("create_customer.jsp");
-        request.setAttribute("message", msg);
+        request.setAttribute("messenger", msg);
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {

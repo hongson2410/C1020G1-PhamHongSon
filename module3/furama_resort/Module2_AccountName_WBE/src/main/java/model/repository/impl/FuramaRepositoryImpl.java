@@ -18,6 +18,11 @@ public class FuramaRepositoryImpl implements FuramaRepository {
             "customer_birthday, customer_gender, customer_id_card, customer_phone, customer_email, customer_address) " +
             " VALUES (?,?,?,?,?,?,?,?,?)";
 
+    private static final String SQL_UPDATE_CUSTOMER = "update customer " +
+            "set customer_code = ? , customer_type_id = ? , customer_name = ? , customer_birthday = ? , customer_gender = ? , " +
+            "customer_id_card = ? , customer_phone = ? , customer_email = ? , customer_address = ? " +
+            " where customer_id = ? ";
+
     private static final String SQL_INSERT_SERVICE = "insert into service (service_code,service_name, service_area, service_cost, " +
             "service_max_people,rent_type_id, service_type_id, standard_room,description_other_convenience, pool_area, " +
             "number_of_floors) " +
@@ -31,11 +36,6 @@ public class FuramaRepositoryImpl implements FuramaRepository {
             "where customer_id = ?";
 
     private static final String SQL_DELETE_CUSTOMER = "delete from customer " +
-            "where customer_id = ?";
-
-    private static final String SQL_UPDATE_CUSTOMER = "update customer " +
-            "set customer_code = ? customer_type_id = ? , customer_name = ? , customer_birthday = ? , customer_gender = ?, " +
-            "customer_id_card = ? , customer_phone = ? , customer_email = ? , customer_address = ? " +
             "where customer_id = ?";
 
     private static final String SQL_FIND_CUSTOMER_BY_NAME = "select * " +
@@ -189,16 +189,16 @@ public class FuramaRepositoryImpl implements FuramaRepository {
             try {
                 PreparedStatement preparedStatement2 =
                         this.baseRepository.getConnection().prepareStatement(SQL_UPDATE_CUSTOMER);
-                preparedStatement2.setString(1, customer.getCustomer_code());
-                preparedStatement2.setString(2, String.valueOf(customer.getCustomer_type_id()));
+                preparedStatement2.setString(1,customer.getCustomer_code());
+                preparedStatement2.setInt(2, customer.getCustomer_type_id());
                 preparedStatement2.setString(3, customer.getCustomer_name());
                 preparedStatement2.setString(4, customer.getCustomer_birthday());
-                preparedStatement2.setString(5, String.valueOf(customer.isCustomer_gender()));
+                preparedStatement2.setInt(5, customer.isCustomer_gender());
                 preparedStatement2.setString(6, customer.getCustomer_id_card());
                 preparedStatement2.setString(7, customer.getCustomer_phone());
                 preparedStatement2.setString(8, customer.getCustomer_email());
                 preparedStatement2.setString(9, customer.getCustomer_address());
-                preparedStatement2.setString(10, String.valueOf(customer.getCustomer_id()));
+                preparedStatement2.setInt(10, customer.getCustomer_id());
 
                 preparedStatement2.executeUpdate();
             } catch (SQLException e) {

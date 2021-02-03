@@ -6,21 +6,64 @@ import model.bean.Service;
 import model.repository.FuramaRepository;
 import model.repository.impl.FuramaRepositoryImpl;
 import model.service.FuramaService;
+import model.validate.Input;
+import model.validate.ValidateFurama;
 
 import java.util.List;
 
 public class FuramaServiceImpl implements FuramaService {
     FuramaRepository furamaRepository = new FuramaRepositoryImpl();
+    Input input = new Input();
 
     @Override
     public String saveCustomer(String customer_id, String customer_code, String customer_type_id, String customer_name, String customer_birthday,
                                String customer_gender, String customer_id_card, String customer_phone, String customer_email,
                                String customer_address) {
         Customer customer;
-        if (customer_code.equals("") || customer_name.equals("") || customer_birthday.equals("")
-                || customer_id_card.equals("") || customer_phone.equals("")) {
-            return "Please Input!!!";
+
+        if (!ValidateFurama.nameCustomer(customer_code)) {
+            if (!input.inputString(customer_code)) {
+                return "Customer code must have value";
+            }
+            return "Wrong format Customer Code";
         }
+
+        if (!input.inputString(customer_name)) {
+            return "Name must have value";
+        }
+
+        if (!input.inputString(customer_birthday)) {
+            return "Birthday must have value";
+        }
+
+        if (!ValidateFurama.idRegex(customer_id_card)) {
+            if (!input.inputInt(customer_id_card)) {
+                if (!input.inputString(customer_id_card)) {
+                    return "ID Card must have value";
+                }
+                return "ID Card Number must have all numbers";
+            }
+            return "Wrong format ID Card Number";
+        }
+
+        if (!ValidateFurama.phoneRegex(customer_phone)) {
+            if (!input.inputString(customer_phone)) {
+                return "Phone must have value";
+            }
+            return "Wrong format Phone Number";
+        }
+
+        if (!ValidateFurama.emailRegex(customer_email)) {
+            if (!input.inputString(customer_email)) {
+                return "Email must have value";
+            }
+            return "Wrong format Email";
+        }
+
+        if (!input.inputString(customer_address)) {
+            return "Address must have value";
+        }
+
         if (customer_id.equals("")) {
             customer = new Customer(customer_code, Integer.parseInt(customer_type_id), customer_name,
                     customer_birthday, Integer.parseInt(customer_gender), customer_id_card, customer_phone, customer_email,

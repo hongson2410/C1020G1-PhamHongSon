@@ -55,9 +55,19 @@
         <div class="col-12" style="padding: 0">
             <div class="body">
                 <h2 style="text-align: center; color: dodgerblue">Edit Information Customer</h2>
-                <h3 style="color: red"><c:out value="${message}"/></h3>
+                <c:if test='${requestScope["messenger"] == "Customer was update"}'>
+                    <div class="alert alert-success" role="alert">
+                        Customer update successfully
+                    </div>
+                </c:if>
+                <c:if test='${(requestScope["messenger"] != "Customer was update") && (requestScope["messenger"] != null)}'>
+                    <div class="alert alert-danger" role="alert" style="text-align: center">
+                            ${requestScope["messenger"]}
+                    </div>
+                </c:if>
                 <form method="post">
                     <input type="hidden" name="actionUser" value="update"/>
+                    <input type="hidden" name="id" value="${customerInfo.customer_id}"/>
                     <table cellpadding="5" style="margin-left: 500px">
                         <tr>
                             <th>Customer Code:</th>

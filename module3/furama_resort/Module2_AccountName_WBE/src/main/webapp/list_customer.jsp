@@ -22,10 +22,6 @@
             margin-left: 10%;
         }
 
-        .container {
-            padding: 2rem 0rem;
-        }
-
         h4 {
             margin: 2rem 0rem 1rem;
         }
@@ -59,16 +55,6 @@
 
         .modal .modal-title {
             display: inline-block;
-        }
-
-        .modal .form-control {
-            border-radius: 2px;
-            box-shadow: none;
-            border-color: #dddddd;
-        }
-
-        .modal textarea.form-control {
-            resize: vertical;
         }
 
         .modal .btn {
@@ -132,7 +118,7 @@
     </div>
 </nav>
 
-<div class="container">
+<div class="container-fluid" style="padding: 0">
     <div class="row">
         <div class="col-12">
             <table class="table table-bordered">
@@ -153,16 +139,15 @@
                 <c:forEach var="customer" items="${customerListFromServlet}">
 
                     <tr>
-                        <th scope="row"><c:out value="${customer.customer_id}"/></th>
+                        <th><c:out value="${customer.customer_id}"/></th>
                         <td><c:out value="${customer.customer_name}"/></td>
                         <td><c:out value="${customer.customer_code}"/></td>
                         <td><c:out value="${customer.customer_birthday}"/></td>
                         <td><c:out value="${customer.customer_email}"/></td>
                         <td><c:out value="${customer.customer_phone}"/></td>
                         <td><c:if test="${customer.customer_type_id == 1}">
-                            Diamond
-                        </c:if>
-                            <c:if test="${customer.customer_type_id == 2}">
+                                Diamond
+                            </c:if><c:if test="${customer.customer_type_id == 2}">
                                 Platinum
                             </c:if><c:if test="${customer.customer_type_id == 3}">
                                 Gold
@@ -177,9 +162,8 @@
                                title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#exampleModal" value="${customer.customer_id}">
-                                <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                <i class="material-icons" >&#xE872;</i>
                             </button>
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                                  aria-hidden="true">
@@ -197,7 +181,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-primary" name="delete" value="yes">
-                                                <a href="/furamaServlet?actionUser=delete&value=yes&id=${customer.customer_id}"
+                                                <a href="/furamaServlet?actionUser=delete&id=${customer.customer_id}"
                                                    style="color: white;text-decoration: none">
                                                     Yes</a></button>
                                             <button type="button" class="btn btn-secondary"
@@ -210,46 +194,6 @@
                             </div>
                         </td>
                     </tr>
-
-                    <div id="editEmployeeModal" class="modal fade">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <form>
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">Edit Customer</h4>
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                            &times;
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <label>Name</label>
-                                            <input type="text"
-                                                   value="<c:out value="${customer.getCustomer_name()}"/>"
-                                                   name="customer_name">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input type="email" class="form-control" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Address</label>
-                                            <textarea class="form-control" required></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Phone</label>
-                                            <input type="text" class="form-control" required>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <input type="button" class="btn btn-default" data-dismiss="modal"
-                                               value="Cancel">
-                                        <input type="submit" class="btn btn-info" value="Save">
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
                 </c:forEach>
             </table>
         </div>
