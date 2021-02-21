@@ -7,7 +7,84 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35fe39cb-b516-4f17-965d-0a06f73075b5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../test_module_3/build/classes/java/main/config/CharsetFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test_module_3/build/classes/java/main/model/repository/impl/BaseRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test_module_3/build/classes/java/main/model/validate/Input.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test_module_3/build/classes/java/main/model/validate/Regex.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test_module_3/src/main/java/controller/ProductServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test_module_3/src/main/java/model/bean/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test_module_3/src/main/java/model/repository/ProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test_module_3/src/main/java/model/repository/impl/ProductRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test_module_3/src/main/java/model/service/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test_module_3/src/main/java/model/service/impl/ProductServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/create_product.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/list_product.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/test_3.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/build/libs/Module2_AccountName_WBE-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/build/libs/Module2_AccountName_WBE-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/src/main/webapp/list_customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../furama_resort/Module2_AccountName_WBE/src/main/webapp/list_customer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nhap/tung/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../nhap/tung/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nhap/tung/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../nhap/tung/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nhap/tung/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../nhap/tung/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nhap/tung/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../nhap/tung/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nhap/tung/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../nhap/tung/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nhap/tung/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../nhap/tung/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nhap/tung/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../nhap/tung/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nhap/tung/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../nhap/tung/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nhap/tung/build/classes/java/main/bean/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nhap/tung/build/classes/java/main/controller/EmployeeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../nhap/tung/build/classes/java/main/controller/EmployeeServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nhap/tung/build/classes/java/main/repository/impl/EmployeeRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../nhap/tung/build/classes/java/main/repository/impl/EmployeeRepositoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nhap/tung/build/classes/java/main/service/exception/BirthdayException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nhap/tung/build/classes/java/main/service/exception/CustomerTypeException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nhap/tung/build/classes/java/main/service/exception/EmailException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nhap/tung/build/classes/java/main/service/exception/GenderException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nhap/tung/build/classes/java/main/service/exception/IdNumberException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nhap/tung/build/classes/java/main/service/exception/NameException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nhap/tung/build/classes/java/main/service/exception/PhoneNumberException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nhap/tung/build/classes/java/main/service/function/Regex.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../nhap/tung/build/classes/java/main/service/function/Regex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nhap/tung/build/classes/java/main/service/impl/EmployeeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../nhap/tung/build/classes/java/main/service/impl/EmployeeServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nhap/tung/build/libs/casestudyMain-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../nhap/tung/build/libs/casestudyMain-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../test_module_3/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../test_module_3/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../test_module_3/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../test_module_3/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../test_module_3/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../test_module_3/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../test_module_3/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/java/model/repository/impl/BaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../test_module_3/src/main/java/model/repository/impl/BaseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/css/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/css/bootstrap-grid.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/css/bootstrap-grid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/css/bootstrap-grid.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/css/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/css/bootstrap-reboot.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/css/bootstrap-reboot.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/css/bootstrap-reboot.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/css/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/css/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/img/62371531.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/img/furama-da-nang-850x638.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/img/furama-resort-da-nang.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/img/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/img/logo1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/js/bootstrap.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/js/bootstrap.bundle.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/js/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/js/bootstrap.bundle.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/js/bootstrap.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/js/bootstrap.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test_module_3/src/main/webapp/bootstrap/js/jquery-3.5.1.min.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +120,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="D:/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../bai_12_jsp_jdbc/bai_tap/quan_ly_users" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -166,6 +243,7 @@
       <workItem from="1611796533478" duration="3785000" />
       <workItem from="1611802804908" duration="6286000" />
       <workItem from="1611830845383" duration="5721000" />
+      <workItem from="1612422638619" duration="646000" />
     </task>
     <servers />
   </component>

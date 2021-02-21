@@ -162,10 +162,10 @@
                                title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal${customer.customer_id}">
                                 <i class="material-icons" >&#xE872;</i>
                             </button>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            <div class="modal fade" id="exampleModal${customer.customer_id}" tabindex="-1" aria-labelledby="exampleModalLabel"
                                  aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -183,7 +183,8 @@
                                             <button type="button" class="btn btn-primary" name="delete" value="yes">
                                                 <a href="/furamaServlet?actionUser=delete&id=${customer.customer_id}"
                                                    style="color: white;text-decoration: none">
-                                                    Yes</a></button>
+                                                    Yes</a>
+                                            </button>
                                             <button type="button" class="btn btn-secondary"
                                                     data-dismiss="modal">
                                                 <a style="color: white;text-decoration: none">
