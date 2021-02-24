@@ -20,14 +20,6 @@ public class ConfigController {
     ConfigService configService;
 
     static List<String> languages = new ArrayList<>();
-
-    static {
-        languages.add("English");
-        languages.add("Vietnamese");
-        languages.add("Japanese");
-        languages.add("Chinese");
-    }
-
     static List<String> pages = new ArrayList<>();
 
     static {
@@ -37,6 +29,11 @@ public class ConfigController {
         pages.add("25");
         pages.add("50");
         pages.add("100");
+
+        languages.add("English");
+        languages.add("Vietnamese");
+        languages.add("Japanese");
+        languages.add("Chinese");
     }
 
     @RequestMapping("/")
