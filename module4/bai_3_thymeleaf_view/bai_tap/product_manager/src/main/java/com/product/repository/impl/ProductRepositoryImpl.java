@@ -35,16 +35,16 @@ public class ProductRepositoryImpl implements ProductRepository {
 
     @Override
     public Product findById(int id) {
-        return null;
+        return productMap.get(id);
     }
 
     @Override
     public void update(int id, Product product) {
-
+        productMap.put(id, product);
     }
 
     @Override
     public void remove(int id) {
-
+        productMap.remove(id);
     }
 }

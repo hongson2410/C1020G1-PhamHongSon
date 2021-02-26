@@ -47,9 +47,23 @@ public class CustomerController {
         return "redirect:/";
     }
 
+    @GetMapping("/customer/{id}/delete")
+    public String showFormDelete(@PathVariable Integer id, Model model){
+        model.addAttribute("customer", customerService.findById(id));
+        return "delete";
+    }
+
+    @PostMapping("/customer/delete")
+    public String deleteProduct(@ModelAttribute Customer customer, RedirectAttributes redirectAttributes){
+        productService.remove(customer.getId());
+        redirectAttributes.addFlashAttribute("message","1 customer has just been DELETE !!!");
+        return "redirect:/";
+    }
+
     @GetMapping("/customer/{id}/view")
     public String view(@PathVariable int id, Model model) {
         model.addAttribute("customer", customerService.findById(id));
         return "view";
     }
+
 }
