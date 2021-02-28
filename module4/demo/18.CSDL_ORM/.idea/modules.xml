@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/18.CSDL_ORM.CustomerORM.iml" filepath="$PROJECT_DIR$/.idea/modules/18.CSDL_ORM.CustomerORM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/18.CSDL_ORM.CustomerORM.main.iml" filepath="$PROJECT_DIR$/.idea/modules/18.CSDL_ORM.CustomerORM.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/18.CSDL_ORM.CustomerORM.test.iml" filepath="$PROJECT_DIR$/.idea/modules/18.CSDL_ORM.CustomerORM.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CustomerORM.main.iml" filepath="$PROJECT_DIR$/.idea/modules/CustomerORM.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CustomerORM.test.iml" filepath="$PROJECT_DIR$/.idea/modules/CustomerORM.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Module2.18.CSDL_ORM.CustomerORM.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Module2.18.CSDL_ORM.CustomerORM.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Module2.18.CSDL_ORM.CustomerORM.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Module2.18.CSDL_ORM.CustomerORM.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/codegym.com.CustomerORM.main.iml" filepath="$PROJECT_DIR$/.idea/modules/codegym.com.CustomerORM.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/codegym.com.CustomerORM.test.iml" filepath="$PROJECT_DIR$/.idea/modules/codegym.com.CustomerORM.test.iml" />
+    </modules>
+  </component>
+</project>
