@@ -4,6 +4,7 @@ import com.wbd.model.Customer;
 import com.wbd.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,17 +25,16 @@ public class CustomerController {
         return modelAndView;
     }
 
-    @GetMapping("{id}")
-    public ModelAndView showInformation(@PathVariable Long id) {
-        ModelAndView modelAndView = new ModelAndView("customers/info");
+    @GetMapping("customers/info/{id}")
+    public String showInformation(@PathVariable Long id, Model model) {
         Customer customer = customerService.findOne(id);
-        modelAndView.addObject("customer", customer);
-        return modelAndView;
+        model.addAttribute("customer", customer);
+        return "customers/info";
     }
 
     @PostMapping
     public String updateCustomer(Customer customer) {
         customerService.save(customer);
-        return "redirect:/customers";
+        return "redirect:/customers/list";
     }
 }

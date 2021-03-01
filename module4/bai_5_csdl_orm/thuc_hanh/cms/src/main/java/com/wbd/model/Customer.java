@@ -62,22 +62,22 @@ public class Customer {
         this.address = address;
     }
 
-    @Override
-    public Customer clone() {
-        Customer customer = new Customer();
-        customer.setId(id);
-        customer.setName(name);
-        customer.setEmail(email);
-        customer.setAddress(address);
-        return customer;
-    }
-
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", address='" + address + '\'' +
-                '}';
-    }
+//    @Override
+//    public Customer clone() {
+//        Customer customer = new Customer();
+//        customer.setId(id);
+//        customer.setName(name);
+//        customer.setEmail(email);
+//        customer.setAddress(address);
+//        return customer;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "Customer{" +
+//                "name='" + name + '\'' +
+//                ", email='" + email + '\'' +
+//                ", address='" + address + '\'' +
+//                '}';
+//    }
 }
