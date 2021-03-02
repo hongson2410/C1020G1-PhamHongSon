@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -45,28 +44,14 @@ public class BlogController {
     @PostMapping("edit")
     public String editBlog(@ModelAttribute Blog blog, RedirectAttributes redirectAttributes) {
         blogService.save(blog);
-        redirectAttributes.addFlashAttribute("message", "New blog edit successfully");
+        redirectAttributes.addFlashAttribute("message", "This blog edit successfully");
         return "redirect:/";
     }
 
-    @GetMapping("delete/{id}")
-    public ModelAndView showFormDelete(@PathVariable Integer id){
-        Blog blog = blogService.findById(id);
-        if(blog != null) {
-            ModelAndView modelAndView = new ModelAndView("delete");
-            modelAndView.addObject("blog", blog);
-            return modelAndView;
-
-        }else {
-            ModelAndView modelAndView = new ModelAndView("/error.404");
-            return modelAndView;
-        }
-    }
-
     @PostMapping("delete")
-    public String deleteBlog(@ModelAttribute Blog blog, RedirectAttributes redirectAttributes){
-        blogService.deleteById(blog.getId());
-        redirectAttributes.addFlashAttribute("message","New blog delete successfully");
+    public String deleteBlog(@ModelAttribute(name = "id") Integer id, RedirectAttributes redirectAttributes){
+        blogService.deleteById(id);
+        redirectAttributes.addFlashAttribute("message","This blog delete successfully");
         return "redirect:/";
     }
 
