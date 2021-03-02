@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<h3>My Blogs</h3>
+<div class="notify">
+    <div th:if="${message}">
+        <span th:text="${message}"></span>
+    </div>
+</div>
+<p>
+    <a th:href="@{/create}">
+        Add Blog
+    </a>
+</p>
+<table id="blog">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Title</th>
+        <th>Type</th>
+        <th>BLog Writer</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>View</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="blog,interStart : ${blogList}">
+        <td th:text="${blog.getBlogName()}"></td>
+        <td th:text="${blog.getTitleBlog()}"></td>
+        <td th:text="${blog.getTypeBlog()}"></td>
+        <td th:text="${blog.getBlogWriter()}"></td>
+        <td><a th:href="@{/edit/{id}(id=${blog.id})}">Edit</a></td>
+        <td><a th:href="@{/delete/{id}(id=${blog.id})}">Delete</a></td>
+        <td><a th:href="@{/view/{id}(id=${blog.id})}">View</a></td>
+    </tr>
+    </tbody>
+</table>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

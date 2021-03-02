@@ -1,7 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cf8b8299-2bfa-4010-aa94-dbd8c7820a14" name="Default Changelist" comment="" />
+    <list default="true" id="cf8b8299-2bfa-4010-aa94-dbd8c7820a14" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../../demo/demo-jpa/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../demo/demo-jpa/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../demo/demo-jpa/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../demo/demo-jpa/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../demo/demo-jpa/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../demo/demo-jpa/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../demo/demo-jpa/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../demo/demo-jpa/src/main/java/com/codegym/demojpa/DemoJpaApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../demo/demo-jpa/src/main/java/com/codegym/demojpa/controllers/StudentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../demo/demo-jpa/src/main/java/com/codegym/demojpa/models/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../demo/demo-jpa/src/main/java/com/codegym/demojpa/repositories/StudentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../demo/demo-jpa/src/main/java/com/codegym/demojpa/services/StudentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../demo/demo-jpa/src/main/java/com/codegym/demojpa/services/StudentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../demo/demo-jpa/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../demo/demo-jpa/src/main/resources/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../demo/demo-jpa/src/test/java/com/codegym/demojpa/DemoJpaApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai_tap/product_manager/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai_tap/product_manager/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai_tap/product_manager/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai_tap/product_manager/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai_tap/product_manager/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai_tap/product_manager/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai_tap/product_manager/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai_tap/product_manager/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai_tap/product_manager/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai_tap/product_manager/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai_tap/product_manager/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai_tap/product_manager/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai_tap/product_manager/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai_tap/product_manager/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai_tap/product_manager/build/classes/java/main/com/product/model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai_tap/product_manager/build/classes/java/main/com/product/model/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai_tap/product_manager/build/libs/product_manager-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai_tap/product_manager/build/libs/product_manager-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai_tap/product_manager/src/main/java/com/product/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai_tap/product_manager/src/main/java/com/product/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai_tap/product_manager/src/main/resources/manager_product_module_4.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai_tap/product_manager/src/main/resources/manager_product_module_4.sql" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -219,6 +247,7 @@
       <updated>1614566736938</updated>
       <workItem from="1614566741596" duration="1165000" />
       <workItem from="1614569895772" duration="8000" />
+      <workItem from="1614589683344" duration="118000" />
     </task>
     <servers />
   </component>

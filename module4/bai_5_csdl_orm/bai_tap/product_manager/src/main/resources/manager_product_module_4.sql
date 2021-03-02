@@ -2,13 +2,13 @@ drop database if exists manager_product_module_4;
 create database manager_product_module_4;
 use manager_product_module_4;
 
-create table product (
-	id int primary key auto_increment,
-    `name` varchar(45),
-    manufacturer varchar(45),
-	productType varchar(45),
-    price int
-    );
+-- create table product (
+-- 	id int primary key auto_increment,
+--     `name` varchar(45),
+--     manufacturer varchar(45),
+-- 	productType varchar(45),
+--     price int
+--     );
    
 insert into product (`name`, manufacturer,productType,price)
 value 

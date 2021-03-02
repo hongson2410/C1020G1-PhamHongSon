@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+<h3>BLog</h3>
+<p>
+    <a href="/">BLog list</a>
+</p>
+<div id="form">
+    <form th:object="${blog}" method="post">
+        <table>
+            <tr>
+                <td>Blog Id:</td>
+                <td><input type="text" disabled th:field="*{id}"/></td>
+            </tr>
+            <tr>
+                <td>Blog Name:</td>
+                <td><input type="text" disabled th:field="*{blogName}"/></td>
+            </tr>
+            <tr>
+                <td>Title Blog:</td>
+                <td><input type="text" disabled th:field="*{titleBlog}"/></td>
+            </tr>
+            <tr>
+                <td>Type Blog:</td>
+                <td><input type="text" disabled th:field="*{typeBlog}"/></td>
+            </tr>
+            <tr>
+                <td>Blog Writer:</td>
+                <td><input type="text" disabled th:field="*{blogWriter}"/></td>
+            </tr>
+            <tr>
+                <td>Content:</td>
+                <td><input type="text" disabled th:field="*{content}"/></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

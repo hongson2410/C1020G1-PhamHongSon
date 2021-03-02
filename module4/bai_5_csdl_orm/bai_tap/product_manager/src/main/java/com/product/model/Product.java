@@ -8,7 +8,8 @@ import javax.persistence.*;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+//    đổi tên trường
+    @Column(name = "id123")
     private Long id;
     private String name;
     private String manufacturer;
