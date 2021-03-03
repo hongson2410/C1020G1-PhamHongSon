@@ -12,6 +12,9 @@ public class Student {
 
     private int age;
 
+    @ManyToOne
+    @JoinColumn(name = "type_of_class_id")
+    private TypeOfClass typeOfClass;
 
     public Student() {
     }
@@ -38,6 +41,14 @@ public class Student {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public TypeOfClass getTypeOfClass() {
+        return typeOfClass;
+    }
+
+    public void setTypeOfClass(TypeOfClass typeOfClass) {
+        this.typeOfClass = typeOfClass;
     }
 
     @Override

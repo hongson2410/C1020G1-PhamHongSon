@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+<h3>Edit blog</h3>
+<p>
+    <a href="/">BLogs list</a>
+</p>
+<div id="form">
+    <form th:action="@{/edit}" th:object="${blog}" method="post">
+        <input th:type="hidden" name="id" th:field="*{id}">
+<!--        <input th:type="hidden" name="dateUpdate" th:field="*{dateUpdate}">-->
+        <table>
+            <tr>
+                <td>Blog Name:</td>
+                <td><input type="text" th:field="*{blogName}"/></td>
+            </tr>
+            <tr>
+                <td>Title Blog:</td>
+                <td><input type="text" th:field="*{titleBlog}"/></td>
+            </tr>
+            <tr>
+                <td>Category:</td>
+                <td>
+                    <select th:field="*{category}">
+                        <option th:each="p : ${categories}" th:value="${p.id}" th:text="${p.categoryName}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Type Blog:</td>
+                <td><input type="text" th:field="*{typeBlog}"/></td>
+            </tr>
+            <tr>
+                <td>Blog Writer:</td>
+                <td><input type="text" th:field="*{blogWriter}"/></td>
+            </tr>
+<!--            <tr>-->
+<!--                <td>Date Update:</td>-->
+<!--                <td><input type="date" th:field="*{dateUpdate}"/></td>-->
+<!--            </tr>-->
+            <tr>
+                <td>Content:</td>
+                <td><input type="text" th:field="*{content}"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Update"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

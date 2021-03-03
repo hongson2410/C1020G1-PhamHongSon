@@ -3,6 +3,8 @@ package com.codegym.demojpa.services;
 import com.codegym.demojpa.models.Student;
 import com.codegym.demojpa.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,8 +15,8 @@ public class StudentServiceImpl implements StudentService{
     StudentRepository studentRepository;
 
     @Override
-    public List<Student> findAllStudent() {
-        return studentRepository.findAll();
+    public Page<Student> findAllStudent(Pageable pageable) {
+        return studentRepository.findAll(pageable);
     }
 
     @Override
@@ -25,5 +27,10 @@ public class StudentServiceImpl implements StudentService{
     @Override
     public Student findByName(String name) {
         return studentRepository.findByName(name);
+    }
+
+    @Override
+    public void save(Student student) {
+        studentRepository.save(student);
     }
 }
