@@ -14,7 +14,7 @@ public class Blog {
     private String typeBlog;
 
     @ManyToOne
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
 
     private Date dateUpdate;
