@@ -1,6 +1,7 @@
 package com.blog.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "category")
@@ -9,6 +10,9 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String categoryName;
+
+    @OneToMany(mappedBy = "category")
+    private List<Blog> blog;
 
     public Category() {
     }
@@ -32,5 +36,13 @@ public class Category {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
+    }
+
+    public List<Blog> getBlog() {
+        return blog;
+    }
+
+    public void setBlog(List<Blog> blog) {
+        this.blog = blog;
     }
 }
