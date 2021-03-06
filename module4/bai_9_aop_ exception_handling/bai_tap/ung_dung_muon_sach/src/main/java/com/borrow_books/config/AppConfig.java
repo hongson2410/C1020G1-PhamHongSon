@@ -1,6 +1,6 @@
 package com.borrow_books.config;
 
-import com.borrow_books.concern.Logger;
+import com.borrow_books.concern.Aop;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 public class AppConfig {
 
     @Bean
-    public Logger logger() {
-        return new Logger();
+    public Aop aop() {
+        return new Aop();
     }
 
 }
