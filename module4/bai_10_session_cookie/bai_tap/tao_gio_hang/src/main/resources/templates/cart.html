@@ -3,34 +3,48 @@
 <head th:replace="/layout :: head">
 </head>
 <body>
-<h3>Market</h3>
-<a class="btn btn-primary"
-   th:href="@{/show_cart}"
-   role="button" style="margin-left: 20%">Show your cart</a>
+<h3>Your Cart</h3>
 <table id="product">
     <thead>
     <tr>
         <th>Name Product</th>
         <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th>Change</th>
         <th>Action</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="product : ${products}">
+    <tr th:each="product : ${cart}">
         <td th:text="${product.getNameProduct()}"></td>
         <td th:text="${product.getPrice()}"></td>
+        <td th:text="${product.getQuantity()}"></td>
+        <td th:text="${product.getQuantity()*product.getPrice()}"></td>
         <td><a class="btn btn-primary"
-               th:href="@{/view/{id}(id=${product.id})}"
-               role="button" style="margin-left: 20%">View</a>
+               th:href="@{/plus/{id}(id=${product.id})}"
+               role="button" style="margin-left: 20%">+</a>
+            <a class="btn btn-primary"
+               th:href="@{/minus/{id}(id=${product.id})}"
+               role="button" style="margin-left: 20%">-</a>
+        </td>
+        <td>
+            <a class="btn btn-primary"
+               th:href="@{/delete_product/{id}(id=${product.id})}"
+               role="button" style="margin-left: 20%">Delete Product
+            </a>
         </td>
     </tr>
     </tbody>
 </table>
-<div>
-    <a th:href="@{'/'(page=${products.number - 1})}" th:if="${products.hasPrevious()}">Previous</a>
-    <span th:text="${products.number + 1}"></span>/<span th:text="${products.totalPages}"></span>
-    <a th:href="@{'/'(page=${products.number + 1})}" th:if="${products.hasNext()}">Next</a>
-</div>
+<a class="btn btn-primary"
+   th:href="@{/delete_product/{id}(id=${0})}"
+   role="button" style="margin-left: 20%">Delete All Cart
+</a>
+<a class="btn btn-primary"
+   th:href="@{/}"
+   role="button" style="margin-left: 20%">Back to market
+</a>
 <footer th:replace="/layout :: footer"></footer>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

@@ -25,6 +25,11 @@
                 <td>Description:</td>
                 <td><input type="text" disabled th:field="*{description}"/></td>
             </tr>
+            <tr>
+                <a class="btn btn-primary"
+                   th:href="@{/order/{id}(id=${product.id})}"
+                   role="button" style="margin-left: 20%">Order</a>
+            </tr>
         </table>
     </form>
 </div>

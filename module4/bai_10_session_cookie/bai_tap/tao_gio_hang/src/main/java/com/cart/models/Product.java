@@ -1,6 +1,7 @@
 package com.cart.models;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table
@@ -12,6 +13,7 @@ public class Product {
     private String nameProduct;
     private Integer price;
     private String description;
+    private int quantity;
 
     public Product() {
     }
@@ -46,5 +48,13 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }
