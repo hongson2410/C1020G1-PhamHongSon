@@ -1,0 +1,5 @@
+1/ Mở project spring bằng Intellij.
+2/ Mở project ajax bằng Webstorm (hoặc có thể giải nén ra chạy thẳng file html).
+3/ Run project Spring (nhớ update application.properties) -> thêm dữ liệu cho table class
+4/ Chạy html CREATE ở project ajax (chỗ pulldown class đang gán cứng, nên chỉ cần có tồn tại id bên DB là được).
+5/ Chạy html DETAIL, muốn xem id student nào thì vào chỉnh lại biến idStudent
