@@ -56,27 +56,12 @@ public class MarketController {
         return "cart";
     }
 
-    @GetMapping("/plus/{id}")
-    public String plusProductInCart(@ModelAttribute("cart") List<Product> cart, @PathVariable Integer id, Model model) {
+    @GetMapping("/change")
+    public String changeProductInCart(@RequestParam("id") int id, @RequestParam("change") int change, Model model,
+                                      @ModelAttribute("cart") List<Product> cart) {
         for (Product product : cart) {
-            if (id == product.getId()) {
-                product.setQuantity(product.getQuantity() + 1);
-            }
-        }
-        model.addAttribute("cart", cart);
-        return "cart";
-    }
-
-    @GetMapping("/minus/{id}")
-    public String minusProductInCart(@ModelAttribute("cart") List<Product> cart, @PathVariable Integer id, Model model) {
-        for (Product product : cart) {
-            if (id == product.getId()) {
-                if (product.getQuantity() == 1) {
-                    cart.remove(product);
-                    model.addAttribute("cart", cart);
-                    return "cart";
-                }
-                product.setQuantity(product.getQuantity() - 1);
+            if (product.getId() == id) {
+                product.setQuantity(change);
             }
         }
         model.addAttribute("cart", cart);

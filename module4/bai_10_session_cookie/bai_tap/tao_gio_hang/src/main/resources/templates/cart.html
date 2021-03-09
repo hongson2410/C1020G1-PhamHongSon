@@ -11,30 +11,37 @@
         <th>Price</th>
         <th>Quantity</th>
         <th>Total</th>
-        <th>Change</th>
+        <th>Change quantity</th>
         <th>Action</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="product : ${cart}">
-        <td th:text="${product.getNameProduct()}"></td>
-        <td th:text="${product.getPrice()}"></td>
-        <td th:text="${product.getQuantity()}"></td>
-        <td th:text="${product.getQuantity()*product.getPrice()}"></td>
-        <td><a class="btn btn-primary"
-               th:href="@{/plus/{id}(id=${product.id})}"
-               role="button" style="margin-left: 20%">+</a>
-            <a class="btn btn-primary"
-               th:href="@{/minus/{id}(id=${product.id})}"
-               role="button" style="margin-left: 20%">-</a>
-        </td>
-        <td>
-            <a class="btn btn-primary"
-               th:href="@{/delete_product/{id}(id=${product.id})}"
-               role="button" style="margin-left: 20%">Delete Product
-            </a>
-        </td>
+        <form th:action="@{/change}" method="get">
+            <td th:text="${product.getNameProduct()}"></td>
+            <td th:text="${product.getPrice()}"></td>
+            <td th:text="${product.getQuantity()}"></td>
+            <td th:text="${product.getQuantity()*product.getPrice()}"></td>
+            <td>
+                <input th:type="text" placeholder="Input number" name="change">
+                <input th:type="hidden" name="id" th:value="${product.id}">
+            </td>
+            <td>
+                <button type="submit" class="btn btn-primary"
+                        data-dismiss="modal">update
+                </button>
+                <button type="button" class="btn btn-secondary"
+                        data-dismiss="modal">
+                    <a style="color: white;text-decoration: none" th:href="@{/delete_product/{id}(id=${product.id})}">
+                        Delete Product</a>
+                </button>
+            </td>
+        </form>
     </tr>
+    <!--    <tr>-->
+    <!--        <th>Total Cart</th>-->
+    <!--        <td></td>-->
+    <!--    </tr>-->
     </tbody>
 </table>
 <a class="btn btn-primary"
