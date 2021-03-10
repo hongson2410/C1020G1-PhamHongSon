@@ -5,10 +5,12 @@
     <title>Detail student</title>
 </head>
 <body>
-    <p>Name: <span id="spanName"></span></p>
-    <p>Date of birth: <span id="spanDateOfBirth"></span></p>
-    <p>Class Name: <span id="spanClassName"></span></p>
-
+    <div id="divBody">
+<!--        <p>Name: <span id="spanName"></span></p>-->
+<!--        <p>Date of birth: <span id="spanDateOfBirth"></span></p>-->
+<!--        <p>Class Name: <span id="spanClassName"></span></p>-->
+    </div>
+    <button id="btnMore">Tải thêm</button>
 <script src="jquery-3.5.1.min.js"></script>
 <script>
     let idStudent = 2;
@@ -19,13 +21,26 @@
         // dataType: "text",
         success: function(result){
             console.log(result);
-            $("#spanName").text(result.name);
-            $("#spanDateOfBirth").text(result.dateOfBirth);
-            $("#spanClassName").text(result.classRoom.name);
+            // $("#spanName").text(result.name);
+            // $("#spanDateOfBirth").text(result.dateOfBirth);
+            // $("#spanClassName").text(result.classRoom.name);
+            $("#divBody").html("Id hoc vien: " + result.id + "<br>" +
+                "<span style='color: red'>Name: </span>" + result.name + "<br>" +
+                "Date of birth: " + result.dateOfBirth + "<br>" +
+                "Lop hoc: " + result.classRoom.name);
+
         },
         error: function(result) {
             console.log("Fail");
         }
+    });
+
+    $("#btnMore").click(function() {
+        let oldHtml = $("#divBody").html();
+
+        // call webservice
+        oldHtml += "<br>Info Thinh";
+        $("#divBody").html(oldHtml);
     });
 </script>
 </body>

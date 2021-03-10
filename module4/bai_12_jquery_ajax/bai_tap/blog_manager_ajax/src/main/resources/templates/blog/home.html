@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/blog/layout :: head">
+</head>
+<body>
+<h3>Blog List</h3>
+<p>
+    <a class="btn btn-primary"
+       th:href="@{/create}"
+       role="button" style="margin-left: 20%">Add new blog
+    </a>
+    <a class="btn btn-primary"
+       th:href="@{/category}"
+       role="button" style="margin-left: 20%">Category
+    </a>
+</p>
+<form id="searchByName" th:action="search_name">
+    Search by name:
+    <input id="name" name="nameBlog" type="text"/>
+    <input type="submit" value="Search"/>
+</form>
+<br/>
+<form th:action="search_category">
+    <label>Category: </label>
+    <select name="id">
+        <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.categoryName}"></option>
+    </select>
+    <input type="submit" value="Search"/>
+</form>
+<div class="notify">
+    <div th:if="${message}">
+        <span th:text="${message}"></span>
+    </div>
+</div>
+<table id="blog">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Type</th>
+        <th>BLog Writer</th>
+        <th>Date Update</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>View</th>
+    </tr>
+    </thead>
+    <tbody id="listBlog">
+    </tbody>
+</table>
+
+<footer th:replace="/blog/layout :: footer"></footer>
+</body>
+<script src="jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function (event) {
+        $.ajax({
+            headers: {
+                'Accept': "application/json",
+                'Content-Type': 'application/json'
+            },
+            type: "GET",
+            url: "http://localhost:8080/",
+            dataType: "json",
+            success: function (blogList) {
+                for (let i = 0; i < blogList.content.length; i++) {
+                    let row = "<tr>";
+                    row += "<td>" + blogList.content[i].blogName + "</td>";
+                    row += "<td>" + blogList.content[i].titleBlog + "</td>";
+                    row += "<td>" + blogList.content[i].category.categoryName + "</td>";
+                    row += "<td>" + blogList.content[i].typeBlog + "</td>";
+                    row += "<td>" + blogList.content[i].blogWriter + "</td>";
+                    row += "<td>" + blogList.content[i].dateUpdate + "</td>";
+                    row += "<td><a href=/blog/edit/" + blogList.content[i].id + ">Edit</a></td>";
+                    row += "<td><a href=/blog/delete/" + blogList.content[i].id + ">Delete</a></td>";
+                    row += "<td><a href=/blog/view/" + blogList.content[i].id + ">View</a></td>";
+                    row += "</tr>";
+                    $('#listBlog').html(row);
+                }
+            },
+            error: function (event) {
+                console.log("Fail");
+            }
+        })
+    });
+</script>
+</html>
