@@ -84,7 +84,7 @@ public class BlocController {
     }
 
     @PostMapping("delete")
-    public String deleteBlog(@ModelAttribute(name = "id") Integer id, RedirectAttributes redirectAttributes) {
+    public String deleteBlog(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
         blogService.deleteById(id);
         redirectAttributes.addFlashAttribute("message", "This blog delete successfully");
         return "redirect:/";
