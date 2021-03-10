@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface BlogRepository extends JpaRepository<Blog, Integer> {
-    List<Blog> findByOrderByDateUpdateDesc();
+    Page<Blog> findByOrderByDateUpdateDesc(Pageable pageable);
 
     List<Blog> findByBlogNameContaining(String blogName);
 

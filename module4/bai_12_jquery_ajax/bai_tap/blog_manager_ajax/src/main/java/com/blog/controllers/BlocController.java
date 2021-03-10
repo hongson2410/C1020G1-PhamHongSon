@@ -6,6 +6,7 @@ import com.blog.service.impl.BlogServiceImpl;
 import com.blog.service.impl.CategoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.MediaType;
@@ -30,23 +31,30 @@ public class BlocController {
         return categoryService.findAllCategory();
     }
 
-    @RequestMapping(value = "",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE,
+    @RequestMapping(value = "/blog", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public List<Blog> allBlog(){
-        return blogService.findAll();
+    public Page<Blog> allBlog(@PageableDefault(page = 0, size = 2) Pageable pageable) {
+        return blogService.findAll(pageable);
     }
 
     @GetMapping("")
-    public String showHome( Model model ) {
-        model.addAttribute("blogList", allBlog());
+    public String showHome(Model model, @PageableDefault(size = 2) Pageable pageable) {
+        model.addAttribute("blogList", allBlog(pageable));
         return "blog/home";
     }
 
-    @GetMapping("/search_name")
-    public String searchByName(Model model, @RequestParam(name = "nameBlog") String blogName) {
-        model.addAttribute("blogList", blogService.findByBlogNameContaining(blogName));
-        return "blog/search";
+    @GetMapping(value = "/upload", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public Page<Blog> uploadBlog(@RequestParam(value = "size") int size) {
+        Pageable pageable = PageRequest.of(0, size);
+        return blogService.findAll(pageable);
+    }
+
+    @GetMapping(value = "/search_name", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public List<Blog> searchByName(@RequestParam(value = "nameBlog") String name) {
+        return blogService.findByBlogNameContaining(name);
     }
 
     @GetMapping("search_category")
@@ -83,7 +91,7 @@ public class BlocController {
         return "redirect:/";
     }
 
-    @PostMapping("delete")
+    @GetMapping("delete/{id}")
     public String deleteBlog(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
         blogService.deleteById(id);
         redirectAttributes.addFlashAttribute("message", "This blog delete successfully");

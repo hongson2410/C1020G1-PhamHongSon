@@ -17,8 +17,8 @@ public class BlogServiceImpl implements BlogService {
     BlogRepository blogRepository;
 
     @Override
-    public List<Blog> findAll() {
-        return blogRepository.findByOrderByDateUpdateDesc();
+    public Page<Blog> findAll(Pageable pageable) {
+        return blogRepository.findByOrderByDateUpdateDesc(pageable);
     }
 
     @Override
