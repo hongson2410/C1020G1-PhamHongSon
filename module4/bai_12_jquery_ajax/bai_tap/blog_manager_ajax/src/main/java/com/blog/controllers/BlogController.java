@@ -18,8 +18,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.Date;
 import java.util.List;
 
-@Controller
-public class BlocController {
+//@Controller
+@RestController
+@CrossOrigin
+public class BlogController {
     @Autowired
     BlogServiceImpl blogService;
 
@@ -39,8 +41,8 @@ public class BlocController {
     }
 
     @GetMapping("")
-    public String showHome(Model model, @PageableDefault(size = 2) Pageable pageable) {
-        model.addAttribute("blogList", allBlog(pageable));
+    public String showHome() {
+//        model.addAttribute("blogList", allBlog(pageable));
         return "blog/home";
     }
 
