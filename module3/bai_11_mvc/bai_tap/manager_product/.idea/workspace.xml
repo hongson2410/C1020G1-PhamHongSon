@@ -6,7 +6,36 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01eb6a1d-4dfa-4261-a1f4-4b5981cc6855" name="Default Changelist" comment="" />
+    <list default="true" id="01eb6a1d-4dfa-4261-a1f4-4b5981cc6855" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/src/main/java/com/codegym/SpringSecurityApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/src/main/java/com/codegym/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/src/main/java/com/codegym/controllers/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/src/main/java/com/codegym/models/AppRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/src/main/java/com/codegym/models/AppUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/src/main/java/com/codegym/models/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/src/main/java/com/codegym/repositories/AppUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/src/main/java/com/codegym/repositories/UserRoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/src/main/java/com/codegym/services/UserDetailsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/src/main/java/com/codegym/util/WebUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/src/main/resources/static/data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/src/main/resources/templates/403Page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/src/main/resources/templates/_menu.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/src/main/resources/templates/adminPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/src/main/resources/templates/loginPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/src/main/resources/templates/logoutSuccessfulPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/src/main/resources/templates/userInfoPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/src/main/resources/templates/welcomePage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module4/bai_14_spring_security/thuc_hanh/spring_security/src/test/java/com/codegym/SpringSecurityApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,15 +62,15 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../module4" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -125,28 +154,6 @@
       </method>
     </configuration>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-            </expand>
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -160,21 +167,23 @@
       <workItem from="1611668903081" duration="4776000" />
       <workItem from="1611719100410" duration="6390000" />
       <workItem from="1611753442546" duration="3306000" />
+      <workItem from="1615539128339" duration="93000" />
+      <workItem from="1615539303188" duration="67000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="137" y="60" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1611755050689">
       <screen x="0" y="40" width="1366" height="728" />
     </state>
     <state x="137" y="60" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.40.1366.728@0.40.1366.728" timestamp="1611755050689" />
-    <state x="389" y="146" key="FileChooserDialogImpl" timestamp="1611719139774">
+    <state x="389" y="146" key="FileChooserDialogImpl" timestamp="1615539362742">
       <screen x="0" y="40" width="1366" height="728" />
     </state>
-    <state x="389" y="146" key="FileChooserDialogImpl/0.40.1366.728@0.40.1366.728" timestamp="1611719139774" />
+    <state x="389" y="146" key="FileChooserDialogImpl/0.40.1366.728@0.40.1366.728" timestamp="1615539362742" />
     <state width="905" height="71" key="GridCell.Tab.0.bottom" timestamp="1611756780495">
       <screen x="0" y="40" width="1366" height="728" />
     </state>

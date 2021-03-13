@@ -41,10 +41,10 @@ PRIMARY KEY (series)
 );
 
 insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED) 
-values (2, 'dbuser1', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
+values (2, 'user', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
 
 insert into App_User (USER_ID, USER_NAME, ENCRYTED_PASSWORD, ENABLED) 
-values (1, 'dbadmin1', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
+values (1, 'admin', '$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu', 1);
 
 insert into app_role (ROLE_ID, ROLE_NAME) values (1, 'ROLE_ADMIN');
 
