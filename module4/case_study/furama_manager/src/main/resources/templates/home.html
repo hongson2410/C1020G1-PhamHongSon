@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body style="background-color: cadetblue">
+<div th:replace="/layout :: navbar"></div>
+<div class="container-fluid" style="padding: 0">
+    <div class="row" style="margin-right: 40px">
+        <div class="col-lg-4" style="padding: 0">
+            <div class="sidebar" style="text-align: center;margin-top: 10%">
+                <a th:href="@{/#}"><h3>Khách đang lưu trú !!</h3></a>
+            </div>
+        </div>
+
+        <div class="col-lg-8" style="padding: 0">
+            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="image1">
+                            <img src="bootstrap/img/62371531.jpg" class="d-block w-100 image1" alt="..."  >
+                        </div>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>FURAMA RESORT & VILLAS ĐÀ NẴNG</h5>
+                            <p>Giữa lòng thành phố Đà Nẵng, khu nghỉ dưỡng Furama Resort & Villas Đà Nẵng hiện lên
+                                tựa một 'ốc đảo xanh'</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="image2">
+                            <img src="bootstrap/img/furama-da-nang-850x638.jpg" class="d-block w-100 image2" alt="..." >
+                        </div>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>FURAMA RESORT & VILLAS ĐÀ NẴNG</h5>
+                            <p>Và rồi khi dừng chân tại nơi đây, bạn tựa như lạc vào một không gian mang đậm đà nét văn
+                                hóa
+                                Việt pha lẫn với sự hiện đại </p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="image3">
+                            <img src="bootstrap/img/furama-resort-da-nang.jpg" class="d-block w-100 image3" alt="..." >
+                        </div>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>FURAMA RESORT & VILLAS ĐÀ NẴNG</h5>
+                            <p>Xứng tầm đẳng cấp 5 sao quốc tế.</p>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

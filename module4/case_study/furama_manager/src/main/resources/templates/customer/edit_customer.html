@@ -1,0 +1,90 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<div th:replace="/layout :: navbar"></div>
+<div class="container-fluid" style="padding: 0">
+    <div class="row" style="margin-right: 40px">
+        <div class="col-lg-4" style="padding: 0">
+            <div class="sidebar">
+                <img src="https://www.phulong.com/UploadFiles/Images/FURAMA%2020%20NAM.jpg" style="width: 95%;height:100%">
+            </div>
+        </div>
+
+        <div class="col-lg-8" style="padding: 0">
+            <div class="body" style="text-align: center">
+                <h3>Edit Information Customer</h3>
+                <form th:action="@{/customer/edit}" method="post" th:object="${customer}">
+                    <input type="hidden" th:field="*{customerId}">
+                    <table cellpadding="5">
+                        <tr>
+                            <th>Customer Name:</th>
+                            <td>
+                                <input type="text" th:field="*{customerName}" size="45"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Birthday(Format MM/dd/YYYY):</th>
+                            <td>
+                                <input type="date" width="200" th:field="*{customerBirthDay}" style="height: 25px" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Gender:</th>
+                            <td>
+                                <select th:field="*{customerGender}">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Id card:</th>
+                            <td>
+                                <input type="text" th:field="*{customerIdCard}" size="45"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Phone number:</th>
+                            <td>
+                                <input type="text" th:field="*{customerPhone}" size="45"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Email:</th>
+                            <td>
+                                <input type="text" th:field="*{customerEmail}" size="45"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Address:</th>
+                            <td>
+                                <input type="text" th:field="*{customerAddress}" size="45"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Customer type:</th>
+                            <td>
+                                <select th:field="*{customerType}">
+                                    <option th:each="customerType : ${customerTypes}" th:value="${customerType.customerTypeId}"
+                                            th:text="${customerType.customerTypeName}"></option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <input type="submit" value="Update"/>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer th:replace="/layout :: footer">
+</footer>
+</body>
+</html>
