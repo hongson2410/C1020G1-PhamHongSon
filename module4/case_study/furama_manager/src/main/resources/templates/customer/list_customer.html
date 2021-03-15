@@ -21,6 +21,7 @@
     <thead>
     <tr>
         <th>Name</th>
+        <th>Code</th>
         <th>Birthday</th>
         <th>Gender</th>
         <th>Id Card</th>
@@ -34,6 +35,7 @@
     <tbody>
     <tr th:each="customer : ${listCustomer}">
         <td th:text="${customer.getCustomerName()}"></td>
+        <td th:text="${customer.getCustomerCode()}"></td>
         <td th:text="${customer.getCustomerBirthDay()}"></td>
         <td th:text="${customer.getCustomerGender()}"></td>
         <td th:text="${customer.getCustomerIdCard()}"></td>

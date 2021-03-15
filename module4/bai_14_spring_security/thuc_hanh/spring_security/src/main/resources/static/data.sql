@@ -55,4 +55,3 @@ insert into user_role (ID, USER_ID, ROLE_ID) values (1, 1, 1);
 insert into user_role (ID, USER_ID, ROLE_ID) values (2, 1, 2);
 
 insert into user_role (ID, USER_ID, ROLE_ID) values (3, 2, 2);
-

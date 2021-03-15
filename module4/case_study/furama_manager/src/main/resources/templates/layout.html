@@ -113,7 +113,7 @@
                 <ul class="navbar-nav">
                     <div class="col-lg-3">
                         <li class="nav-item active margin-navbar">
-                            <a class="nav-link" href="/"><h6>Trang chủ</h6><span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/"><h6>Home</h6><span class="sr-only">(current)</span></a>
                         </li>
                     </div>
 
@@ -121,52 +121,50 @@
                     <li class="nav-item dropdown" style="margin-left: 45%">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
-                            Khách Hàng
+                            Customer
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" th:href="@{/customer/list}">Danh Sách</a>
-                            <a class="dropdown-item" th:href="@{/customer/create}">Thêm Mới</a>
+                            <a class="dropdown-item" th:href="@{/customer/list}">Show List</a>
+                            <a class="dropdown-item" th:href="@{/customer/create}">Create</a>
                         </div>
                     </li>
 
                     <li class="nav-item dropdown margin-navbar">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
-                            Nhân Viên
+                            Employee
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" th:href="@{/#}">Danh Sách</a>
-                            <a class="dropdown-item" th:href="@{/#}">Thêm mới</a>
+                            <a class="dropdown-item" th:href="@{/#}">Show List</a>
+                            <a class="dropdown-item" th:href="@{/#}">Create</a>
                         </div>
                     </li>
 
                     <li class="nav-item dropdown margin-navbar">
                         <a class="nav-link dropdown-toggle" th:href="@{/#}" id="navbarDropdownMenuLink3" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
-                            Dịch Vụ
+                            Service
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="nav-link dropdown-toggle" th:href="@{/#}" id="navbarDropdownMenuLink11"
-                               role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            <a class="nav-link" th:href="@{/service/list}"
                                style="color: black;text-align: center">
-                                Xem dịch vụ
+                                Show List
                             </a>
-                            <div class="dropdown-item" aria-labelledby="navbarDropdownMenuLink12">
-                                <a class="dropdown-item" th:href="@{/#}">Villa</a>
-                                <a class="dropdown-item" th:href="@{/#}">House</a>
-                                <a class="dropdown-item" th:href="@{/#}">Room</a>
-                            </div>
+<!--                            <div class="dropdown-item" aria-labelledby="navbarDropdownMenuLink12">-->
+<!--                                <a class="dropdown-item" th:href="@{/#}">Villa</a>-->
+<!--                                <a class="dropdown-item" th:href="@{/#}">House</a>-->
+<!--                                <a class="dropdown-item" th:href="@{/#}">Room</a>-->
+<!--                            </div>-->
                             <a class="nav-link dropdown-toggle" th:href="@{/#}" id="navbarDropdownMenuLink10"
                                role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                style="color: black;text-align: center">
-                                Thêm dịch vụ
+                                Create
                             </a>
                             <div class="dropdown-item" aria-labelledby="navbarDropdownMenuLink13">
-                                <a class="dropdown-item" th:href="@{/#}">Villa</a>
-                                <a class="dropdown-item" th:href="@{/#}">House</a>
-                                <a class="dropdown-item" th:href="@{/#}">Room</a>
+                                <a class="dropdown-item" th:href="@{/service/createVilla}">Villa</a>
+                                <a class="dropdown-item" th:href="@{/service/createHouse}">House</a>
+                                <a class="dropdown-item" th:href="@{/service/createRoom}">Room</a>
                             </div>
                         </div>
                     </li>
@@ -174,11 +172,11 @@
                     <li class="nav-item dropdown margin-navbar">
                         <a class="nav-link dropdown-toggle" th:href="@{/#}" id="navbarDropdownMenuLink4" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
-                            Hợp Đồng
+                            Contract
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" th:href="@{/#}">Thêm Mới Hợp Đồng</a>
-                            <a class="dropdown-item" th:href="@{/#}">Danh Sách Hợp Đồng</a>
+                            <a class="dropdown-item" th:href="@{/#}">Create</a>
+                            <a class="dropdown-item" th:href="@{/#}">Show List</a>
                         </div>
                     </li>
                 </ul>

@@ -7,6 +7,10 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer customerId;
+
+    @Column(nullable = false)
+    private String customerCode;
+
     @ManyToOne
     @JoinColumn(name = "customer_type_id" , referencedColumnName = "customerTypeId" , nullable = false)
     private CustomerType customerType;
@@ -34,6 +38,14 @@ public class Customer {
 
     public void setCustomerId(Integer customerId) {
         this.customerId = customerId;
+    }
+
+    public String getCustomerCode() {
+        return customerCode;
+    }
+
+    public void setCustomerCode(String customerCode) {
+        this.customerCode = customerCode;
     }
 
     public CustomerType getCustomerType() {

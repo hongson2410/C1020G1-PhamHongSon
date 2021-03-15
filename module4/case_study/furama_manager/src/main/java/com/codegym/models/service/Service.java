@@ -13,7 +13,6 @@ public class Service {
     private Double pool_area;
     private Integer floor;
     private Integer max_people;
-    @Column(nullable = false)
     private Integer cost;
     @ManyToOne
     @JoinColumn(name = "service_type_id", referencedColumnName = "serviceTypeId")

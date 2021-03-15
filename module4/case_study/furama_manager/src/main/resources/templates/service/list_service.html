@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<div th:replace="/layout :: navbar"></div>
+<h3>Service List</h3>
+<br/>
+<div class="notify">
+    <div th:if="${message}">
+        <span th:text="${message}"></span>
+    </div>
+</div>
+<table id="customer">
+    <thead>
+    <tr>
+        <th>Service Code</th>
+        <th>Type Service</th>
+        <th>Name Service</th>
+        <th>Standard</th>
+        <th>Area</th>
+        <th>Pool Area</th>
+        <th>Floor</th>
+        <th>Max People</th>
+        <th>Rent Type</th>
+        <th>Cost</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="service : ${services}">
+        <td th:text="${service.getServiceId()}"></td>
+        <td th:text="${service.getTypeService().serviceTypeName}"></td>
+        <td th:text="${service.getNameService()}"></td>
+        <td th:text="${service.getStandard_room()}"></td>
+        <td th:text="${service.getArea()}"></td>
+        <td th:text="${service.getPool_area()}"></td>
+        <td th:text="${service.getFloor()}"></td>
+        <td th:text="${service.getMax_people()}"></td>
+        <td th:text="${service.getRentTypeService().rentTypeName}"></td>
+        <td th:text="${service.getCost()}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<nav aria-label="page-nav">
+    <ul class="pagination">
+        <li th:class="${services.hasPrevious()}? 'page-item': 'page-item disabled'">
+            <a class="page-link" th:tabindex="${services.hasPrevious()}? 0 :1"
+               th:href="@{/service/list?page=__${services.number -1}__}">Previous</a>
+        </li>
+        <li class="page-item" th:if="${services.hasPrevious()}">
+            <a class="page-link" th:href="@{/service/list?page=__${services.number -1}__}"
+               th:text="${services.number}"></a>
+        </li>
+        <li class="page-item active">
+            <a class="page-link" th:href="@{/service/list?page=__${services.number}__}"
+               th:text="${services.number+1}"></a>
+        </li>
+        <li class="page-item" th:if="${services.hasNext()}">
+            <a class="page-link" th:href="@{/service/list?page=__${services.number +1}__}"
+               th:text="${services.number+2}"></a>
+        </li>
+        <li th:class="${services.hasNext()}? 'page-item': 'page-item disabled'">
+            <a class="page-link" th:tabindex="${services.hasNext()}? 0 :1"
+               th:href="@{/service/list?page=__${services.number +1}__}">Next</a>
+        </li>
+    </ul>
+</nav>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

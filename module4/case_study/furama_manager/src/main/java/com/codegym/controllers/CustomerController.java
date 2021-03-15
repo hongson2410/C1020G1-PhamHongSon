@@ -50,7 +50,6 @@ public class CustomerController {
     @PostMapping("/create")
     public String createCustomer(@ModelAttribute("customer") Customer customer, Model model,RedirectAttributes redirectAttributes){
         customerService.saveCustomer(customer);
-//        model.addAttribute("message", "New Customer was create!");
         redirectAttributes.addFlashAttribute("message", "New Customer was create!");
         return "redirect:/customer/create";
     }

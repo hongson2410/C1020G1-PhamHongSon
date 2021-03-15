@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<div th:replace="/layout :: navbar"></div>
+<div class="container-fluid" style="padding: 0">
+    <div class="row" style="margin-right: 40px">
+        <div class="col-lg-4" style="padding: 0">
+            <div class="sidebar">
+                <img src="https://media-cdn.tripadvisor.com/media/photo-s/12/99/82/95/bellaire-house.jpg" style="width: 100%;height:700px">
+            </div>
+        </div>
+
+        <div class="col-lg-8" style="padding: 0">
+            <div class="body" style="text-align: center">
+                <h3>Create House</h3>
+                <form th:action="@{/service/create}" method="post" th:object="${service}">
+                    <table cellpadding="5">
+                        <tr>
+                            <th>Service Code:</th>
+                            <td>
+                                <input type="text" th:field="*{serviceId}" size="45"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Service Name:</th>
+                            <td>
+                                <input type="text" th:field="*{nameService}" size="45"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Type Service:</th>
+                            <td>
+                                <select th:field="*{typeService}" style="float: left">
+                                    <option th:each="typeService : ${typeServices}" th:value="${typeService.serviceTypeId}"
+                                            th:text="${typeService.serviceTypeName}"></option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Standard Room:</th>
+                            <td>
+                                <input type="text" th:field="*{standard_room}" size="45"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Area:</th>
+                            <td>
+                                <input type="text" th:field="*{area}" size="45"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Floor:</th>
+                            <td>
+                                <input type="text" th:field="*{floor}" size="45"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Max People:</th>
+                            <td>
+                                <input type="text" th:field="*{max_people}" size="45"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Rent Type:</th>
+                            <td>
+                                <select th:field="*{rentTypeService}" style="float: left">
+                                    <option th:each="rentTypeService : ${rentTypeServices}" th:value="${rentTypeService.rentTypeId}"
+                                            th:text="${rentTypeService.rentTypeName}"></option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <input type="submit" value="Save"/>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="/layout :: footer">
+</footer>
+</body>
+</html>
