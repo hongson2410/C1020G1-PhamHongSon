@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/layout :: head">
 </head>
 <body>
@@ -8,19 +7,15 @@
     <div class="row" style="margin-right: 40px">
         <div class="col-lg-4" style="padding: 0">
             <div class="sidebar">
-                <img src="https://www.chudu24.com/wp-content/uploads/2020/05/84026015_192215902019197_4125576684103379656_n.jpg" style="width: 95%;height:650px">
+                <img src="https://www.phulong.com/UploadFiles/Images/FURAMA%2020%20NAM.jpg" style="width: 95%;height:100%">
             </div>
         </div>
 
         <div class="col-lg-8" style="padding: 0">
             <div class="body" style="text-align: center">
-                <h3>Create Employee</h3>
-                <div class="notify">
-                    <div th:if="${message}">
-                        <span th:text="${message}"></span>
-                    </div>
-                </div>
-                <form th:action="@{/employee/create}" method="post" th:object="${employee}">
+                <h3>Edit Information Employee</h3>
+                <form th:action="@{/employee/edit}" method="post" th:object="${employee}">
+                    <input type="hidden" th:field="*{employeeId}">
                     <table cellpadding="5">
                         <tr>
                             <th>Name Employee:</th>
@@ -102,7 +97,7 @@
                         </tr>
                         <tr>
                             <td colspan="2" align="center">
-                                <input type="submit" value="Save"/>
+                                <input type="submit" value="Update"/>
                             </td>
                         </tr>
                     </table>
@@ -110,7 +105,9 @@
             </div>
         </div>
     </div>
+
 </div>
+
 <footer th:replace="/layout :: footer">
 </footer>
 </body>

@@ -13,7 +13,7 @@ public class Employee {
     @Column(nullable = false)
     private String employeeBirthDay;
     @Column(nullable = false)
-    private Integer employeeGender;
+    private String employeeGender;
     @Column(nullable = false)
     private String employeeIdCard;
     @Column(nullable = false)
@@ -69,11 +69,11 @@ public class Employee {
         this.employeeBirthDay = employeeBirthDay;
     }
 
-    public Integer getEmployeeGender() {
+    public String getEmployeeGender() {
         return employeeGender;
     }
 
-    public void setEmployeeGender(Integer employeeGender) {
+    public void setEmployeeGender(String employeeGender) {
         this.employeeGender = employeeGender;
     }
 
