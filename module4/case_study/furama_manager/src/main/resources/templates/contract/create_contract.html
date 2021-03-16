@@ -8,60 +8,60 @@
     <div class="row" style="margin-right: 40px">
         <div class="col-lg-4" style="padding: 0">
             <div class="sidebar">
-                <img src="https://cf.bstatic.com/images/hotel/max1024x768/238/238751575.jpg" style="width: 100%;height:500px">
+                <img src="https://www.chudu24.com/wp-content/uploads/2020/05/84026015_192215902019197_4125576684103379656_n.jpg" style="width: 95%;height:650px">
             </div>
         </div>
+
         <div class="col-lg-8" style="padding: 0">
             <div class="body" style="text-align: center">
-                <h3>Create Room</h3>
-                <form th:action="@{/service/create}" method="post" th:object="${service}">
+                <h3>Create Contract</h3>
+<!--                <div class="notify">-->
+<!--                    <div th:if="${message}">-->
+<!--                        <span th:text="${message}"></span>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <form th:action="@{/contract/create}" method="post" th:object="${contract}">
                     <table cellpadding="5">
                         <tr>
-                            <th>Service Code:</th>
+                            <th>Start Date Contract (Format MM/dd/YYYY):</th>
                             <td>
-                                <input type="text" th:field="*{serviceId}" size="45"/>
+                                <input type="date" width="200" th:field="*{startDateContract}" style="height: 25px; float: left" />
                             </td>
                         </tr>
                         <tr>
-                            <th>Service Name:</th>
+                            <th>End Date Contract (Format MM/dd/YYYY):</th>
                             <td>
-                                <input type="text" th:field="*{nameService}" size="45"/>
+                                <input type="date" width="200" th:field="*{endDateContract}" style="height: 25px; float: left" />
                             </td>
                         </tr>
                         <tr>
-                            <th>Type Service:</th>
+                            <th>Deposit:</th>
                             <td>
-                                <select th:field="*{typeService}" style="float: left">
-                                    <option th:each="typeService : ${typeServices}" th:value="${typeService.serviceTypeId}"
-                                            th:text="${typeService.serviceTypeName}"></option>
-                                </select>
+                                <input type="text" th:field="*{deposit}" size="45"/>
                             </td>
                         </tr>
                         <tr>
-                            <th>Standard Room:</th>
+                            <th>Customer:</th>
                             <td>
-                                <input type="text" th:field="*{standard_room}" size="45"/>
+                                <input type="text" th:field="*{customer.customerId}" size="45"/>
                             </td>
                         </tr>
                         <tr>
-                            <th>Area:</th>
+                            <th>Employee:</th>
                             <td>
-                                <input type="text" th:field="*{area}" size="45"/>
+                                <input type="text" th:field="*{employee.employeeId}" size="45"/>
                             </td>
                         </tr>
                         <tr>
-                            <th>Max People:</th>
+                            <th>Service:</th>
                             <td>
-                                <input type="text" th:field="*{max_people}" size="45"/>
+                                <input type="text" th:field="*{service.serviceId}" size="45"/>
                             </td>
                         </tr>
                         <tr>
-                            <th>Rent Type:</th>
+                            <th>Total:</th>
                             <td>
-                                <select th:field="*{rentTypeService}" style="float: left">
-                                    <option th:each="rentTypeService : ${rentTypeServices}" th:value="${rentTypeService.rentTypeId}"
-                                            th:text="${rentTypeService.rentTypeName}"></option>
-                                </select>
+                                <input type="text" th:field="*{total}" size="45"/>
                             </td>
                         </tr>
                         <tr>

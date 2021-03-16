@@ -18,6 +18,9 @@ public class ContractDetail {
     @JoinColumn(name = "contract_id",referencedColumnName = "idContract")
     private Contract contract;
 
+    public ContractDetail() {
+    }
+
     public Integer getContractDetailId() {
         return contractDetailId;
     }

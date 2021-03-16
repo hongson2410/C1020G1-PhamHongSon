@@ -35,12 +35,8 @@ public class Contract {
     }
 
 
-    public int getIdContract() {
+    public Integer getIdContract() {
         return idContract;
-    }
-
-    public void setIdContract(int idContract) {
-        this.idContract = idContract;
     }
 
     public String getStartDateContract() {
@@ -59,20 +55,12 @@ public class Contract {
         this.endDateContract = endDateContract;
     }
 
-    public double getDeposit() {
+    public Double getDeposit() {
         return deposit;
     }
 
-    public void setDeposit(double deposit) {
-        this.deposit = deposit;
-    }
-
-    public double getTotal() {
+    public Double getTotal() {
         return total;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
     }
 
     public void setIdContract(Integer idContract) {
