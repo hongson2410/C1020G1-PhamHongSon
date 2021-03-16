@@ -12,10 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
@@ -75,8 +72,21 @@ public class ServiceController {
 
     @PostMapping("/create")
     public String createService(@ModelAttribute Service service, RedirectAttributes redirectAttributes) {
-        serviceService.createService(service);
+        serviceService.saveService(service);
         redirectAttributes.addFlashAttribute("message", "Service was create!");
         return "redirect:/service/list";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String showFormEdit(@PathVariable String id, Model model){
+        model.addAttribute("service", serviceService.findById(id));
+        return "/service/edit_service";
+    }
+
+    @PostMapping("/edit")
+    public String editService(@ModelAttribute("service") Service service, RedirectAttributes redirectAttributes){
+        serviceService.saveService(service);
+        redirectAttributes.addFlashAttribute("message", "Service "+service.getServiceId()+" was update!");
+        return "redirect:/contract/listContractUsing";
     }
 }

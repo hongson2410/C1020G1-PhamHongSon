@@ -10,7 +10,7 @@ public class Employee {
 
     @Column(nullable = false)
     private String employeeName;
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "date")
     private String employeeBirthDay;
     @Column(nullable = false)
     private String employeeGender;

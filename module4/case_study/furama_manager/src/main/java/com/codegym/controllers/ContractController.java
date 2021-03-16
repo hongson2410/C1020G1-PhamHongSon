@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -66,5 +67,12 @@ public class ContractController {
         contractDetailService.saveContractDetail(contractDetail);
         redirectAttributes.addFlashAttribute("message","Contract Detail was create!");
         return "redirect:/contract/list";
+    }
+
+    @GetMapping("/listContractUsing")
+    public String contractUsing(@RequestParam(value = "page", defaultValue = "0", required = false) int page,Model model){
+        Pageable pageable= PageRequest.of(page,5);
+        model.addAttribute("contracts", contractService.findAllContractUsing(LocalDate.now().toString(),pageable));
+        return "/contract/list_contract_using";
     }
 }

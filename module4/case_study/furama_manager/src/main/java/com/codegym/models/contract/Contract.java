@@ -12,9 +12,9 @@ public class Contract {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idContract;
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "date")
     private String startDateContract;
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "date")
     private String endDateContract;
     @Column(nullable = false)
     private Double deposit;

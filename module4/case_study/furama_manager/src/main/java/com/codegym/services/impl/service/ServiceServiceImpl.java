@@ -19,7 +19,12 @@ public class ServiceServiceImpl implements ServiceService {
     }
 
     @Override
-    public void createService(com.codegym.models.service.Service service) {
+    public void saveService(com.codegym.models.service.Service service) {
         serviceRepository.save(service);
+    }
+
+    @Override
+    public com.codegym.models.service.Service findById(String id) {
+        return serviceRepository.findById(id).orElse(null);
     }
 }

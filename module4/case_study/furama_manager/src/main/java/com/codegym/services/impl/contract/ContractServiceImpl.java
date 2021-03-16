@@ -22,4 +22,9 @@ public class ContractServiceImpl implements ContractService {
     public void saveContract(Contract contract) {
         repository.save(contract);
     }
+
+    @Override
+    public Page<Contract> findAllContractUsing(String time, Pageable pageable) {
+        return repository.findAllByStartDateContractBeforeAndEndDateContractAfter(time,time,pageable);
+    }
 }
