@@ -8,8 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -46,7 +51,11 @@ public class CustomerController {
     }
 
     @PostMapping("/create")
-    public String createCustomer(@ModelAttribute("customer") Customer customer, Model model,RedirectAttributes redirectAttributes){
+    public String createCustomer(@Validated @ModelAttribute("customer") Customer customer, BindingResult bindingResult,
+                                 RedirectAttributes redirectAttributes){
+        if(bindingResult.hasFieldErrors()){
+            return "/customer/create_customer";
+        }
         customerService.saveCustomer(customer);
         redirectAttributes.addFlashAttribute("message", "New Customer was create!");
         return "redirect:/customer/create";
@@ -73,9 +82,11 @@ public class CustomerController {
         return "redirect:/customer/list";
     }
 
-    @PostMapping("/search")
-    public String findCustomerByName(@RequestParam("customerName") String customerName, Model model){
-        model.addAttribute("listCustomer", customerService.findByCustomerNameContaining(customerName));
-        return "/customer/search_customer";
+    //nhờ anh Tiến check postman
+    @GetMapping(value = "/search",produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ResponseEntity<List<Customer>> searchCustomer(@RequestParam("name") String name){
+        return new ResponseEntity<>(customerService.findByCustomerNameContaining(name), HttpStatus.OK);
     }
 }

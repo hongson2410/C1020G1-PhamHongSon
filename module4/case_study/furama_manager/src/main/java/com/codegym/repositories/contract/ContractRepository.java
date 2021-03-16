@@ -6,8 +6,15 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface ContractRepository extends JpaRepository<Contract, Integer> {
     Page<Contract> findAllByStartDateContractBeforeAndEndDateContractAfter(String startDateContract,
             String endDateContract, Pageable pageable);
+
+    List<Contract>
+    findAllByStartDateContractBeforeAndEndDateContractAfterAndCustomer_CustomerCode(String startDateContract,
+                                                                                    String endDateContract,
+                                                                                    String customer_customerCode);
 }

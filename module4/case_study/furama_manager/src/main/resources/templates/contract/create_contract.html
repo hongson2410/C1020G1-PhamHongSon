@@ -15,23 +15,18 @@
         <div class="col-lg-8" style="padding: 0">
             <div class="body" style="text-align: center">
                 <h3>Create Contract</h3>
-<!--                <div class="notify">-->
-<!--                    <div th:if="${message}">-->
-<!--                        <span th:text="${message}"></span>-->
-<!--                    </div>-->
-<!--                </div>-->
                 <form th:action="@{/contract/create}" method="post" th:object="${contract}">
                     <table cellpadding="5">
                         <tr>
                             <th>Start Date Contract (Format MM/dd/YYYY):</th>
                             <td>
-                                <input type="date" width="200" th:field="*{startDateContract}" style="height: 25px; float: left" />
+                                <input type="date" width="200" th:field="*{startDateContract}" style="height: 30px; float: left; width: 380px" />
                             </td>
                         </tr>
                         <tr>
                             <th>End Date Contract (Format MM/dd/YYYY):</th>
                             <td>
-                                <input type="date" width="200" th:field="*{endDateContract}" style="height: 25px; float: left" />
+                                <input type="date" width="200" th:field="*{endDateContract}" style="height: 30px; float: left; width: 380px" />
                             </td>
                         </tr>
                         <tr>
@@ -43,19 +38,37 @@
                         <tr>
                             <th>Customer:</th>
                             <td>
-                                <input type="text" th:field="*{customer.customerId}" size="45"/>
+                                <select th:field="*{customer}" class="mdb-select md-form" style="height: 30px">
+                                    <option value="" >Choose your customer</option>
+                                    <option th:each="customer : ${customers}" th:value="${customer.customerId}"
+                                            th:text="${customer.customerCode}">
+
+                                    </option>
+                                </select>
                             </td>
                         </tr>
                         <tr>
                             <th>Employee:</th>
                             <td>
-                                <input type="text" th:field="*{employee.employeeId}" size="45"/>
+                                <select th:field="*{employee}" class="mdb-select md-form" style="width: 380px;height: 30px">
+                                    <option value="" >Choose your employee</option>
+                                    <option th:each="employee : ${employees}" th:value="${employee.employeeId}"
+                                            th:text="${employee.employeeName}">
+
+                                    </option>
+                                </select>
                             </td>
                         </tr>
                         <tr>
                             <th>Service:</th>
                             <td>
-                                <input type="text" th:field="*{service.serviceId}" size="45"/>
+                                <select th:field="*{service}" class="mdb-select md-form" style="width: 380px;height: 30px">
+                                    <option value="" >Choose your employee</option>
+                                    <option th:each="service : ${services}" th:value="${service.serviceId}"
+                                            th:text="${service.nameService}">
+
+                                    </option>
+                                </select>
                             </td>
                         </tr>
                         <tr>

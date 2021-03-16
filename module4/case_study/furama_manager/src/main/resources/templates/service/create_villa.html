@@ -32,7 +32,8 @@
                         <tr>
                             <th>Type Service:</th>
                             <td>
-                                <select th:field="*{typeService}" style="float: left">
+                                <select th:field="*{typeService}" class="mdb-select md-form" style="width: 380px;height: 30px">
+                                    <option value="" >Choose type service</option>
                                     <option th:each="typeService : ${typeServices}" th:value="${typeService.serviceTypeId}"
                                             th:text="${typeService.serviceTypeName}"></option>
                                 </select>
@@ -71,7 +72,8 @@
                         <tr>
                             <th>Rent Type:</th>
                             <td>
-                                <select th:field="*{rentTypeService}" style="float: left">
+                                <select th:field="*{rentTypeService}" class="mdb-select md-form" style="width: 380px;height: 30px">
+                                    <option value="" >Choose rent type</option>
                                     <option th:each="rentTypeService : ${rentTypeServices}" th:value="${rentTypeService.rentTypeId}"
                                             th:text="${rentTypeService.rentTypeName}"></option>
                                 </select>

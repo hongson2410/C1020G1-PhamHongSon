@@ -8,6 +8,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ContractServiceImpl implements ContractService {
     @Autowired
@@ -26,5 +28,10 @@ public class ContractServiceImpl implements ContractService {
     @Override
     public Page<Contract> findAllContractUsing(String time, Pageable pageable) {
         return repository.findAllByStartDateContractBeforeAndEndDateContractAfter(time,time,pageable);
+    }
+
+    @Override
+    public List<Contract> findContractUsingByCodeCustomer(String time, String code) {
+        return repository.findAllByStartDateContractBeforeAndEndDateContractAfterAndCustomer_CustomerCode(time,time,code);
     }
 }

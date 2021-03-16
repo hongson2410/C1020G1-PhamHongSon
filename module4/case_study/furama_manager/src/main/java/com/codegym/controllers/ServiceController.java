@@ -78,15 +78,15 @@ public class ServiceController {
     }
 
     @GetMapping("/edit/{id}")
-    public String showFormEdit(@PathVariable String id, Model model){
+    public String showFormEdit(@PathVariable String id, Model model) {
         model.addAttribute("service", serviceService.findById(id));
         return "/service/edit_service";
     }
 
     @PostMapping("/edit")
-    public String editService(@ModelAttribute("service") Service service, RedirectAttributes redirectAttributes){
+    public String editService(@ModelAttribute("service") Service service, RedirectAttributes redirectAttributes) {
         serviceService.saveService(service);
-        redirectAttributes.addFlashAttribute("message", "Service "+service.getServiceId()+" was update!");
+        redirectAttributes.addFlashAttribute("message", "Service " + service.getServiceId() + " was update!");
         return "redirect:/contract/listContractUsing";
     }
 }

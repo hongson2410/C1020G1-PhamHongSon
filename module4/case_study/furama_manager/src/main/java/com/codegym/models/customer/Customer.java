@@ -1,6 +1,9 @@
 package com.codegym.models.customer;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 @Entity
 public class Customer {
@@ -8,6 +11,7 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer customerId;
 
+    @Pattern(regexp = "^(KH-)\\d{4}$",message = "Format KH-XXXX")
     @Column(nullable = false)
     private String customerCode;
 
@@ -16,16 +20,31 @@ public class Customer {
     private CustomerType customerType;
 
     @Column(nullable = false)
+    @NotBlank(message = "Must not be left blank")
+    @Pattern(regexp = "\\D",message = "Must not contain numbers ")
     private String customerName;
+
     @Column(nullable = false, columnDefinition = "date")
+    @NotBlank(message = "Must not be left blank")
     private String customerBirthDay;
+
     @Column(nullable = false)
+    @NotBlank(message = "Must not be left blank")
     private String customerGender;
+
     @Column(nullable = false)
+    @Pattern(regexp = "^\\d{9}$",message = "Id cart 9 number")
     private String customerIdCard;
+
     @Column(nullable = false)
+    @Pattern(regexp = "^(090|091|[(]84[+][)]90|[(]84+[)]91)\\d{7}$",message = "Format 090|091|(84+)")
     private String customerPhone;
+
+    @Email(message = "Wrong format")
+    @NotBlank(message = "Must not be left blank")
     private String customerEmail;
+
+    @NotBlank(message = "Must not be left blank")
     private String customerAddress;
 
     public Customer(){

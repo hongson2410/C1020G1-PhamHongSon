@@ -20,7 +20,8 @@
                         <tr>
                             <th>Attach Service:</th>
                             <td>
-                                <select th:field="*{attachService}" style="float: left">
+                                <select th:field="*{attachService}" class="mdb-select md-form" style="width: 500px; height: 30px">
+                                    <option value="" >Choose your attach service</option>
                                     <option th:each="attachService : ${attachServices}" th:value="${attachService.idAttachService}"
                                             th:text="${attachService.nameAttachService}"></option>
                                 </select>
@@ -29,7 +30,12 @@
                         <tr>
                             <th>Contract:</th>
                             <td>
-                                <input type="text" th:field="*{contract}" size="45"/>
+                                <select th:field="*{contract}" class="mdb-select md-form" style="width: 500px; height: 30px">
+                                    <option value="" >Choose your contract</option>
+                                    <option th:each="contract : ${contracts}" th:value="${contract.idContract}"
+                                            th:text="${contract.idContract}">
+                                    </option>
+                                </select>
                             </td>
                         </tr>
                         <tr>

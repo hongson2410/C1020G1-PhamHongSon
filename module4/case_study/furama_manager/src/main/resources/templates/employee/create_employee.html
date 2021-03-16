@@ -31,13 +31,14 @@
                         <tr>
                             <th>Birthday(Format MM/dd/YYYY):</th>
                             <td>
-                                <input type="date" width="200" th:field="*{employeeBirthDay}" style="height: 25px; float: left" />
+                                <input type="date" width="200" th:field="*{employeeBirthDay}" style="height: 30px; float: left; width: 380px" />
                             </td>
                         </tr>
                         <tr>
                             <th>Gender:</th>
                             <td>
-                                <select th:field="*{employeeGender}" style="float: left">
+                                <select th:field="*{employeeGender}" class="mdb-select md-form" style="width: 380px;height: 30px">
+                                    <option value="" >Choose gender</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                 </select>
@@ -70,7 +71,8 @@
                         <tr>
                             <th>Position:</th>
                             <td>
-                                <select th:field="*{position}" style="float: left">
+                                <select th:field="*{position}" class="mdb-select md-form" style="width: 380px;height: 30px">
+                                    <option value="" >Choose position</option>
                                     <option th:each="position : ${positions}" th:value="${position.positionId}"
                                             th:text="${position.positionName}"></option>
                                 </select>
@@ -79,7 +81,8 @@
                         <tr>
                             <th>Education:</th>
                             <td>
-                                <select th:field="*{education}" style="float: left">
+                                <select th:field="*{education}" class="mdb-select md-form" style="width: 380px;height: 30px">
+                                    <option value="" >Choose education</option>
                                     <option th:each="education : ${educations}" th:value="${education.educationId}"
                                             th:text="${education.educationName}"></option>
                                 </select>
@@ -88,7 +91,8 @@
                         <tr>
                             <th>Division:</th>
                             <td>
-                                <select th:field="*{division}" style="float: left">
+                                <select th:field="*{division}" class="mdb-select md-form" style="width: 380px;height: 30px">
+                                    <option value="" >Choose division</option>
                                     <option th:each="division : ${divisions}" th:value="${division.divisionId}"
                                             th:text="${division.divisionName}"></option>
                                 </select>

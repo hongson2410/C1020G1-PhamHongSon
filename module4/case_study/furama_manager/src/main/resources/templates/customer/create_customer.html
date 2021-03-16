@@ -26,24 +26,27 @@
                             <th>Name customer:</th>
                             <td>
                                 <input type="text" th:field="*{customerName}" size="45"/>
+                                <span th:if="${#fields.hasErrors('customerName')}" th:errors="*{customerName}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Code customer:</th>
                             <td>
                                 <input type="text" th:field="*{customerCode}" size="45"/>
+                                <span th:if="${#fields.hasErrors('customerCode')}" th:errors="*{customerCode}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Birthday(Format MM/dd/YYYY):</th>
                             <td>
-                                <input type="date" width="200" th:field="*{customerBirthDay}" style="height: 25px; float: left" />
+                                <input type="date" width="200" th:field="*{customerBirthDay}" style="height: 30px; float: left; width: 380px" />
                             </td>
                         </tr>
                         <tr>
                             <th>Gender:</th>
                             <td>
-                                <select th:field="*{customerGender}" style="float: left">
+                                <select th:field="*{customerGender}" class="mdb-select md-form" style="width: 380px;height: 30px; float: left">
+                                    <option value="" >Choose Gender</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                 </select>
@@ -53,30 +56,35 @@
                             <th>Id card:</th>
                             <td>
                                 <input type="text" th:field="*{customerIdCard}" size="45"/>
+                                <span th:if="${#fields.hasErrors('customerIdCard')}" th:errors="*{customerIdCard}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Phone number:</th>
                             <td>
                                 <input type="text" th:field="*{customerPhone}" size="45"/>
+                                <span th:if="${#fields.hasErrors('customerPhone')}" th:errors="*{customerPhone}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Email:</th>
                             <td>
                                 <input type="text" th:field="*{customerEmail}" size="45"/>
+                                <span th:if="${#fields.hasErrors('customerEmail')}" th:errors="*{customerEmail}" class="text-danger help-block" >
                             </td>
                         </tr>
                         <tr>
                             <th>Address:</th>
                             <td>
                                 <input type="text" th:field="*{customerAddress}" size="45"/>
+                                <span th:if="${#fields.hasErrors('customerAddress')}" th:errors="*{customerAddress}" class="text-danger help-block" >
                             </td>
                         </tr>
                         <tr>
                             <th>Customer type:</th>
                             <td>
-                                <select th:field="*{customerType}" style="float: left">
+                                <select th:field="*{customerType}" class="mdb-select md-form" style="width: 380px;height: 30px; float: left">
+                                    <option value="" >Choose customer type</option>
                                     <option th:each="customerType : ${customerTypes}" th:value="${customerType.customerTypeId}"
                                             th:text="${customerType.customerTypeName}"></option>
                                 </select>
