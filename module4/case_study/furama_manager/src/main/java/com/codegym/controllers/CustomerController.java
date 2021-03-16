@@ -78,6 +78,6 @@ public class CustomerController {
     @PostMapping("/search")
     public String findCustomerByName(@RequestParam("customerName") String customerName, Model model){
         model.addAttribute("listCustomer", customerService.findByCustomerNameContaining(customerName));
-        return "/customer/list_customer";
+        return "/customer/search_customer";
     }
 }

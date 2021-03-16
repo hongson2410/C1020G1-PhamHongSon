@@ -9,6 +9,7 @@ import com.codegym.services.impl.EducationServiceImpl;
 import com.codegym.services.impl.EmployeeServiceImpl;
 import com.codegym.services.impl.PositionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
@@ -49,7 +50,8 @@ public class EmployeeController {
     }
 
     @GetMapping("/list")
-    public String showListEmployee(@PageableDefault(size = 5)Pageable pageable, Model model){
+    public String showListEmployee(@RequestParam(value = "page",defaultValue = "0",required = false) int page, Model model){
+        Pageable pageable = PageRequest.of(page,5);
         model.addAttribute("employees", employeeService.findAllEmployee(pageable));
         return "/employee/list_employee";
     }
@@ -85,5 +87,11 @@ public class EmployeeController {
         employeeService.deleteEmployeeById(id);
         redirectAttributes.addFlashAttribute("message", "Employee was delete!");
         return "redirect:/employee/list";
+    }
+
+    @PostMapping("/search")
+    public String findCustomerByName(@RequestParam("employeeName") String employeeName, Model model){
+        model.addAttribute("employees", employeeService.findByEmployeeNameContaining(employeeName));
+        return "/employee/search_employee";
     }
 }
