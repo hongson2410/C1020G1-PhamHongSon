@@ -1,4 +1,4 @@
-package com.codegym.repositories;
+package com.codegym.repositories.service;
 
 import com.codegym.models.service.RentTypeService;
 import org.springframework.data.jpa.repository.JpaRepository;

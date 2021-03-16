@@ -1,7 +1,7 @@
-package com.codegym.services.impl;
+package com.codegym.services.impl.employee;
 
 import com.codegym.models.employee.Education;
-import com.codegym.repositories.EducationRepository;
+import com.codegym.repositories.employee.EducationRepository;
 import com.codegym.services.EducationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
-package com.codegym.services.impl;
+package com.codegym.services.impl.employee;
 
 import com.codegym.models.employee.Employee;
-import com.codegym.repositories.EmployeeRepository;
+import com.codegym.repositories.employee.EmployeeRepository;
 import com.codegym.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

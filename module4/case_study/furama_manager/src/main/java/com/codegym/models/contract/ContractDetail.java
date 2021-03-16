@@ -8,7 +8,7 @@ public class ContractDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer contractDetailId;
     @Column(nullable = false)
-    private Integer contractDetailCost;
+    private Integer quantity;
 
     @ManyToOne
     @JoinColumn(name = "attach_service_id",referencedColumnName = "idAttachService")
@@ -29,12 +29,12 @@ public class ContractDetail {
         this.contractDetailId = contractDetailId;
     }
 
-    public Integer getContractDetailCost() {
-        return contractDetailCost;
+    public Integer getQuantity() {
+        return quantity;
     }
 
-    public void setContractDetailCost(Integer contractDetailCost) {
-        this.contractDetailCost = contractDetailCost;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
     public Contract getContract() {

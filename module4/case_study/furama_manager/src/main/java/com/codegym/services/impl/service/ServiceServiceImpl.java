@@ -1,6 +1,6 @@
-package com.codegym.services.impl;
+package com.codegym.services.impl.service;
 
-import com.codegym.repositories.ServiceRepository;
+import com.codegym.repositories.service.ServiceRepository;
 import com.codegym.services.ServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

@@ -1,7 +1,7 @@
-package com.codegym.services.impl;
+package com.codegym.services.impl.service;
 
 import com.codegym.models.service.RentTypeService;
-import com.codegym.repositories.RentTypeServiceRepository;
+import com.codegym.repositories.service.RentTypeServiceRepository;
 import com.codegym.services.RentTypeServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

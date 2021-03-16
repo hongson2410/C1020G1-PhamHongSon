@@ -5,6 +5,7 @@ import com.codegym.models.employee.Employee;
 import com.codegym.models.service.Service;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Contract {
@@ -30,10 +31,20 @@ public class Contract {
     @JoinColumn(name = "service_id",referencedColumnName = "serviceId")
     private Service service;
 
+    @OneToMany(mappedBy = "contract")
+    private List<ContractDetail> contractDetails;
+
     public Contract() {
 
     }
 
+    public List<ContractDetail> getContractDetails() {
+        return contractDetails;
+    }
+
+    public void setContractDetails(List<ContractDetail> contractDetails) {
+        this.contractDetails = contractDetails;
+    }
 
     public Integer getIdContract() {
         return idContract;

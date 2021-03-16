@@ -1,7 +1,7 @@
-package com.codegym.services.impl;
+package com.codegym.services.impl.employee;
 
 import com.codegym.models.employee.Division;
-import com.codegym.repositories.DivisionRepository;
+import com.codegym.repositories.employee.DivisionRepository;
 import com.codegym.services.DivisionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

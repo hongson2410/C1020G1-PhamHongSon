@@ -2,14 +2,12 @@ package com.codegym.controllers;
 
 import com.codegym.models.customer.Customer;
 import com.codegym.models.customer.CustomerType;
-import com.codegym.services.impl.CustomerServiceImpl;
-import com.codegym.services.impl.CustomerTypeServiceImpl;
+import com.codegym.services.impl.customer.CustomerServiceImpl;
+import com.codegym.services.impl.customer.CustomerTypeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

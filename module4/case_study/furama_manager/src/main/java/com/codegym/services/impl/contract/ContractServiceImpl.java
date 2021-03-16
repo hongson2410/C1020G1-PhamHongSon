@@ -1,7 +1,7 @@
-package com.codegym.services.impl;
+package com.codegym.services.impl.contract;
 
 import com.codegym.models.contract.Contract;
-import com.codegym.repositories.ContractRepository;
+import com.codegym.repositories.contract.ContractRepository;
 import com.codegym.services.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

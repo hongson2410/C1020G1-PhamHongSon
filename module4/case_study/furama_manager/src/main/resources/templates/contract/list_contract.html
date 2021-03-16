@@ -27,6 +27,7 @@
         <th>Customer</th>
         <th>Employee</th>
         <th>Service</th>
+        <th>Attach Service</th>
     </tr>
     </thead>
     <tbody>
@@ -38,6 +39,16 @@
         <td th:text="${contract.getCustomer().customerCode}"></td>
         <td th:text="${contract.getEmployee().employeeName}"></td>
         <td th:text="${contract.getService().serviceId}"></td>
+        <td>
+            <div th:if="${contract.contractDetails}">
+                <div th:each="contractDetail : ${contract.contractDetails}">
+                    <p th:text="${contractDetail.attachService.nameAttachService}"></p>
+                </div>
+            </div>
+            <div th:if="${contract.contractDetails.isEmpty()}">
+                <p>Not available </p>
+            </div>
+        </td>
 <!--        <td><a class="btn btn-primary"-->
 <!--               th:href="@{/employee/edit/{id}/(id=${employee.employeeId})}"-->
 <!--               role="button" style="margin-left: 20%"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">-->

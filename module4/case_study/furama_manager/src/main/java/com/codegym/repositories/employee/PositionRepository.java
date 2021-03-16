@@ -1,4 +1,4 @@
-package com.codegym.repositories;
+package com.codegym.repositories.employee;
 
 import com.codegym.models.employee.Position;
 import org.springframework.data.jpa.repository.JpaRepository;

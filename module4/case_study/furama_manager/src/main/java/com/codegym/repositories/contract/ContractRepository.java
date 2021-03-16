@@ -1,4 +1,4 @@
-package com.codegym.repositories;
+package com.codegym.repositories.contract;
 
 import com.codegym.models.contract.Contract;
 import org.springframework.data.jpa.repository.JpaRepository;
