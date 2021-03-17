@@ -10,4 +10,6 @@ public interface ServiceService {
     void saveService(Service service);
 
     Service findById(String id);
+
+    void deleteService(String id);
 }

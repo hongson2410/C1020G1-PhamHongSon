@@ -27,4 +27,9 @@ public class ServiceServiceImpl implements ServiceService {
     public com.codegym.models.service.Service findById(String id) {
         return serviceRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public void deleteService(String id) {
+        serviceRepository.deleteById(id);
+    }
 }

@@ -12,6 +12,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -49,7 +51,7 @@ public class ServiceController {
     public String showListService(@PageableDefault(size = 5) Pageable pageable, Model model) {
         Page<Service> services = serviceService.findAllService(pageable);
         for (Service service : services.getContent()) {
-            service.setCost(service.getRentTypeService().getRentTypeCost() * service.getMax_people());
+            service.setCost(String.valueOf(service.getRentTypeService().getRentTypeCost() * Integer.parseInt(service.getMax_people())));
         }
         model.addAttribute("services", services);
         return "service/list_service";
@@ -71,22 +73,61 @@ public class ServiceController {
     }
 
     @PostMapping("/create")
-    public String createService(@ModelAttribute Service service, RedirectAttributes redirectAttributes) {
+    public String createService(@Validated @ModelAttribute("service") Service service,BindingResult bindingResult,
+                                RedirectAttributes redirectAttributes, @RequestParam("string") String string) {
+        if (bindingResult.hasFieldErrors()){
+            switch (string){
+                case "villa":
+                    return "service/create_villa";
+                case "house":
+                    return "service/create_house";
+                default:
+                    return "service/create_room";
+            }
+        }
         serviceService.saveService(service);
         redirectAttributes.addFlashAttribute("message", "Service was create!");
-        return "redirect:/service/list";
+        return "/service/list_service";
     }
 
     @GetMapping("/edit/{id}")
     public String showFormEdit(@PathVariable String id, Model model) {
-        model.addAttribute("service", serviceService.findById(id));
-        return "/service/edit_service";
+        Service service = serviceService.findById(id);
+        switch (service.getTypeService().getServiceTypeName()){
+            case "Villa":
+                model.addAttribute("service", service);
+                return "/service/edit_villa";
+            case "House":
+                model.addAttribute("service", service);
+                return "/service/edit_house";
+            default:
+                model.addAttribute("service", service);
+                return "/service/edit_room";
+        }
     }
 
     @PostMapping("/edit")
-    public String editService(@ModelAttribute("service") Service service, RedirectAttributes redirectAttributes) {
+    public String editService(@Validated @ModelAttribute("service") Service service,BindingResult bindingResult,
+                              RedirectAttributes redirectAttributes,@RequestParam("string") String string) {
+        if (bindingResult.hasFieldErrors()){
+            switch (string){
+                case "villa":
+                    return "service/edit_villa";
+                case "house":
+                    return "service/edit_house";
+                default:
+                    return "service/edit_room";
+            }
+        }
         serviceService.saveService(service);
         redirectAttributes.addFlashAttribute("message", "Service " + service.getServiceId() + " was update!");
         return "redirect:/contract/listContractUsing";
+    }
+
+    @PostMapping("/delete")
+    public String deleteCustomer(@RequestParam("id") String id, RedirectAttributes redirectAttributes){
+        serviceService.deleteService(id);
+        redirectAttributes.addFlashAttribute("message", "Service "+id+" was delete!");
+        return "redirect:/service/list";
     }
 }

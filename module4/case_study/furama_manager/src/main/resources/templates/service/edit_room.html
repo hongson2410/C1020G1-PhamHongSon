@@ -8,15 +8,15 @@
     <div class="row" style="margin-right: 40px">
         <div class="col-lg-4" style="padding: 0">
             <div class="sidebar">
-                <img src="https://media-cdn.tripadvisor.com/media/photo-s/12/99/82/95/bellaire-house.jpg" style="width: 100%;height:700px">
+                <img src="https://cf.bstatic.com/images/hotel/max1024x768/238/238751575.jpg" style="width: 100%;height:600px">
             </div>
         </div>
 
         <div class="col-lg-8" style="padding: 0">
             <div class="body" style="text-align: center">
-                <h3>Create House</h3>
-                <form th:action="@{/service/create}" method="post" th:object="${service}">
-                    <input type="hidden" name="string" value="house">
+                <h3>Edit Room</h3>
+                <form th:action="@{/service/edit}" method="post" th:object="${service}">
+                    <input type="hidden" name="string" value="room">
                     <table cellpadding="5">
                         <tr>
                             <th>Service Code:</th>
@@ -53,13 +53,6 @@
                             <td>
                                 <input type="text" th:field="*{area}" size="45"/>
                                 <span th:if="${#fields.hasErrors('area')}" th:errors="*{area}" class="text-danger help-block" ></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Floor:</th>
-                            <td>
-                                <input type="text" th:field="*{floor}" size="45"/>
-                                <span th:if="${#fields.hasErrors('floor')}" th:errors="*{floor}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>

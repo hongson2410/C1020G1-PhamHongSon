@@ -1,6 +1,13 @@
 package com.codegym.models.employee;
 
+import com.codegym.models.contract.Contract;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import java.util.List;
 
 @Entity
 public class Employee {
@@ -9,20 +16,36 @@ public class Employee {
     private Integer employeeId;
 
     @Column(nullable = false)
+    @Pattern(regexp = "[\\D]+",message = "Must not contain numbers ")
     private String employeeName;
+
     @Column(nullable = false, columnDefinition = "date")
+    @Pattern(regexp = "^([0-9]{4}[-]?((0[13-9]|1[012])[-]?(0[1-9]|[12][0-9]|30)|(0[13578]|1[02])[-]?31|02[-]?(0[1-9]|1[0-9]|2[0-8]))|([0-9]{2}(([2468][048]|[02468][48])|[13579][26])|([13579][26]|[02468][048])00)[-]?02[-]?29)$", message = "format DD/MM/YYYY")
     private String employeeBirthDay;
+
     @Column(nullable = false)
+    @NotBlank(message = "Must not be left blank")
+    @Pattern(regexp = "(Male|Female)",message = "Male or Female")
     private String employeeGender;
+
     @Column(nullable = false)
+    @Pattern(regexp = "^\\d{9}$",message = "Id cart 9 number")
     private String employeeIdCard;
+
+    @Column(columnDefinition = "double")
+    @Pattern(regexp = "([1-9]+\\d*[.]?\\d*)", message = "input double and > 1")
+    private String employeeSalary;
+
     @Column(nullable = false)
-    private Double employeeSalary;
-    @Column(nullable = false)
+    @Pattern(regexp = "^(090|091|[(]84[+][)]90|[(]84+[)]91)\\d{7}$",message = "Format 090|091|(84+)")
     private String employeePhone;
-    @Column(unique = true)
+
+    @Column(unique = true, nullable = false)
+    @Email(message = "Wrong format")
+    @NotBlank(message = "Must not be left blank")
     private String employeeEmail;
 
+    @NotBlank(message = "Must not be left blank")
     private String employeeAddress;
 
 
@@ -42,7 +65,18 @@ public class Employee {
     @JoinColumn(name = "user_name" , referencedColumnName = "userName")
     private FuramaUser furamaUser;
 
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    private List<Contract> contracts;
+
     public Employee() {
+    }
+
+    public List<Contract> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(List<Contract> contracts) {
+        this.contracts = contracts;
     }
 
     public Integer getEmployeeId() {
@@ -85,11 +119,11 @@ public class Employee {
         this.employeeIdCard = employeeIdCard;
     }
 
-    public Double getEmployeeSalary() {
+    public String getEmployeeSalary() {
         return employeeSalary;
     }
 
-    public void setEmployeeSalary(Double employeeSalary) {
+    public void setEmployeeSalary(String employeeSalary) {
         this.employeeSalary = employeeSalary;
     }
 

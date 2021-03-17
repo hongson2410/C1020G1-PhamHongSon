@@ -42,7 +42,7 @@
         <td>
             <div th:if="${contract.contractDetails}">
                 <div th:each="contractDetail : ${contract.contractDetails}">
-                    <p th:text="${contractDetail.attachService.nameAttachService}"></p>
+                    <p th:text="${contractDetail.attachService.nameAttachService} +' quantity:'+ ${contractDetail.quantity} "></p>
                 </div>
             </div>
             <div th:if="${contract.contractDetails.isEmpty()}">

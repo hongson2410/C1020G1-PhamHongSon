@@ -23,7 +23,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<Customer> findByCustomerNameContaining(String customerName) {
-        return customerRepository.findByCustomerNameContaining(customerName);
+        return customerRepository.findByCustomerNameContainingOrCustomerPhoneContainingOrCustomerCodeContaining(customerName,customerName,customerName);
     }
 
     @Override

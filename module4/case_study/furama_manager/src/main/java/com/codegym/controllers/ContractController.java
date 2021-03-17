@@ -23,6 +23,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -75,6 +77,7 @@ public class ContractController {
     public String showContract(@RequestParam(value = "page", defaultValue = "0", required = false) int page, Model model) {
         Pageable pageable = PageRequest.of(page, 5);
         model.addAttribute("contracts", contractService.findAllContract(pageable));
+        // làm vòng lặp
         return "/contract/list_contract";
     }
 
@@ -85,7 +88,11 @@ public class ContractController {
     }
 
     @PostMapping("/create")
-    public String createContract(@ModelAttribute("contract") Contract contract, RedirectAttributes redirectAttributes) {
+    public String createContract(@Validated @ModelAttribute("contract") Contract contract,BindingResult bindingResult,
+                                 RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasFieldErrors()){
+            return "/contract/create_contract";
+        }
         contractService.saveContract(contract);
         redirectAttributes.addFlashAttribute("message", "Contract was create!");
         return "redirect:/contract/list";
@@ -122,4 +129,11 @@ public class ContractController {
         model.addAttribute("contracts", contracts);
         return "/contract/search_list_contract_using";
     }
+
+//    @PostMapping("/delete")
+//    public String deleteCustomer(@RequestParam("id") Integer id, RedirectAttributes redirectAttributes){
+//        contractService.deleteCustomer(id);
+//        redirectAttributes.addFlashAttribute("message", "Customer "+id+" was delete!");
+//        return "redirect:/customer/list";
+//    }
 }

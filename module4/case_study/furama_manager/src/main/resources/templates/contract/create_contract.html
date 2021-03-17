@@ -21,18 +21,21 @@
                             <th>Start Date Contract (Format MM/dd/YYYY):</th>
                             <td>
                                 <input type="date" width="200" th:field="*{startDateContract}" style="height: 30px; float: left; width: 380px" />
+                                <span th:if="${#fields.hasErrors('startDateContract')}" th:errors="*{startDateContract}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>End Date Contract (Format MM/dd/YYYY):</th>
                             <td>
                                 <input type="date" width="200" th:field="*{endDateContract}" style="height: 30px; float: left; width: 380px" />
+                                <span th:if="${#fields.hasErrors('endDateContract')}" th:errors="*{endDateContract}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Deposit:</th>
                             <td>
                                 <input type="text" th:field="*{deposit}" size="45"/>
+                                <span th:if="${#fields.hasErrors('deposit')}" th:errors="*{deposit}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
@@ -75,6 +78,7 @@
                             <th>Total:</th>
                             <td>
                                 <input type="text" th:field="*{total}" size="45"/>
+                                <span th:if="${#fields.hasErrors('total')}" th:errors="*{total}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>

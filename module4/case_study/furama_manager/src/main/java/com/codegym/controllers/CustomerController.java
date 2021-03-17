@@ -82,10 +82,7 @@ public class CustomerController {
         return "redirect:/customer/list";
     }
 
-    //nhờ anh Tiến check postman
-    @GetMapping(value = "/search",produces = MediaType.APPLICATION_JSON_VALUE,
-            consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
+    @GetMapping(value = "/search",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Customer>> searchCustomer(@RequestParam("name") String name){
         return new ResponseEntity<>(customerService.findByCustomerNameContaining(name), HttpStatus.OK);
     }

@@ -14,7 +14,7 @@ public interface ContractRepository extends JpaRepository<Contract, Integer> {
             String endDateContract, Pageable pageable);
 
     List<Contract>
-    findAllByStartDateContractBeforeAndEndDateContractAfterAndCustomer_CustomerCode(String startDateContract,
+    findAllByStartDateContractBeforeAndEndDateContractAfterAndCustomer_CustomerCodeContaining(String startDateContract,
                                                                                     String endDateContract,
                                                                                     String customer_customerCode);
 }

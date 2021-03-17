@@ -13,6 +13,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -62,7 +64,11 @@ public class EmployeeController {
     }
 
     @PostMapping("/create")
-    public String createEmployee(@ModelAttribute("employee") Employee employee, RedirectAttributes redirectAttributes){
+    public String createEmployee(@Validated @ModelAttribute("employee") Employee employee,BindingResult bindingResult,
+                                 RedirectAttributes redirectAttributes){
+        if (bindingResult.hasFieldErrors()){
+            return "/employee/create_employee";
+        }
         employeeService.saveEmployee(employee);
         redirectAttributes.addFlashAttribute("message", "Employee was create!!");
         return "redirect:/employee/create";
@@ -81,7 +87,7 @@ public class EmployeeController {
         return "redirect:/employee/list";
     }
 
-    @GetMapping("/delete")
+    @PostMapping("/delete")
     public String deleteEmployee(@RequestParam("id") Integer id, RedirectAttributes redirectAttributes){
         employeeService.deleteEmployeeById(id);
         redirectAttributes.addFlashAttribute("message", "Employee was delete!");

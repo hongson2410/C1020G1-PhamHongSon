@@ -32,6 +32,6 @@ public class ContractServiceImpl implements ContractService {
 
     @Override
     public List<Contract> findContractUsingByCodeCustomer(String time, String code) {
-        return repository.findAllByStartDateContractBeforeAndEndDateContractAfterAndCustomer_CustomerCode(time,time,code);
+        return repository.findAllByStartDateContractBeforeAndEndDateContractAfterAndCustomer_CustomerCodeContaining(time,time,code);
     }
 }

@@ -15,17 +15,20 @@
             <div class="body" style="text-align: center">
                 <h3>Create Room</h3>
                 <form th:action="@{/service/create}" method="post" th:object="${service}">
+                    <input type="hidden" name="string" value="room">
                     <table cellpadding="5">
                         <tr>
                             <th>Service Code:</th>
                             <td>
                                 <input type="text" th:field="*{serviceId}" size="45"/>
+                                <span th:if="${#fields.hasErrors('serviceId')}" th:errors="*{serviceId}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Service Name:</th>
                             <td>
                                 <input type="text" th:field="*{nameService}" size="45"/>
+                                <span th:if="${#fields.hasErrors('nameService')}" th:errors="*{nameService}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
@@ -48,12 +51,14 @@
                             <th>Area:</th>
                             <td>
                                 <input type="text" th:field="*{area}" size="45"/>
+                                <span th:if="${#fields.hasErrors('area')}" th:errors="*{area}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Max People:</th>
                             <td>
                                 <input type="text" th:field="*{max_people}" size="45"/>
+                                <span th:if="${#fields.hasErrors('max_people')}" th:errors="*{max_people}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>

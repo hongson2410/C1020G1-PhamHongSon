@@ -40,6 +40,7 @@
                             <th>Birthday(Format MM/dd/YYYY):</th>
                             <td>
                                 <input type="date" width="200" th:field="*{customerBirthDay}" style="height: 30px; float: left; width: 380px" />
+                                <span th:if="${#fields.hasErrors('customerBirthDay')}" th:errors="*{customerBirthDay}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
@@ -50,6 +51,7 @@
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                 </select>
+                                <span th:if="${#fields.hasErrors('customerGender')}" th:errors="*{customerGender}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
