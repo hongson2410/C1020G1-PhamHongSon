@@ -77,7 +77,7 @@ public class ContractController {
     public String showContract(@RequestParam(value = "page", defaultValue = "0", required = false) int page, Model model) {
         Pageable pageable = PageRequest.of(page, 5);
         model.addAttribute("contracts", contractService.findAllContract(pageable));
-        // làm vòng lặp
+        // làm vòng lặp đẻ xét quality attach service
         return "/contract/list_contract";
     }
 
@@ -129,11 +129,4 @@ public class ContractController {
         model.addAttribute("contracts", contracts);
         return "/contract/search_list_contract_using";
     }
-
-//    @PostMapping("/delete")
-//    public String deleteCustomer(@RequestParam("id") Integer id, RedirectAttributes redirectAttributes){
-//        contractService.deleteCustomer(id);
-//        redirectAttributes.addFlashAttribute("message", "Customer "+id+" was delete!");
-//        return "redirect:/customer/list";
-//    }
 }

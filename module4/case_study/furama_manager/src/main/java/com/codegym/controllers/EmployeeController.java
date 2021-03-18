@@ -81,7 +81,11 @@ public class EmployeeController {
     }
 
     @PostMapping("/edit")
-    public String editEmployee(@ModelAttribute Employee employee, RedirectAttributes redirectAttributes){
+    public String editEmployee(@Validated @ModelAttribute Employee employee,BindingResult bindingResult,
+                               RedirectAttributes redirectAttributes){
+        if (bindingResult.hasFieldErrors()){
+            return "/employee/edit_employee";
+        }
         employeeService.saveEmployee(employee);
         redirectAttributes.addFlashAttribute("message", "Employee was update!");
         return "redirect:/employee/list";

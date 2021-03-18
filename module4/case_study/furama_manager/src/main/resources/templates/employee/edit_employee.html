@@ -21,51 +21,60 @@
                             <th>Name Employee:</th>
                             <td>
                                 <input type="text" th:field="*{employeeName}" size="45"/>
+                                <span th:if="${#fields.hasErrors('employeeName')}" th:errors="*{employeeName}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Birthday(Format MM/dd/YYYY):</th>
                             <td>
-                                <input type="date" width="200" th:field="*{employeeBirthDay}" style="height: 25px; float: left" />
+                                <input type="date" width="200" th:field="*{employeeBirthDay}" style="height: 30px; float: left; width: 380px" />
+                                <span th:if="${#fields.hasErrors('employeeBirthDay')}" th:errors="*{employeeBirthDay}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Gender:</th>
                             <td>
-                                <select th:field="*{employeeGender}" style="float: left">
+                                <select th:field="*{employeeGender}" class="mdb-select md-form" style="width: 380px;height: 30px">
+                                    <option value="" >Choose gender</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                 </select>
+                                <span th:if="${#fields.hasErrors('employeeGender')}" th:errors="*{employeeGender}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Id card:</th>
                             <td>
                                 <input type="text" th:field="*{employeeIdCard}" size="45"/>
+                                <span th:if="${#fields.hasErrors('employeeIdCard')}" th:errors="*{employeeIdCard}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Salary:</th>
                             <td>
                                 <input type="text" th:field="*{employeeSalary}" size="45"/>
+                                <span th:if="${#fields.hasErrors('employeeSalary')}" th:errors="*{employeeSalary}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Phone number:</th>
                             <td>
                                 <input type="text" th:field="*{employeePhone}" size="45"/>
+                                <span th:if="${#fields.hasErrors('employeePhone')}" th:errors="*{employeePhone}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Email:</th>
                             <td>
                                 <input type="text" th:field="*{employeeEmail}" size="45"/>
+                                <span th:if="${#fields.hasErrors('employeeEmail')}" th:errors="*{employeeEmail}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Position:</th>
                             <td>
-                                <select th:field="*{position}" style="float: left">
+                                <select th:field="*{position}" class="mdb-select md-form" style="width: 380px;height: 30px">
+                                    <option value="" >Choose position</option>
                                     <option th:each="position : ${positions}" th:value="${position.positionId}"
                                             th:text="${position.positionName}"></option>
                                 </select>
@@ -74,7 +83,8 @@
                         <tr>
                             <th>Education:</th>
                             <td>
-                                <select th:field="*{education}" style="float: left">
+                                <select th:field="*{education}" class="mdb-select md-form" style="width: 380px;height: 30px">
+                                    <option value="" >Choose education</option>
                                     <option th:each="education : ${educations}" th:value="${education.educationId}"
                                             th:text="${education.educationName}"></option>
                                 </select>
@@ -83,7 +93,8 @@
                         <tr>
                             <th>Division:</th>
                             <td>
-                                <select th:field="*{division}" style="float: left">
+                                <select th:field="*{division}" class="mdb-select md-form" style="width: 380px;height: 30px">
+                                    <option value="" >Choose division</option>
                                     <option th:each="division : ${divisions}" th:value="${division.divisionId}"
                                             th:text="${division.divisionName}"></option>
                                 </select>
@@ -93,11 +104,12 @@
                             <th>Address:</th>
                             <td>
                                 <input type="text" th:field="*{employeeAddress}" size="45"/>
+                                <span th:if="${#fields.hasErrors('employeeAddress')}" th:errors="*{employeeAddress}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2" align="center">
-                                <input type="submit" value="Update"/>
+                                <input type="submit" value="Save"/>
                             </td>
                         </tr>
                     </table>
