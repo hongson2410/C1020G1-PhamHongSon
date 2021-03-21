@@ -45,7 +45,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 grantList.add(authority);
             }
         }
-
+        //tạo principle
         UserDetails userDetails = (UserDetails) new User(furamaUser.getUserName(),
                 furamaUser.getPassword(), grantList);
 

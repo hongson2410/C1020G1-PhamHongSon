@@ -25,6 +25,7 @@
                                     <option th:each="attachService : ${attachServices}" th:value="${attachService.idAttachService}"
                                             th:text="${attachService.nameAttachService}"></option>
                                 </select>
+                                <span th:if="${#fields.hasErrors('attachService')}" th:errors="*{attachService}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
@@ -36,12 +37,14 @@
                                             th:text="${contract.idContract}">
                                     </option>
                                 </select>
+                                <span th:if="${#fields.hasErrors('contract')}" th:errors="*{contract}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Quantity:</th>
                             <td>
                                 <input type="text" th:field="*{quantity}" size="45"/>
+                                <span th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>

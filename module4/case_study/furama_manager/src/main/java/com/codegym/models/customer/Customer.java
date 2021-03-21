@@ -1,6 +1,7 @@
 package com.codegym.models.customer;
 
 import com.codegym.models.contract.Contract;
+import com.codegym.validate.DupEmail;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -45,8 +46,10 @@ public class Customer {
     @Pattern(regexp = "^(090|091|[(]84[+][)]90|[(]84+[)]91)\\d{7}$",message = "Format 090|091|(84+)")
     private String customerPhone;
 
+    @Column(nullable = false, unique = true)
     @Email(message = "Wrong format")
     @NotBlank(message = "Must not be left blank")
+    @DupEmail
     private String customerEmail;
 
     @NotBlank(message = "Must not be left blank")

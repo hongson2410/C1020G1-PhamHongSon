@@ -20,6 +20,13 @@ public class ContractDetailServiceImpl implements ContractDetailService {
 
     @Override
     public void saveContractDetail(ContractDetail contractDetail) {
-        contractDetailRepository.save(contractDetail);
+        ContractDetail contractDetail1= contractDetailRepository.findContractDetailByAttachServiceAndContract(
+                contractDetail.getAttachService(), contractDetail.getContract());
+        if (contractDetail1== null){
+            contractDetailRepository.save(contractDetail);
+            return;
+        }
+        contractDetail1.setQuantity(String.valueOf(Integer.parseInt(contractDetail.getQuantity())+Integer.parseInt(contractDetail.getQuantity())));
+        contractDetailRepository.save(contractDetail1);
     }
 }

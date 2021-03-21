@@ -8,6 +8,7 @@ import com.codegym.services.impl.service.ServiceServiceImpl;
 import com.codegym.services.impl.service.TypeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
@@ -48,11 +49,9 @@ public class ServiceController {
     }
 
     @GetMapping("/list")
-    public String showListService(@PageableDefault(size = 5) Pageable pageable, Model model) {
+    public String showListService(@RequestParam(value = "page",defaultValue = "0",required = false) int page, Model model) {
+        Pageable pageable = PageRequest.of(page,5);
         Page<Service> services = serviceService.findAllService(pageable);
-        for (Service service : services.getContent()) {
-            service.setCost(String.valueOf(service.getRentTypeService().getRentTypeCost() * Integer.parseInt(service.getMax_people())));
-        }
         model.addAttribute("services", services);
         return "service/list_service";
     }

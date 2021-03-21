@@ -69,7 +69,11 @@ public class CustomerController {
     }
 
     @PostMapping("/edit")
-    public String editCustomer(@ModelAttribute("customer") Customer customer, RedirectAttributes redirectAttributes){
+    public String editCustomer(@ModelAttribute("customer") Customer customer,BindingResult bindingResult,
+                               RedirectAttributes redirectAttributes){
+        if (bindingResult.hasFieldErrors()){
+            return "/customer/edit_customer";
+        }
         customerService.saveCustomer(customer);
         redirectAttributes.addFlashAttribute("message", "Customer "+customer.getCustomerId()+" was update!");
         return "redirect:/customer/list";

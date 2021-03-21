@@ -15,7 +15,14 @@ public class ServiceServiceImpl implements ServiceService {
 
     @Override
     public Page<com.codegym.models.service.Service> findAllService(Pageable pageable) {
-        return serviceRepository.findAll(pageable);
+        Page<com.codegym.models.service.Service> services = serviceRepository.findAll(pageable);
+        if (!services.isEmpty()) {
+            for (com.codegym.models.service.Service service : services.getContent()) {
+                service.setCost(String.valueOf(service.getRentTypeService().getRentTypeCost() * Integer.parseInt(service.getMax_people())));
+            }
+            return services;
+        }
+        return services;
     }
 
     @Override

@@ -37,8 +37,9 @@ public class Service {
     private String max_people;
 
     @Column(columnDefinition = "int")
-    @Pattern(regexp = "([1-9]+\\d*)", message = "input number and > 0")
     private String cost;
+//    @Pattern(regexp = "([1-9]+\\d*)", message = "input number and > 0")
+
 
     @ManyToOne
     @JoinColumn(name = "service_type_id", referencedColumnName = "serviceTypeId")

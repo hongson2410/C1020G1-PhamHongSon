@@ -77,7 +77,6 @@ public class ContractController {
     public String showContract(@RequestParam(value = "page", defaultValue = "0", required = false) int page, Model model) {
         Pageable pageable = PageRequest.of(page, 5);
         model.addAttribute("contracts", contractService.findAllContract(pageable));
-        // làm vòng lặp đẻ xét quality attach service
         return "/contract/list_contract";
     }
 
@@ -105,7 +104,11 @@ public class ContractController {
     }
 
     @PostMapping("/createContractDetail")
-    public String createContractDetail(@ModelAttribute("contractDetail") ContractDetail contractDetail, RedirectAttributes redirectAttributes) {
+    public String createContractDetail(@Validated @ModelAttribute("contractDetail") ContractDetail contractDetail,BindingResult bindingResult,
+                                       RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasFieldErrors()){
+            return "/contract/create_contract_detail";
+        }
         contractDetailService.saveContractDetail(contractDetail);
         redirectAttributes.addFlashAttribute("message", "Contract Detail was create!");
         return "redirect:/contract/list";

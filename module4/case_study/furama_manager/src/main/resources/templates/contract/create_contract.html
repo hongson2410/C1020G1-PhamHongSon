@@ -34,14 +34,14 @@
                         <tr>
                             <th>Deposit:</th>
                             <td>
-                                <input type="text" th:field="*{deposit}" size="45"/>
+                                <input type="text" th:field="*{deposit}" size="45" />
                                 <span th:if="${#fields.hasErrors('deposit')}" th:errors="*{deposit}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Customer:</th>
                             <td>
-                                <select th:field="*{customer}" class="mdb-select md-form" style="height: 30px">
+                                <select th:field="*{customer}" class="mdb-select md-form js-example-basic-single" style="height: 30px">
                                     <option value="" >Choose your customer</option>
                                     <option th:each="customer : ${customers}" th:value="${customer.customerId}"
                                             th:text="${customer.customerCode}">
@@ -94,5 +94,10 @@
 </div>
 <footer th:replace="/layout :: footer">
 </footer>
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+    });
+</script>
 </body>
 </html>
