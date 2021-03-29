@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<header th:replace="/layout :: navbar"></header>
+<div class="container" style="padding-top: 150px">
+    <div class="table-wrapper">
+        <div class="notify">
+            <div th:if="${message}">
+                <span th:text="${message}"></span>
+            </div>
+        </div>
+        <div class="table-title">
+            <div class="row" >
+                <div class="col-sm-8">
+                    <h2><b>Contract</b></h2>
+                    <a class="btn btn-primary" role="button"
+                       th:href="@{/contractCreate}">
+                        Thêm mới
+                    </a>
+                </div>
+                <div class="col-sm-4">
+                    <div class="table-search-box">
+                            <input
+                                    name="name" type="text" id="search"
+                                    class="form-control"
+                                    placeholder="Search"
+                            />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table id="table-page" class="table table-striped table-hover table-bordered table-responsive text-nowrap">
+            <thead>
+            <tr>
+                <th>Mã giao dịch</th>
+                <th>Tên khách hàng</th>
+                <th>Ngày giao dịch</th>
+                <th>Loại dịch vụ</th>
+                <th>Đơn giá(VND/m2)</th>
+                <th>Diện tích(m2)</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody id="listContract">
+            <tr th:each="contract : ${contracts}">
+                <td th:text="${contract.getContractCode()}"></td>
+                <td th:text="${contract.getCustomer().customerName}"></td>
+                <td th:text="${contract.getDateContract()}"></td>
+                <td th:text="${contract.getServiceType()}"></td>
+                <td th:text="${contract.getCost()}"></td>
+                <td th:text="${contract.getArea()}"></td>
+                <td><a class="btn btn-primary" role="button"
+                       th:href="@{/contractDetail/{id}/(id=${contract.contractID})}">
+                    Chi tiết
+                </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <nav aria-label="page-nav">
+            <ul class="pagination">
+                <li th:class="${contracts.hasPrevious()}? 'page-item': 'page-item disabled'">
+                    <a class="page-link" th:tabindex="${contracts.hasPrevious()}? 0 :1"
+                       th:href="@{/contractList?page=__${contracts.number -1}__}">Previous</a>
+                </li>
+                <li class="page-item" th:if="${contracts.hasPrevious()}">
+                    <a class="page-link" th:href="@{/contractList?page=__${contracts.number -1}__}"
+                       th:text="${contracts.number}"></a>
+                </li>
+                <li class="page-item active">
+                    <a class="page-link" th:href="@{/contractList?page=__${contracts.number}__}"
+                       th:text="${contracts.number+1}"></a>
+                </li>
+                <li class="page-item" th:if="${contracts.hasNext()}">
+                    <a class="page-link" th:href="@{/contractList?page=__${contracts.number +1}__}"
+                       th:text="${contracts.number+2}"></a>
+                </li>
+                <li th:class="${contracts.hasNext()}? 'page-item': 'page-item disabled'">
+                    <a class="page-link" th:tabindex="${contracts.hasNext()}? 0 :1"
+                       th:href="@{/contractList?page=__${contracts.number +1}__}">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"-->
+<!--     aria-hidden="true">-->
+<!--    <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <h5 class="modal-title" id="exampleModalLabel">Delete</h5>-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                    <span aria-hidden="true">&times;</span>-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                Are you sure you want to delete <span id="message-delete"></span>-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-primary">-->
+<!--                    <a onclick="submitFormDelete()"-->
+<!--                       style="color: white;text-decoration: none">-->
+<!--                        Ok</a></button>-->
+
+<!--                <button type="button" class="btn btn-secondary"-->
+<!--                        data-dismiss="modal">-->
+<!--                    <a style="color: white;text-decoration: none">-->
+<!--                        Cancel</a></button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<form action="/customerDelete" id="formDelete" method="post">-->
+<!--    <input name="id" type="hidden" id="idCustomerHidden"/>-->
+<!--</form>-->
+<!--<script>-->
+<!--    function setIdToForm(id, name) {-->
+<!--        document.getElementById('idCustomerHidden').value = id;-->
+<!--        document.getElementById('message-delete').textContent = name;-->
+<!--    }-->
+
+<!--    function submitFormDelete() {-->
+<!--        document.getElementById('formDelete').submit();-->
+<!--    }-->
+<!--</script>-->
+
+<script>
+    $(document).ready(function () {
+        $("#search").on("keyup", function () {
+            let name = document.getElementById("search").value;
+
+            $.ajax({
+                type: "GET",
+                url: " http://localhost:8080/contractSearch?name=" + name,
+                dataType: "Json",
+                contentType: "application/json; charset=utf8",
+                success: function (contracts) {
+                    let result = "";
+                    for (let i = 0; i < contracts.length; i++) {
+                        let id = contracts[i].contractId;
+                        console.log(contracts[i].customerName);
+                        result += "<tr>";
+                        result += "<td>" + contracts[i].getContractCode() + "</td>";
+                        result += "<td>" + contracts[i].getCustomer().customerName + "</td>";
+                        result += "<td>" + contracts[i].getDateContract() + "</td>";
+                        result += "<td>" + contracts[i].getServiceType() + "</td>";
+                        result += "<td>" + contracts[i].getCost() + "</td>";
+                        result += "<td>" + contracts[i].getArea() + "</td>";
+                        result += "<td><a class=\"btn btn-primary\" role=\"button\" href='/contractDetail/"
+                            + id + "'>" +
+                            " chi tiết " +
+                            "</a> </td>";
+                        result += "</tr>";
+                    }
+                    $("#listContract").html(result);
+                }
+            });
+        });
+    });
+</script>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

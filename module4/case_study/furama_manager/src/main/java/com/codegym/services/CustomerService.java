@@ -16,4 +16,6 @@ public interface CustomerService {
     void saveCustomer(Customer customer);
 
     void deleteCustomer(Integer id);
+
+    String checkDuplicate( Customer customer);
 }

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<header th:replace="/layout :: navbar"></header>
+<div class="container" style="padding-top: 150px">
+    <div class="container rounded bg-white mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h2 class="text-right">Chi tiết giao dịch</h2>
+                    </div>
+                    <form method="post" th:action="@{/deleteContract}" th:object="${contract}">
+                        <input type="hidden" name="id" th:field="*{contractID}"/>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        th:field="*{contractCode}"
+                                />
+                            </div>
+                            <div class="col-md-6">
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        th:field="*{serviceType}"
+                                />
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    th:field="*{dateContract}"
+                            />
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        th:field="*{cost}"
+                                />
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        th:field="*{area}"
+                                />
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        th:field="*{customer.customerName}"
+                                />
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        th:field="*{customer.customerPhone}"
+                                />
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        th:field="*{customer.customerEmail}"
+                                />
+                            </div>
+                        </div>
+                        <div class="mt-5 text-right">
+                            <input type="submit" th:value="Xóa">
+                            <a class="btn btn-primary" role="button"
+                               th:href="@{/contractList}">
+                                Quay lại
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

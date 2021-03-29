@@ -1,7 +1,7 @@
 package com.codegym.models.employee;
 
 import com.codegym.models.contract.Contract;
-import com.codegym.validate.DupEmail;
+//import com.codegym.validate.DupEmail;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -44,7 +44,7 @@ public class Employee {
     @Column(unique = true, nullable = false)
     @Email(message = "Wrong format")
     @NotBlank(message = "Must not be left blank")
-    @DupEmail
+//    @DupEmail
     private String employeeEmail;
 
     @NotBlank(message = "Must not be left blank")

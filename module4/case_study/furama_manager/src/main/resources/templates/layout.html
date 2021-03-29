@@ -89,7 +89,7 @@
 </body>
 <div th:fragment="navbar">
     <div class="container-fluid"
-         style="background-image:url('/bootstrap/img/car-blur-blurry-background-bokeh-preview.jpg'); height: 100px">
+         style="background-color: #1b1e21; height: 100px">
         <div class="row d_flex">
             <div class=" col-md-2 col-sm-3 col logo_section">
                 <div class="full">
@@ -119,8 +119,8 @@
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                    style="color: white">Customer</a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" th:href="@{/customer/list}">Show List</a>
-                                    <a class="dropdown-item" th:href="@{/customer/create}">Create</a>
+                                    <a class="dropdown-item" th:href="@{/customerList}">Show List</a>
+                                    <a class="dropdown-item" th:href="@{/customerCreate}">Create</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown margin-navbar" sec:authorize="isAuthenticated()">
@@ -189,7 +189,7 @@
                     </li>
                     <li sec:authorize="isAuthenticated()">
                         <a th:href="@{/logout}">Logout</a>
-                        <span style="color:#007bff;" sec:authentication="principal.username"></span>
+                        <span class="badge badge-info" style="font-size: 15px" sec:authentication="principal.username"></span>
                     </li>
                 </ul>
             </div>
@@ -209,7 +209,7 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </div>
 <footer th:fragment="footer">
-    <div class="footer">
+    <div class="footer" style="margin-bottom: -50px">
         <div class="container" >
             <div class="row d_flex" style="bottom: 0">
                 <div class="col-md-6">

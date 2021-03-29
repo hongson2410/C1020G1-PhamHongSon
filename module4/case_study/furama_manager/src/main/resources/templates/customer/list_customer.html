@@ -18,46 +18,75 @@
                placeholder="Search">
     </div>
 </div>
-<table id="customer">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Code</th>
-        <th>Birthday</th>
-        <th>Gender</th>
-        <th>Id Card</th>
-        <th>Number Phone</th>
-        <th>Email</th>
-        <th>Address</th>
-        <th>Type Customer</th>
-        <th>Action</th>
-    </tr>
-    </thead>
-    <tbody id="listCustomer">
-    <tr th:each="customer : ${listCustomer}">
-        <td th:text="${customer.getCustomerName()}"></td>
-        <td th:text="${customer.getCustomerCode()}"></td>
-        <td th:text="${customer.getCustomerBirthDay()}"></td>
-        <td th:text="${customer.getCustomerGender()}"></td>
-        <td th:text="${customer.getCustomerIdCard()}"></td>
-        <td th:text="${customer.getCustomerPhone()}"></td>
-        <td th:text="${customer.getCustomerEmail()}"></td>
-        <td th:text="${customer.getCustomerAddress()}"></td>
-        <td th:text="${customer.getCustomerType().customerTypeName}"></td>
-        <td><a class="btn btn-primary" role="button"
-                th:href="@{/customer/edit/{id}/(id=${customer.customerId})}">
-            <i class="material-icons">&#xE254;</i>
-        </a>
-            <button style="margin-left: 10px" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                    th:data-thing="${customer.customerName}"
-                    th:data-id="${customer.customerId}"
-                    onclick="setIdToForm(this.getAttribute('data-id'),this.getAttribute('data-thing'))">
-                <i class="material-icons">&#xE872;</i>
-            </button>
-        </td>
-    </tr>
-    </tbody>
-</table>
+
+<div style="padding: 20px">
+    <table id="customer">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Code</th>
+            <th>Birthday</th>
+            <th>Gender</th>
+            <th>Id Card</th>
+            <th>Number Phone</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Type Customer</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody id="listCustomer">
+        <tr th:each="customer : ${listCustomer}">
+            <td th:text="${customer.getCustomerName()}"></td>
+            <td th:text="${customer.getCustomerCode()}"></td>
+            <td th:text="${customer.getCustomerBirthDay()}"></td>
+            <td th:text="${customer.getCustomerGender()}"></td>
+            <td th:text="${customer.getCustomerIdCard()}"></td>
+            <td th:text="${customer.getCustomerPhone()}"></td>
+            <td th:text="${customer.getCustomerEmail()}"></td>
+            <td th:text="${customer.getCustomerAddress()}"></td>
+            <td th:text="${customer.getCustomerType().customerTypeName}"></td>
+            <td><a class="btn btn-primary" role="button"
+                   th:href="@{/customerEdit/{id}/(id=${customer.customerId})}">
+                <i class="material-icons">&#xE254;</i>
+            </a>
+                <button style="margin-left: 10px" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                        th:data-thing="${customer.customerName}"
+                        th:data-id="${customer.customerId}"
+                        onclick="setIdToForm(this.getAttribute('data-id'),this.getAttribute('data-thing'))">
+                    <i class="material-icons">&#xE872;</i>
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <nav aria-label="page-nav">
+        <ul class="pagination">
+            <li th:class="${listCustomer.hasPrevious()}? 'page-item': 'page-item disabled'">
+                <a class="page-link" th:tabindex="${listCustomer.hasPrevious()}? 0 :1"
+                   th:href="@{/customerList?page=__${listCustomer.number -1}__}">Previous</a>
+            </li>
+            <li class="page-item" th:if="${listCustomer.hasPrevious()}">
+                <a class="page-link" th:href="@{/customerList?page=__${listCustomer.number -1}__}"
+                   th:text="${listCustomer.number}"></a>
+            </li>
+            <li class="page-item active">
+                <a class="page-link" th:href="@{/customerList?page=__${listCustomer.number}__}"
+                   th:text="${listCustomer.number+1}"></a>
+            </li>
+            <li class="page-item" th:if="${listCustomer.hasNext()}">
+                <a class="page-link" th:href="@{/customerList?page=__${listCustomer.number +1}__}"
+                   th:text="${listCustomer.number+2}"></a>
+            </li>
+            <li th:class="${listCustomer.hasNext()}? 'page-item': 'page-item disabled'">
+                <a class="page-link" th:tabindex="${listCustomer.hasNext()}? 0 :1"
+                   th:href="@{/customerList?page=__${listCustomer.number +1}__}">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -87,31 +116,8 @@
         </div>
     </div>
 </div>
-<nav aria-label="page-nav">
-    <ul class="pagination">
-        <li th:class="${listCustomer.hasPrevious()}? 'page-item': 'page-item disabled'">
-            <a class="page-link" th:tabindex="${listCustomer.hasPrevious()}? 0 :1"
-               th:href="@{/customer/list?page=__${listCustomer.number -1}__}">Previous</a>
-        </li>
-        <li class="page-item" th:if="${listCustomer.hasPrevious()}">
-            <a class="page-link" th:href="@{/customer/list?page=__${listCustomer.number -1}__}"
-               th:text="${listCustomer.number}"></a>
-        </li>
-        <li class="page-item active">
-            <a class="page-link" th:href="@{/customer/list?page=__${listCustomer.number}__}"
-               th:text="${listCustomer.number+1}"></a>
-        </li>
-        <li class="page-item" th:if="${listCustomer.hasNext()}">
-            <a class="page-link" th:href="@{/customer/list?page=__${listCustomer.number +1}__}"
-               th:text="${listCustomer.number+2}"></a>
-        </li>
-        <li th:class="${listCustomer.hasNext()}? 'page-item': 'page-item disabled'">
-            <a class="page-link" th:tabindex="${listCustomer.hasNext()}? 0 :1"
-               th:href="@{/customer/list?page=__${listCustomer.number +1}__}">Next</a>
-        </li>
-    </ul>
-</nav>
-<form action="/customer/delete" id="formDelete" method="post">
+
+<form action="/customerDelete" id="formDelete" method="post">
     <input name="id" type="hidden" id="idCustomerHidden"/>
 </form>
 <script>
@@ -132,7 +138,7 @@
 
             $.ajax({
                 type: "GET",
-                url: " http://localhost:8080/customer/search?name=" + name,
+                url: " http://localhost:8080/customerSearch?name=" + name,
                 dataType: "Json",
                 contentType: "application/json; charset=utf8",
                 success: function (customerList) {
@@ -150,7 +156,7 @@
                         result += "<td>" + customerList[i].customerEmail + "</td>";
                         result += "<td>" + customerList[i].customerAddress + "</td>";
                         result += "<td>" + customerList[i].customerType.customerTypeName + "</td>";
-                        result += "<td><a class=\"btn btn-primary\" role=\"button\" href='/customer/edit/"
+                        result += "<td><a class=\"btn btn-primary\" role=\"button\" href='/customerEdit/"
                             + id + "'>" +
                             "<i class=\"material-icons\">&#xE254;</i>" +
                             "</a>";

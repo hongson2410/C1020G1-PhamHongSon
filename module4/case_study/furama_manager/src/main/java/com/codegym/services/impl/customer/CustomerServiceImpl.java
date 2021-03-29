@@ -40,4 +40,17 @@ public class CustomerServiceImpl implements CustomerService {
     public void deleteCustomer(Integer id) {
         customerRepository.deleteById(id);
     }
+
+    @Override
+    public String checkDuplicate(Customer customer) {
+        List<Customer> customerList = customerRepository.findAll();
+        for(Customer customerLoop : customerList){
+            if (customerLoop.getCustomerEmail().equals(customer.getCustomerEmail())){
+                return "This email is already registered";
+            } else if (customerLoop.getCustomerCode().equals(customer.getCustomerCode())){
+                return "Code customer is already registered";
+            }
+        }
+        return null;
+    }
 }

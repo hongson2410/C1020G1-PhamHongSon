@@ -482,7 +482,9 @@ ul.email li i {
 
 .footer {
      background: #222222;
-     padding-top: 35px
+     position: absolute;
+     bottom: 0;
+     width: 100%;
 }
 
 .newslatter_form {

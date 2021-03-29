@@ -7,79 +7,90 @@
     <div class="row" style="margin-right: 40px">
         <div class="col-lg-4" style="padding: 0">
             <div class="sidebar">
-                <img src="https://www.phulong.com/UploadFiles/Images/FURAMA%2020%20NAM.jpg" style="width: 95%;height:100%">
+                <img src="https://www.phulong.com/UploadFiles/Images/FURAMA%2020%20NAM.jpg" style="width: 95%;height:700px">
             </div>
         </div>
 
         <div class="col-lg-8" style="padding: 0">
             <div class="body" style="text-align: center">
                 <h3>Edit Information Customer</h3>
-                <form th:action="@{/customer/edit}" method="post" th:object="${customer}">
+                <form th:action="@{/customerEdit}" method="post" th:object="${customer}">
                     <input type="hidden" th:field="*{customerId}">
                     <table cellpadding="5">
                         <tr>
-                            <th>Customer Name:</th>
+                            <th>Name customer:</th>
                             <td>
                                 <input type="text" th:field="*{customerName}" size="45"/>
+                                <span th:if="${#fields.hasErrors('customerName')}" th:errors="*{customerName}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
-                            <th>Customer Code:</th>
+                            <th>Code customer:</th>
                             <td>
                                 <input type="text" th:field="*{customerCode}" size="45"/>
+                                <span th:if="${#fields.hasErrors('customerCode')}" th:errors="*{customerCode}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Birthday(Format MM/dd/YYYY):</th>
                             <td>
-                                <input type="date" width="200" th:field="*{customerBirthDay}" style="height: 25px" />
+                                <input type="date" width="200" th:field="*{customerBirthDay}" style="height: 30px; float: left; width: 380px" />
+                                <span th:if="${#fields.hasErrors('customerBirthDay')}" th:errors="*{customerBirthDay}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Gender:</th>
                             <td>
-                                <select th:field="*{customerGender}">
+                                <select th:field="*{customerGender}" class="mdb-select md-form" style="width: 380px;height: 30px; float: left">
+                                    <option value="" >Choose Gender</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                 </select>
+                                <span th:if="${#fields.hasErrors('customerGender')}" th:errors="*{customerGender}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Id card:</th>
                             <td>
                                 <input type="text" th:field="*{customerIdCard}" size="45"/>
+                                <span th:if="${#fields.hasErrors('customerIdCard')}" th:errors="*{customerIdCard}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Phone number:</th>
                             <td>
                                 <input type="text" th:field="*{customerPhone}" size="45"/>
+                                <span th:if="${#fields.hasErrors('customerPhone')}" th:errors="*{customerPhone}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Email:</th>
                             <td>
                                 <input type="text" th:field="*{customerEmail}" size="45"/>
+                                <span th:if="${#fields.hasErrors('customerEmail')}" th:errors="*{customerEmail}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Address:</th>
                             <td>
                                 <input type="text" th:field="*{customerAddress}" size="45"/>
+                                <span th:if="${#fields.hasErrors('customerAddress')}" th:errors="*{customerAddress}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Customer type:</th>
                             <td>
-                                <select th:field="*{customerType}">
+                                <select th:field="*{customerType}" class="mdb-select md-form" style="width: 380px;height: 30px; float: left">
+                                    <option value="" >Choose customer type</option>
                                     <option th:each="customerType : ${customerTypes}" th:value="${customerType.customerTypeId}"
                                             th:text="${customerType.customerTypeName}"></option>
                                 </select>
+                                <span th:if="${#fields.hasErrors('customerType')}" th:errors="*{customerType}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2" align="center">
-                                <input type="submit" value="Update"/>
+                                <input type="submit" value="Save"/>
                             </td>
                         </tr>
                     </table>
@@ -87,7 +98,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 <footer th:replace="/layout :: footer">

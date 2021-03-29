@@ -47,9 +47,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         // Trang /userInfo yêu cầu phải login với vai trò ROLE_USER hoặc ROLE_ADMIN.
         // Nếu chưa login, nó sẽ redirect tới trang /login.
-        http.authorizeRequests().antMatchers("/customer/list","/customer/create", "/customer/edit/{id}",
-                "/customer/edit","/customer/delete", "/customer/search","/service/createVilla",
-                "/service/createHouse","/service/createRoom","service/create","/service/edit/{id}","/service/edit",
+        http.authorizeRequests().antMatchers("/customerList","/customerCreate", "/customerEdit/{id}/",
+                "/customerEdit","/customerDelete", "/customerSearch","/service/createVilla",
+                "/service/createHouse","/service/createRoom","service/create","/service/edit/{id}/","/service/edit",
                 "/service/delete","/contract/list","/contract/create","/contract/createContractDetail",
                 "/contract/listContractUsing","/contract/search").access("hasAnyRole('ROLE_EMPLOYEE', 'ROLE_MANAGER')");
 
@@ -78,7 +78,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().and() //
                 .rememberMe().tokenRepository(this.persistentTokenRepository()) //
                 .tokenValiditySeconds( 24 * 60 * 60); // 24h
-
     }
 
     @Bean

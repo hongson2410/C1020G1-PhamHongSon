@@ -8,7 +8,7 @@
     <div class="row" style="margin-right: 40px">
         <div class="col-lg-4" style="padding: 0">
             <div class="sidebar">
-                <img src="https://www.chudu24.com/wp-content/uploads/2020/05/84026015_192215902019197_4125576684103379656_n.jpg" style="width: 100%;height:650px">
+                <img src="https://ciklopea.com/wp-content/uploads/2018/05/Customer-Experience-800x600.png" style="width: 100%;height:650px">
             </div>
         </div>
 
@@ -20,7 +20,7 @@
                         <span th:text="${message}"></span>
                     </div>
                 </div>
-                <form th:action="@{/customer/create}" method="post" th:object="${customer}">
+                <form th:action="@{/customerCreate}" method="post" th:object="${customer}">
                     <table cellpadding="5">
                         <tr>
                             <th>Name customer:</th>
@@ -72,25 +72,26 @@
                             <th>Email:</th>
                             <td>
                                 <input type="text" th:field="*{customerEmail}" size="45"/>
-                                <span th:if="${#fields.hasErrors('customerEmail')}" th:errors="*{customerEmail}" class="text-danger help-block" >
+                                <span th:if="${#fields.hasErrors('customerEmail')}" th:errors="*{customerEmail}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Address:</th>
                             <td>
                                 <input type="text" th:field="*{customerAddress}" size="45"/>
-                                <span th:if="${#fields.hasErrors('customerAddress')}" th:errors="*{customerAddress}" class="text-danger help-block" >
+                                <span th:if="${#fields.hasErrors('customerAddress')}" th:errors="*{customerAddress}" class="text-danger help-block" ></span>
                             </td>
                         </tr>
                         <tr>
                             <th>Customer type:</th>
                             <td>
-                                <select th:field="*{customerType}" class="mdb-select md-form" style="width: 380px;height: 30px; float: left">
+                                <select th:field="*{customerType}" class="mdb-select md-form js-example-basic-single" style="width: 380px;height: 30px; float: left">
                                     <option value="" >Choose customer type</option>
                                     <option th:each="customerType : ${customerTypes}" th:value="${customerType.customerTypeId}"
                                             th:text="${customerType.customerTypeName}"></option>
                                 </select>
                             </td>
+                            <span th:if="${#fields.hasErrors('customerType')}" th:errors="*{customerType}" class="text-danger help-block" ></span>
                         </tr>
                         <tr>
                             <td colspan="2" align="center">
@@ -105,5 +106,10 @@
 </div>
 <footer th:replace="/layout :: footer">
 </footer>
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+    });
+</script>
 </body>
 </html>
