@@ -18,9 +18,10 @@
     <td *ngIf="student.mark >= 5">Pass</td>
     <td *ngIf="student.mark < 5">Fail</td>
     <td>
-      <button class="btn btn-warning">Detail</button>
+      <button class="btn btn-warning" (click)="detail(student)">Detail</button>
       <button class="btn btn-danger">Delete</button>
     </td>
   </tr>
   </tbody>
 </table>
+<app-student-info *ngIf="student" [student]="student"></app-student-info>
