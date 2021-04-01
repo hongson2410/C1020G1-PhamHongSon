@@ -10,6 +10,7 @@ import {IStudent} from '../student-info/model/IStudent';
 export class StudentListComponent implements OnInit {
   students = studentRepository;
   student: IStudent;
+  showFormCreate = false;
 
   constructor() {
   }
@@ -19,5 +20,9 @@ export class StudentListComponent implements OnInit {
 
   detail(student: IStudent) {
     this.student = student;
+  }
+
+  formCreate() {
+    this.showFormCreate = !this.showFormCreate;
   }
 }

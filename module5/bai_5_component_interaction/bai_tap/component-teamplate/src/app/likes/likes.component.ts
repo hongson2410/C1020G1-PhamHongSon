@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-likes',
@@ -6,10 +6,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./likes.component.css']
 })
 export class LikesComponent {
-  likes = 0;
-
+  @Input() like: number;
   likeThis() {
-    this.likes++;
+    this.like++;
   }
-
 }

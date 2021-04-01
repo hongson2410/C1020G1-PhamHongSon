@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "component-teamplate": {
+    "angular-form": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,20 +13,19 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/component-teamplate",
+            "outputPath": "dist/angular-form",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
-            ],
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"            ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
@@ -43,7 +42,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -66,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "component-teamplate:build"
+            "browserTarget": "angular-form:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "component-teamplate:build:production"
+              "browserTarget": "angular-form:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "component-teamplate:build"
+            "browserTarget": "angular-form:build"
           }
         },
         "test": {
@@ -114,15 +112,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "component-teamplate:serve"
+            "devServerTarget": "angular-form:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "component-teamplate:serve:production"
+              "devServerTarget": "angular-form:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "component-teamplate"
+    }
+  },
+  "defaultProject": "angular-form"
 }
