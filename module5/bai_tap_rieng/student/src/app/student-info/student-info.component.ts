@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IStudent} from './model/IStudent';
 
 @Component({
@@ -8,7 +8,12 @@ import {IStudent} from './model/IStudent';
 })
 export class StudentInfoComponent implements OnInit {
   @Input() student: IStudent;
+  @Output() modifyShowDetail: EventEmitter<any> = new EventEmitter();
 
   ngOnInit(): void {
+  }
+
+  modify() {
+    this.modifyShowDetail.emit();
   }
 }

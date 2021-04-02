@@ -11,13 +11,22 @@
       <div class="alert alert-danger" role="alert" [hidden]="!id.errors.min">
         ID > 0
       </div>
+      <div class="alert alert-danger" role="alert" [hidden]="!id.errors.pattern">
+        ID is number!
+      </div>
     </div>
   </div>
   <div class="form-group">
     <label for="name">Name:</label>
     <input class="form-control" formControlName="name" id="name" name="name">
-    <div class="alert alert-danger" role="alert" *ngIf="!name.valid && (name.dirty ||name.touched)">
-      Name is required
+    <div
+      *ngIf="!name.valid && (name.dirty ||name.touched)">
+      <div class="alert alert-danger" role="alert" [hidden]="!name.errors.required">
+        Name is required
+      </div>
+      <div class="alert alert-danger" role="alert" [hidden]="!name.errors.pattern">
+        Wrong Format!
+      </div>
     </div>
   </div>
   <div class="form-group">
@@ -31,13 +40,31 @@
       <div class="alert alert-danger" role="alert" [hidden]="!age.errors.min">
         Age > 18
       </div>
+      <div class="alert alert-danger" role="alert" [hidden]="!age.errors.max">
+        Age < 100
+      </div>
+      <div class="alert alert-danger" role="alert" [hidden]="!age.errors.pattern">
+        Age is number!!
+      </div>
     </div>
   </div>
   <div class="form-group">
     <label for="mark">Mark:</label>
     <input class="form-control" formControlName="mark" id="mark" name="mark">
-    <div class="alert alert-danger" role="alert" *ngIf="!mark.valid && (mark.dirty || mark.touched)">
-      Mark is required
+    <div
+      *ngIf="!mark.valid && (mark.dirty || mark.touched)">
+      <div class="alert alert-danger" role="alert" [hidden]="!mark.errors.required">
+        Mark is required
+      </div>
+      <div class="alert alert-danger" role="alert" [hidden]="!mark.errors.min">
+        Mark > 0
+      </div>
+      <div class="alert alert-danger" role="alert" [hidden]="!mark.errors.max">
+        Mark < 10
+      </div>
+      <div class="alert alert-danger" role="alert" [hidden]="!mark.errors.pattern">
+        Mark is number!!
+      </div>
     </div>
   </div>
   <input class="btn btn-success" [disabled]="!createForm.valid" type="submit">

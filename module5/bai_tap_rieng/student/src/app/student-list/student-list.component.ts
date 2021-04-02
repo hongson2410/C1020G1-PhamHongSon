@@ -11,6 +11,7 @@ export class StudentListComponent implements OnInit {
   students = studentRepository;
   student: IStudent;
   showFormCreate = false;
+  showDetail = false;
 
   constructor() {
   }
@@ -20,9 +21,15 @@ export class StudentListComponent implements OnInit {
 
   detail(student: IStudent) {
     this.student = student;
+    this.showDetail = !this.showDetail;
+
   }
 
   formCreate() {
     this.showFormCreate = !this.showFormCreate;
+  }
+
+  modifyDetail() {
+    this.showDetail = !this.showDetail;
   }
 }

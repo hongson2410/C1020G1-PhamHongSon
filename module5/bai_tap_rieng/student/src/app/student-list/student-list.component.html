@@ -29,7 +29,7 @@
 </table>
 <div class="container row">
   <div class="col-6">
-    <app-student-info *ngIf="student" [student]="student"></app-student-info>
+    <app-student-info *ngIf="showDetail" [student]="student" (modifyShowDetail)="modifyDetail()"></app-student-info>
   </div>
   <div class="col-6">
     <app-form-create *ngIf="showFormCreate"></app-form-create>

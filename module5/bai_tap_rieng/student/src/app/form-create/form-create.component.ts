@@ -9,10 +9,10 @@ import {studentRepository} from '../student-info/model/StudentRepository';
 })
 export class FormCreateComponent implements OnInit {
   createForm = new FormGroup({
-    id: new FormControl('', [Validators.required, Validators.min(0)]),
-    name: new FormControl('', Validators.required),
-    age: new FormControl('', [Validators.required, Validators.min(18)]),
-    mark: new FormControl('', Validators.required)
+    id: new FormControl('', [Validators.required, Validators.min(0), Validators.pattern(/^[-]?\d*$/u)]),
+    name: new FormControl('', [Validators.required, Validators.pattern(/^([\p{Lu}]|([\p{Lu}][\p{Ll}]{1,8}))(\s([\p{Lu}]|[\p{Lu}][\p{Ll}]{1,10})){0,5}$/u)]),
+    age: new FormControl('', [Validators.required, Validators.min(18), Validators.max(100), Validators.pattern(/^[-]?\d*$/u)]),
+    mark: new FormControl('', [Validators.required, Validators.min(0), Validators.max(10), Validators.pattern(/^[-]?\d*$/u)])
   });
 
   constructor() {
