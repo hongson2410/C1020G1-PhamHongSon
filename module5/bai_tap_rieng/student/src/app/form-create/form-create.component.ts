@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
 import {studentRepository} from '../student-info/model/StudentRepository';
+import {StudentService} from '../student.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-form-create',
@@ -15,14 +17,14 @@ export class FormCreateComponent implements OnInit {
     mark: new FormControl('', [Validators.required, Validators.min(0), Validators.max(10), Validators.pattern(/^[-]?\d*$/u)])
   });
 
-  constructor() {
+  constructor(private studentService: StudentService) {
   }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    studentRepository.push(this.createForm.value);
+    this.studentService.addStudent(this.createForm.value);
     this.createForm.reset();
   }
 
