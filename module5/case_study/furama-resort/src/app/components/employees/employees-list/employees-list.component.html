@@ -1,0 +1,61 @@
+<div class="container-fluid h-100 p-3">
+  <div class="row justify-content-between px-3">
+    <h2>Danh Sách Nhân Viên</h2>
+    <div class="d-flex">
+      <input class="form-control mr-3" type="text" style="width: 400px" placeholder="Tìm kiếm theo tên"
+             [(ngModel)]="term">
+      <button class="btn btn-outline-success">Search</button>
+    </div>
+  </div>
+
+  <div class="row mt-3 px-3">
+    <button class="btn btn-success" [routerLink]="['/employee-add']">Thêm mới</button>
+    <table class="table table-responsive table-striped mt-3" style="font-size: 12px">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Họ và Tên</th>
+        <th>Vị Trí</th>
+        <th>Trình Độ</th>
+        <th>Bộ Phận</th>
+        <th>Ngày Sinh</th>
+        <th>Số CMND</th>
+        <th>Lương</th>
+        <th>Email</th>
+        <th>SĐT</th>
+        <th>Địa Chỉ</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let employee of employees |filter:term | paginate: { itemsPerPage: 5, currentPage: p }">
+        <td>{{employee.id}}</td>
+        <td>{{employee.fullName}}</td>
+        <td>{{employee.position}}</td>
+        <td>{{employee.educationDegree}}</td>
+        <td>{{employee.division}}</td>
+        <td>{{employee.birthday}}</td>
+        <td>{{employee.idCard}}</td>
+        <td>{{employee.salary}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.phoneNumber}}</td>
+        <td>{{employee.address}}</td>
+        <td>
+          <a class="btn btn-warning btn-sm" ngbTooltip="Detail" placement="bottom">
+            <fa-icon [icon]="faInfoCircle"></fa-icon>
+          </a>
+          <button class="btn btn-danger btn-sm" ngbTooltip="delete"
+                  style="margin-left: 5px">
+            <fa-icon [icon]="faTrashAlt"></fa-icon>
+          </button>
+          <a class="btn btn-warning btn-sm" ngbTooltip="Edit" placement="bottom"
+             style="margin-left: 5px">
+            <fa-icon [icon]="faEdit"></fa-icon>
+          </a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

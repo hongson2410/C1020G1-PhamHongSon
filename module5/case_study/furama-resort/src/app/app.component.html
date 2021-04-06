@@ -1,0 +1,55 @@
+<div class="container-fluid px-0" style="height: 100vh;">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-0 pl-0">
+    <a class="navbar-brand py-0" routerLink="/"><img
+      src="https://i.pinimg.com/originals/be/35/3c/be353c04998af547c5751b50bc8c5bf0.png"
+      style="height: 80px; width: auto"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/">Trang Chủ <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/create">Liên Hệ</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+             aria-haspopup="true" aria-expanded="false">
+            Tuyển Dụng
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="row px-0 mx-0" style="height: 80%">
+    <div class="col-2 px-0">
+      <div class="list-group border border-primary rounded h-100">
+        <a href="#" class="list-group-item list-group-item-action active" [routerLink]="['']">Home</a>
+        <a href="#" class="list-group-item list-group-item-action" [routerLink]="['/employee-list']">Quản Lý Nhân
+          Viên</a>
+        <a href="#" class="list-group-item list-group-item-action">Quản Lý Dịch Vụ</a>
+        <a href="#" class="list-group-item list-group-item-action">Quản Lý Khách Hàng</a>
+        <a href="#" class="list-group-item list-group-item-action">Quản Lý Hợp Đồng</a>
+        <a href="#" class="list-group-item list-group-item-action">Quản Lý Hợp Đồng Chi Tiết</a>
+      </div>
+    </div>
+    <div class="col-10 px-0">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+<!--  <div class="container-fluid w-100 px-0 mx-0">-->
+<!--    <p class="mt-4" style="background-color: cadetblue; color: azure; text-align: center">@Phạm Hồng Sơn</p>-->
+<!--  </div>-->
+</div>
