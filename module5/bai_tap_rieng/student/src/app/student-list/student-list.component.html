@@ -18,9 +18,12 @@
     <td *ngIf="student.mark >= 5">Pass</td>
     <td *ngIf="student.mark < 5">Fail</td>
     <td>
-      <a class="btn btn-warning" [routerLink]="['detail/', student.id]"><fa-icon [icon]="faInfoCircle"></fa-icon></a>
-      <button class="btn btn-danger" style="margin-left: 5px" (click)="open(content, student)"><fa-icon [icon]="faTrashAlt"></fa-icon></button>
-      <button class="btn btn-warning" style="margin-left: 5px"><fa-icon [icon]="faEdit"></fa-icon></button>
+      <a class="btn btn-warning" ngbTooltip="Detail" placement="bottom"
+         [routerLink]="['detail/', student.id]"><fa-icon [icon]="faInfoCircle"></fa-icon></a>
+      <button class="btn btn-danger" ngbTooltip="delete"
+              style="margin-left: 5px" (click)="open(content, student)"><fa-icon [icon]="faTrashAlt"></fa-icon></button>
+      <a class="btn btn-warning" ngbTooltip="Edit" placement="bottom"
+         style="margin-left: 5px" [routerLink]="['edit/', student.id]"><fa-icon [icon]="faEdit"></fa-icon></a>
     </td>
   </tr>
   </tbody>

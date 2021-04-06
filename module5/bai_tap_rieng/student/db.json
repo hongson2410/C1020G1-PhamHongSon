@@ -1,0 +1,34 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "Phúc",
+      "age": 29,
+      "mark": 9
+    },
+    {
+      "id": 2,
+      "name": "Thịnh",
+      "age": 25,
+      "mark": 8
+    },
+    {
+      "id": 3,
+      "name": "Dũng",
+      "age": 26,
+      "mark": 5
+    },
+    {
+      "id": 5,
+      "name": "Phin",
+      "age": 21,
+      "mark": 4
+    },
+    {
+      "name": "Tùng Nguyễn",
+      "age": "26",
+      "mark": "9",
+      "id": 6
+    }
+  ]
+}

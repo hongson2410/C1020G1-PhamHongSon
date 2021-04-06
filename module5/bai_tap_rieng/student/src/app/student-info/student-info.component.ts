@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IStudent} from './model/IStudent';
 import {ActivatedRoute} from '@angular/router';
 import {StudentService} from '../student.service';
@@ -9,19 +9,16 @@ import {StudentService} from '../student.service';
   styleUrls: ['./student-info.component.css']
 })
 export class StudentInfoComponent implements OnInit {
-  // @Input() student: IStudent;
   student: IStudent;
-  @Output() modifyShowDetail: EventEmitter<any> = new EventEmitter();
   constructor(private activatedRoute: ActivatedRoute,
               private studentService: StudentService) {
   }
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe((param) =>
-    this.student = this.studentService.findStudent(parseInt(param.get('id'))));
-    console.log(this.student)
-  }
-
-  modify() {
-    this.modifyShowDetail.emit();
+    let id = this.activatedRoute.snapshot.params['id'];
+    console.log(id);
+    this.studentService.findStudent(id).subscribe( next =>{
+      this.student = next;
+      console.log(this.student);
+    });
   }
 }

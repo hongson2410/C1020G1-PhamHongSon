@@ -1,8 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {studentRepository} from '../student-info/model/StudentRepository';
+import {Component, OnInit} from '@angular/core';
 import {IStudent} from '../student-info/model/IStudent';
-import {faInfoCircle, faTrashAlt, faEdit} from '@fortawesome/free-solid-svg-icons';
+import {faEdit, faInfoCircle, faTrashAlt} from '@fortawesome/free-solid-svg-icons';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {StudentService} from '../student.service';
 
 @Component({
   selector: 'app-student-list',
@@ -13,15 +13,18 @@ export class StudentListComponent implements OnInit {
   faInfoCircle = faInfoCircle;
   faTrashAlt = faTrashAlt;
   faEdit = faEdit;
-  students = studentRepository;
-  student: IStudent;
+
+  students: IStudent[];
+
   closeResult: string;
   studentNameDelete: string;
 
-  constructor(private modalService: NgbModal) {
+  constructor(private modalService: NgbModal,
+              private studentService: StudentService) {
   }
 
   ngOnInit(): void {
+    this.studentService.getAllStudent().subscribe(next => {this.students = next});
   }
 
   open(content, student) {
@@ -29,7 +32,7 @@ export class StudentListComponent implements OnInit {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
       if (result === 'yes') {
-        this.deleteHero(student.id);
+        this.deleteStudent(student.id);
       }
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -46,7 +49,12 @@ export class StudentListComponent implements OnInit {
     }
   }
 
-  deleteHero(id) {
-    this.students = this.students.filter(x => x.id !== id);
+  deleteStudent(id) {
+    this.studentService.deleteStudent(id).subscribe(
+      () => {
+        this.students = this.students.filter(
+          t => t.id != id
+        );
+      });
   }
 }

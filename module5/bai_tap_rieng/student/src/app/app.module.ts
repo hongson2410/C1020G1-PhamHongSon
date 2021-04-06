@@ -7,10 +7,13 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {StudentListComponent} from './student-list/student-list.component';
 import {FormCreateComponent} from './form-create/form-create.component';
 import {AppRoutingModule} from './app-routing.module';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NavbarComponent} from './navbar/navbar.component';
+import {FooterComponent} from './footer/footer.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {FormEditComponent} from './form-edit/form-edit.component';
+import {HttpClientModule} from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     StudentListComponent,
     FormCreateComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    FormEditComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     AppRoutingModule,
     FontAwesomeModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

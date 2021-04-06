@@ -1,6 +1,7 @@
 <div class="col-6">
-  <h2>Create Student By Reactive Form</h2>
-  <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+  <h2>Edit Student</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <input type="hidden" formControlName="id" id="id" name="id">
     <div class="form-group">
       <label for="name">Name:</label>
       <input class="form-control" formControlName="name" id="name" name="name">
@@ -16,7 +17,7 @@
     </div>
     <div class="form-group">
       <label for="age">Age:</label>
-      <input class="form-control" formControlName="age" id="age" name="age">
+      <input class="form-control" formControlName="age"  id="age" name="age">
       <div
         *ngIf="!age.valid && (age.dirty || age.touched)">
         <div class="alert alert-danger" role="alert" [hidden]="!age.errors.required">
@@ -52,6 +53,6 @@
         </div>
       </div>
     </div>
-    <input class="btn btn-success" [disabled]="!createForm.valid" type="submit">
+    <input class="btn btn-success"  [disabled]="!editForm.valid" type="submit">
   </form>
 </div>
