@@ -1,0 +1,161 @@
+<h3 class="text-center font-italic font-weight-bolder" style="color: green"><u>Chỉnh Sửa Thông Tin Nhân Viên</u></h3>
+
+<form class="w-75 mx-auto mt-3" [formGroup]="formEditEmployee">
+  <input type="hidden" formControlName="id" name="id">
+
+  <div class="row form-group">
+    <label class="col-sm-3 col-form-label" style="font-weight: bold" for="fullName">Họ và Tên:</label>
+    <div class="col-sm-9">
+      <input class="form-control" formControlName="fullName" id="fullName">
+      <div
+        *ngIf="!fullName.valid && (fullName.dirty ||fullName.touched)">
+        <div class="alert alert-danger" role="alert" [hidden]="!fullName.errors?.required">
+          Vui lòng nhập tên
+        </div>
+        <div class="alert alert-danger" role="alert" [hidden]="!fullName.errors?.pattern">
+          Phải đúng định dạng tiếng Việt Nam!
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row form-group">
+    <label class="col-sm-3 col-form-label" style="font-weight: bold" for="position">Vị Trí:</label>
+    <div class="col-sm-9">
+      <input class="form-control" formControlName="position" id="position">
+      <div
+        *ngIf="!position.valid && (position.dirty ||position.touched)">
+        <div class="alert alert-danger" role="alert" [hidden]="!position.errors?.required">
+          Vui lòng nhập vị trí
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row form-group">
+    <label class="col-sm-3 col-form-label" style="font-weight: bold" for="educationDegree">Trình Độ:</label>
+    <div class="col-sm-9">
+      <!--      <input class="form-control" formControlName="educationDegree" id="educationDegree">-->
+      <select class="form-control" formControlName="educationDegree" id="educationDegree">
+        <option selected hidden value="">Chọn Trình Độ Học Vấn</option>
+        <option value="Phổ Thông">Phổ Thông</option>
+        <option value="Cao Đẳng">Cao Đẳng</option>
+        <option value="Đại Học">Đại Học</option>
+        <option value="Sau Đại Học">Sau Đại Học</option>
+      </select>
+      <div
+        *ngIf="!educationDegree.valid && (educationDegree.dirty ||educationDegree.touched)">
+        <div class="alert alert-danger" role="alert" [hidden]="!educationDegree.errors?.required">
+          Vui lòng nhập trình độ học vấn
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row form-group">
+    <label class="col-sm-3 col-form-label" style="font-weight: bold" for="division">Bộ Phận:</label>
+    <div class="col-sm-9">
+      <input class="form-control" formControlName="division" id="division">
+      <div
+        *ngIf="!division.valid && (division.dirty ||division.touched)">
+        <div class="alert alert-danger" role="alert" [hidden]="!division.errors?.required">
+          Vui lòng nhập bộ phận
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=" row form-group">
+    <label class="col-sm-3 col-form-label" style="font-weight: bold" for="birthday">Ngày Sinh:</label>
+    <div class="col-sm-9">
+      <mat-form-field>
+        <input [min]="minDate" [max]="maxDate" class="form-control" formControlName="birthday" id="birthday" matInput
+               [matDatepicker]="myDatepicker" placeholder="Chọn ngày sinh">
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker></mat-datepicker>
+      </mat-form-field>
+      <div
+        *ngIf="!birthday.valid && (birthday.dirty ||birthday.touched)">
+        <div class="alert alert-danger" role="alert" [hidden]="!birthday.errors?.required">
+          Vui lòng nhập ngày tháng năm sinh
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row form-group">
+    <label class="col-sm-3 col-form-label" style="font-weight: bold" for="idCard">CMND:</label>
+    <div class="col-sm-9">
+      <input class="form-control" formControlName="idCard" id="idCard">
+      <div
+        *ngIf="!idCard.valid && (idCard.dirty ||idCard.touched)">
+        <div class="alert alert-danger" role="alert" [hidden]="!idCard.errors?.required">
+          Vui lòng nhập số chứng minh nhân dân
+        </div>
+        <div class="alert alert-danger" role="alert" [hidden]="!idCard.errors?.pattern">
+          Phải đúng định dạng 9 chữ số từ 0~9 !
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row form-group">
+    <label class="col-sm-3 col-form-label" style="font-weight: bold" for="salary">Lương:</label>
+    <div class="col-sm-9">
+      <input class="form-control" formControlName="salary" id="salary">
+      <div
+        *ngIf="!salary.valid && (salary.dirty ||salary.touched)">
+        <div class="alert alert-danger" role="alert" [hidden]="!salary.errors?.required">
+          Vui lòng nhập lương
+        </div>
+        <div class="alert alert-danger" role="alert" [hidden]="!salary.errors?.pattern">
+          Phải là số nguyên dương!
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row form-group">
+    <label class="col-sm-3 col-form-label" style="font-weight: bold" for="email">Email:</label>
+    <div class="col-sm-9">
+      <input class="form-control" formControlName="email" id="email">
+      <div
+        *ngIf="!email.valid && (email.dirty ||email.touched)">
+        <div class="alert alert-danger" role="alert" [hidden]="!email.errors?.required">
+          Vui lòng nhập email
+        </div>
+        <div class="alert alert-danger" role="alert" [hidden]="!email.errors?.email">
+          Phải đúng định abc@abc.abc!
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row form-group">
+    <label class="col-sm-3 col-form-label" style="font-weight: bold" for="phoneNumber">Số Điện Thoại:</label>
+    <div class="col-sm-9">
+      <input class="form-control" formControlName="phoneNumber" id="phoneNumber">
+      <div
+        *ngIf="!phoneNumber.valid && (phoneNumber.dirty ||phoneNumber.touched)">
+        <div class="alert alert-danger" role="alert" [hidden]="!phoneNumber.errors?.required">
+          Vui lòng nhập số điện thoại
+        </div>
+        <div class="alert alert-danger" role="alert" [hidden]="!phoneNumber.errors?.pattern">
+          Phải đúng định dạng! <br>
+          090******* <br>
+          091******* <br>
+          (84)+90******* <br>
+          (84)+91*******
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row form-group">
+    <label class="col-sm-3 col-form-label" style="font-weight: bold" for="address">Địa Chỉ:</label>
+    <div class="col-sm-9">
+      <input class="form-control" formControlName="address" id="address">
+      <div
+        *ngIf="!address.valid && (address.dirty ||address.touched)">
+        <div class="alert alert-danger" role="alert" [hidden]="!address.errors?.required">
+          Vui lòng nhập địa chỉ
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center mt-4">
+    <button class="btn btn-success" (click)="editEmployee()" [disabled]="!formEditEmployee.valid">Chỉnh Sửa</button>
+  </div>
+</form>

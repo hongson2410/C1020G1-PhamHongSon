@@ -7,15 +7,23 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { EmployeeAddComponent } from './components/employees/employee-add/employee-add.component';
+import {MaterialModule} from './material.module';
+import { EmployeeDeleteDialogComponent } from './components/employees/employee-delete-dialog/employee-delete-dialog.component';
+import { EmployeeEditComponent } from './components/employees/employee-edit/employee-edit.component';
+import { CustomerListComponent } from './components/customers/customer-list/customer-list.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'employee-list', component: EmployeesListComponent},
   {path: 'employee-add', component: EmployeeAddComponent},
-
+  {path: 'employee-edit/:id', component: EmployeeEditComponent},
+  {path: 'customer-list', component: CustomerListComponent},
 
   {path: '**', component: PageNotFoundComponent}
 ];
@@ -28,14 +36,22 @@ const routes: Routes = [
     FontAwesomeModule,
     Ng2SearchPipeModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatIconModule
   ],
   exports: [RouterModule],
   declarations: [
     HomeComponent,
     PageNotFoundComponent,
     EmployeesListComponent,
-    EmployeeAddComponent
+    EmployeeAddComponent,
+    EmployeeDeleteDialogComponent,
+    EmployeeEditComponent,
+    CustomerListComponent
   ]
 })
 export class AppRoutingModule {

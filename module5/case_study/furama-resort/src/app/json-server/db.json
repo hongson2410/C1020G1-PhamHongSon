@@ -2,11 +2,11 @@
   "employees": [
     {
       "id": 1,
-      "fullName": "Phạm Hồng Sơn",
+      "fullName": "Phạm Sơn",
       "position": "Giám Đốc",
-      "educationDegree": "Đại Học",
+      "educationDegree": "Sau Đại Học",
       "division": "Quản Lý",
-      "birthday": "24/10/1997",
+      "birthday": "1997-10-24",
       "idCard": "666666666",
       "salary": "30",
       "email": "son@gmail.com",
@@ -15,64 +15,133 @@
     },
     {
       "id": 2,
-      "fullName": "Phạm Trường Phúc",
+      "fullName": "Phạm Phúc",
       "position": "Phó Giám Đốc",
       "educationDegree": "Đại Học",
       "division": "Quản Lý",
-      "birthday": "02/02/1992",
-      "idCard": "77777777",
+      "birthday": "1992-02-02",
+      "idCard": "777777777",
       "salary": "20",
       "email": "phuc@gmail.com",
       "phoneNumber": "0901236985",
       "address": "Đà Nẵng"
-    },{
+    },
+    {
       "id": 3,
       "fullName": "Huỳnh Ngọc Thịnh",
       "position": "Quản Lý",
       "educationDegree": "Đại Học",
       "division": "Quản Lý",
-      "birthday": "07/07/1997",
+      "birthday": "1997-07-07",
       "idCard": "55555555",
       "salary": "15",
       "email": "thinh@gmail.com",
       "phoneNumber": "0901236985",
       "address": "Đà Nẵng"
-    },{
+    },
+    {
       "id": 4,
       "fullName": "Hồ Anh Dũng",
       "position": "Bảo Vệ",
       "educationDegree": "Trung Cấp",
       "division": "Bảo Vệ",
-      "birthday": "06/06/1996",
+      "birthday": "1996-06-06",
       "idCard": "11111111",
       "salary": "10",
       "email": "dung@gmail.com",
       "phoneNumber": "0901236985",
       "address": "Nghệ An"
-    },{
+    },
+    {
       "id": 5,
       "fullName": "Trần Huỳnh Bảo Thịnh",
       "position": "Phục Vụ",
       "educationDegree": "Cao Đẳng",
       "division": "Phục Vụ",
-      "birthday": "05/10/2000",
+      "birthday": "2000-04-03",
       "idCard": "123456789",
       "salary": "10",
       "email": "thinh@gmail.com",
       "phoneNumber": "0901236985",
       "address": "Quảng Nam"
-    },{
+    },
+    {
       "id": 6,
       "fullName": "Nguyễn Việt Dũng",
       "position": "Phục Vụ",
       "educationDegree": "Đại Học",
       "division": "Phục Vụ",
-      "birthday": "24/10/1994",
+      "birthday": "1994-10-24",
       "idCard": "232323235",
       "salary": "12",
       "email": "dung@gmail.com",
       "phoneNumber": "0121635985",
       "address": "Đà Nẵng"
+    },
+    {
+      "fullName": "Hồng Lĩnh",
+      "position": "Phục vụ",
+      "educationDegree": "Đại học",
+      "division": "Phục vụ",
+      "birthday": "1995-05-05",
+      "idCard": "568989568",
+      "salary": "12",
+      "email": "linh@gmail.com",
+      "phoneNumber": "0905698568",
+      "address": "Quảng Bình",
+      "id": 7
+    },
+    {
+      "fullName": "Phạm Hồng Sơn",
+      "position": "Lễ Tân",
+      "educationDegree": "Cao Đẳng",
+      "division": "Phục vụ",
+      "birthday": "1997-10-24",
+      "idCard": "999999999",
+      "salary": "10",
+      "email": "son2@gmail.com",
+      "phoneNumber": "0911514430",
+      "address": "Tây Ninh",
+      "id": 8
+    },
+    {
+      "fullName": "Tùng Nguyễn",
+      "position": "Sale",
+      "educationDegree": "Đại Học",
+      "division": "Kinh Doanh",
+      "birthday": "1995-10-23T17:00:00.000Z",
+      "idCard": "777777777",
+      "salary": "15",
+      "email": "tung@gmail.com",
+      "phoneNumber": "0905656568",
+      "address": "Quảng Nam",
+      "id": 9
+    },
+    {
+      "fullName": "Kiên",
+      "position": "Lao Công",
+      "educationDegree": "Phổ Thông",
+      "division": "Vệ Sinh",
+      "birthday": "1992-02-02T17:00:00.000Z",
+      "idCard": "123456789",
+      "salary": "9",
+      "email": "kien@gmail.com",
+      "phoneNumber": "0905689784",
+      "address": "Nghệ An",
+      "id": 10
+    },
+    {
+      "fullName": "Bích Trâm",
+      "position": "Quản Lý",
+      "educationDegree": "Đại Học",
+      "division": "Admin",
+      "birthday": "1998-04-16T17:00:00.000Z",
+      "idCard": "123456789",
+      "salary": "20",
+      "email": "tram@gmail.com",
+      "phoneNumber": "0901245789",
+      "address": "Quy Nhơn",
+      "id": 11
     }
   ],
   "customers": [
@@ -87,7 +156,8 @@
       "fullName": "Tùng",
       "email": "tung@gmail.com",
       "phoneNumber": "0905698789"
-    },{
+    },
+    {
       "id": 1,
       "fullName": "Phin",
       "email": "phin@gmail.com",

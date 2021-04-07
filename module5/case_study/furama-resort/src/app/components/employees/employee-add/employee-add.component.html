@@ -1,1 +1,140 @@
-<p>employee-add works!</p>
+<h3 class="text-center font-italic font-weight-bolder" style="color: green"><u>Thêm Mới Nhân Viên</u></h3>
+
+<form class="w-75 mx-auto mt-3" [formGroup]="formAddNewEmployee">
+  <mat-form-field class="form-field-create py-2" appearance="standard">
+    <mat-label>Họ và Tên</mat-label>
+    <input type="text" matInput [errorStateMatcher]="matcher" formControlName="fullName"
+           placeholder="Nhập Họ Và Tên">
+    <mat-error
+      *ngIf="fullName.errors?.required && (fullName.dirty ||fullName.touched)">
+      Vui lòng nhập tên
+    </mat-error>
+    <mat-error
+      *ngIf="fullName.errors?.pattern && (fullName.dirty ||fullName.touched)">
+      Phải đúng định dạng tiếng Việt Nam!
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-field-create py-2" appearance="standard">
+    <mat-label>Vị Trí</mat-label>
+    <input type="text" matInput [errorStateMatcher]="matcher" formControlName="position"
+           placeholder="Nhập Vị Trí Nhân Viên">
+    <mat-error
+      *ngIf="position.errors?.required && (position.dirty ||position.touched)">
+      Vui lòng nhập vị trí
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-field-create py-2" appearance="standard">
+    <mat-label>Chọn Trình Độ</mat-label>
+    <mat-select [errorStateMatcher]="matcher" formControlName="educationDegree">
+      <mat-option value="Phổ Thông">Phổ Thông</mat-option>
+      <mat-option value="Cao Đẳng">Cao Đẳng</mat-option>
+      <mat-option value="Đại Học">Đại Học</mat-option>
+      <mat-option value="Sau Đại Học">Sau Đại Học</mat-option>
+    </mat-select>
+    <mat-error
+      *ngIf="educationDegree.errors?.required && (educationDegree.dirty ||educationDegree.touched)">
+      Vui lòng nhập trình độ học vấn
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-field-create py-2" appearance="standard">
+    <mat-label>Chọn Bộ Phận</mat-label>
+    <mat-select [errorStateMatcher]="matcher" formControlName="division">
+      <mat-option value="Sale-Marketing">Sale-Marketing</mat-option>
+      <mat-option value="Accounting">Accounting</mat-option>
+      <mat-option value="Admin">Admin</mat-option>
+      <mat-option value="Customer Relationship">Customer Relationship</mat-option>
+    </mat-select>
+    <mat-error
+      *ngIf="division.errors?.required && (division.dirty ||division.touched)">
+      Vui lòng nhập bộ phận
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input [min]="minDate" [max]="maxDate" class="form-control" formControlName="birthday" id="birthday" matInput
+           [matDatepicker]="myDatepicker" placeholder="Chọn ngày sinh">
+    <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+    <mat-datepicker #myDatepicker></mat-datepicker>
+  </mat-form-field>
+  <mat-error
+    *ngIf="birthday.errors?.required && (birthday.dirty ||birthday.touched)">
+    Vui lòng nhập ngày tháng năm sinh
+  </mat-error>
+
+  <mat-form-field class="form-field-create py-2" appearance="standard">
+    <mat-label>CMND</mat-label>
+    <input type="text" matInput [errorStateMatcher]="matcher" formControlName="idCard"
+           placeholder="Nhập Số Chứng Minh Nhân Dân">
+    <mat-error
+      *ngIf="idCard.errors?.required && (idCard.dirty ||idCard.touched)">
+      Vui lòng nhập số chứng minh nhân dân
+    </mat-error>
+    <mat-error
+      *ngIf="idCard.errors?.pattern && (idCard.dirty ||idCard.touched)">
+      Phải đúng định dạng 9 chữ số từ 0~9 !
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-field-create py-2" appearance="standard">
+    <mat-label>Lương</mat-label>
+    <input type="text" matInput [errorStateMatcher]="matcher" formControlName="salary"
+           placeholder="Nhập Lương">
+    <mat-error
+      *ngIf="salary.errors?.required && (salary.dirty ||salary.touched)">
+      Vui lòng nhập lương
+    </mat-error>
+    <mat-error
+      *ngIf="salary.errors?.pattern && (salary.dirty ||salary.touched)">
+      Phải là số nguyên dương!
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-field-create py-2" appearance="standard">
+    <mat-label>Email</mat-label>
+    <input type="text" matInput [errorStateMatcher]="matcher" formControlName="email"
+           placeholder="Nhập Email">
+    <mat-error
+      *ngIf="email.errors?.required && (email.dirty ||email.touched)">
+      Vui lòng nhập email
+    </mat-error>
+    <mat-error
+      *ngIf="email.errors?.email && (email.dirty ||email.touched)">
+      Phải đúng định abc@abc.abc!
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-field-create py-2" appearance="standard">
+    <mat-label>Số Điện Thoại</mat-label>
+    <input type="text" matInput [errorStateMatcher]="matcher" formControlName="phoneNumber"
+           placeholder="Nhập Số Điện Thoại">
+    <mat-error
+      *ngIf="phoneNumber.errors?.required && (phoneNumber.dirty ||phoneNumber.touched)">
+      Vui lòng nhập số điện thoại
+    </mat-error>
+    <mat-error
+      *ngIf="phoneNumber.errors?.pattern && (phoneNumber.dirty ||phoneNumber.touched)">
+      Phải đúng định dạng! <br>
+      090******* <br>
+      091******* <br>
+      (84)+90******* <br>
+      (84)+91*******
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-field-create py-2" appearance="standard">
+    <mat-label>Địa Chỉ</mat-label>
+    <input type="text" matInput [errorStateMatcher]="matcher" formControlName="address"
+           placeholder="Nhập Địa Chỉ">
+    <mat-error
+      *ngIf="address.errors?.required && (address.dirty ||address.touched)">
+      Vui lòng nhập địa chỉ
+    </mat-error>
+  </mat-form-field>
+
+  <div class="d-flex justify-content-center mt-4">
+    <button class="btn btn-success" (click)="addNewEmployee()" [disabled]="!formAddNewEmployee.valid">Thêm Mới</button>
+  </div>
+</form>
