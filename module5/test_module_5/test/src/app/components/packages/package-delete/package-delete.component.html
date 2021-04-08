@@ -1,0 +1,21 @@
+<div style="background-color: blue">
+  <button type="button" class="close rounded"
+          style="height: 30px;width: 30px; border: 1px solid white; background-color: red" aria-label="Close"
+          (click)="onNoClick()">
+    <span aria-hidden="true">×</span>
+  </button>
+  <h4 class="d-flex justify-content-center align-items-center" style="padding-top: 10px; color: white">Xác Nhận</h4>
+  <hr>
+</div>
+<div class="m-4">
+  <p class="my-3">Bạn Có Chắc Xóa Thông Tin Lô Hàng <u class="font-italic font-weight-bold"
+                                                       style="color: red">{{package.product.nameProduct}}</u>
+    nhập ngày <span>{{package.ngayNhapHang| date: 'dd/MM/yyyy'}}</span> ?
+    <br> <br>
+    <span class="font-weight-bold">Lưu ý:</span> Thao Tác Không Thể Hoàn Tác !!!</p>
+  <div class="row d-flex justify-content-end">
+    <button mat-dialog-close class="btn btn-outline-primary mr-3">Hủy Bỏ</button>
+    <button class="btn btn-outline-danger mr-3 pr-4 pl-4" (click)="deleteEmployee()">Xóa</button>
+  </div>
+</div>
+

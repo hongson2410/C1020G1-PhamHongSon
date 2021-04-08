@@ -1,0 +1,81 @@
+<h3 class="text-center font-weight-bolder" style="color: green">Nhập Hàng</h3>
+
+<form class="w-75 mx-auto mt-3" [formGroup]="formAddNewPackage">
+  <mat-form-field class="form-field-create py-2" appearance="standard">
+    <mat-label>Mã lô hàng</mat-label>
+    <input type="text" matInput [errorStateMatcher]="matcher" formControlName="code"
+           placeholder="Nhập Mã Lô Hàng">
+    <mat-error
+      *ngIf="code.errors?.required && (code.dirty ||code.touched)">
+      Vui lòng nhập mã lô hàng
+    </mat-error>
+    <mat-error
+      *ngIf="code.errors?.pattern && (code.dirty ||code.touched)">
+      Phải đúng định dạng LH-XXXX <br>
+      X là số nguyên!
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-field-create py-2" appearance="standard">
+    <mat-label>Chọn Sản Phẩm</mat-label>
+    <mat-select [errorStateMatcher]="matcher" formControlName="product">
+      <mat-option *ngFor="let product of products" [value]="product">{{product.nameProduct}}</mat-option>
+    </mat-select>
+    <mat-error
+      *ngIf="product.errors?.required && (product.dirty ||product.touched)">
+      Vui lòng chọn sản phẩm
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-field-create py-2" appearance="standard">
+    <mat-label>Số lượng</mat-label>
+    <input type="text" matInput [errorStateMatcher]="matcher" formControlName="quantity"
+           placeholder="Nhập số lượng sản phẩm">
+    <mat-error
+      *ngIf="quantity.errors?.required && (quantity.dirty ||quantity.touched)">
+      Vui lòng nhập số lượng
+    </mat-error>
+    <mat-error
+      *ngIf="quantity.errors?.pattern && (quantity.dirty ||quantity.touched)">
+      Phải là số nguyên dương!
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input [min]="minDate" [max]="maxDate" class="form-control" formControlName="ngayNhapHang" id="ngayNhapHang" matInput
+           [matDatepicker]="myDatepicker" placeholder="Chọn ngay nhap hang">
+    <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+    <mat-datepicker #myDatepicker></mat-datepicker>
+  </mat-form-field>
+  <mat-error
+    *ngIf="ngayNhapHang.errors?.required && (ngayNhapHang.dirty ||ngayNhapHang.touched)">
+    Vui lòng nhập ngày nhập hàng
+  </mat-error>
+
+  <mat-form-field>
+    <input [min]="minDate" [max]="maxDate" class="form-control" formControlName="ngaySanXuat" id="ngaySanXuat" matInput
+           [matDatepicker]="myDatepicker1" placeholder="Chọn ngay sản xuất">
+    <mat-datepicker-toggle matSuffix [for]="myDatepicker1"></mat-datepicker-toggle>
+    <mat-datepicker #myDatepicker1></mat-datepicker>
+  </mat-form-field>
+  <mat-error
+    *ngIf="ngaySanXuat.errors?.required && (ngaySanXuat.dirty ||ngaySanXuat.touched)">
+    Vui lòng nhập ngày sản xuât
+  </mat-error>
+
+  <mat-form-field>
+    <input [min]="minDate" [max]="maxDate" class="form-control" formControlName="ngayHetHan" id="ngayHetHan" matInput
+           [matDatepicker]="myDatepicker2" placeholder="Chọn ngay hết hạn">
+    <mat-datepicker-toggle matSuffix [for]="myDatepicker2"></mat-datepicker-toggle>
+    <mat-datepicker #myDatepicker2></mat-datepicker>
+  </mat-form-field>
+  <mat-error
+    *ngIf="ngayHetHan.errors?.required && (ngayHetHan.dirty ||ngayHetHan.touched)">
+    Vui lòng nhập ngày hết hạn
+  </mat-error>
+
+  <div class="d-flex justify-content-center mt-4 pb-3">
+    <button class="btn btn-success" (click)="addNewPackage()" [disabled]="!formAddNewPackage.valid">Thêm Mới</button>
+    <button class="btn btn-warning ml-5" [routerLink]="['/package-list']">Quay Lại</button>
+  </div>
+</form>

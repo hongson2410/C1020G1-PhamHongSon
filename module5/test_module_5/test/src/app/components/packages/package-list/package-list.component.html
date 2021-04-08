@@ -1,0 +1,57 @@
+<div class="container-fluid h-100 p-3">
+  <div class="row justify-content-between px-3">
+    <div class="d-flex align-items-center col-7">
+      <h2 class="float-left">Danh Sách Lô Hàng</h2>
+    </div>
+    <div class="d-flex col-4">
+      <mat-form-field class="form-field-create py-2" appearance="standard">
+        <mat-label>Tìm kiếm</mat-label>
+        <input type="text" matInput placeholder="Tìm kiếm sản phẩm" [(ngModel)]="term"/>
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row mt-3 px-3">
+    <button class="btn btn-outline-warning" [routerLink]="['/package-add']">Nhập hàng</button>
+    <table class="table table-responsive table-striped mt-3" style="font-size: 16px">
+      <thead>
+      <tr>
+        <th>Mã lô hàng</th>
+        <th>Tên sản phẩm</th>
+        <th>Giá tiền</th>
+        <th>Đơn vị</th>
+        <th>Số lượng</th>
+        <th>Ngày nhập hàng</th>
+        <th>Ngày sản xuất</th>
+        <th>Ngày hết hạn</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let package of packages |filter:term | paginate: { itemsPerPage: 2, currentPage: p }">
+        <td>{{package.code}}</td>
+        <td>{{package.product.nameProduct}}</td>
+        <td>{{package.product.price}}</td>
+        <td>{{package.product.unit}}</td>
+        <td>{{package.quantity}}</td>
+        <td>{{package.ngayNhapHang| date: 'dd/MM/yyyy'}}</td>
+        <td>{{package.ngaySanXuat| date: 'dd/MM/yyyy'}}</td>
+        <td>{{package.ngayHetHan| date: 'dd/MM/yyyy'}}</td>
+        <td>
+          <button class="btn btn-outline-danger btn-sm" ngbTooltip="delete"
+                  style="margin-left: 5px" (click)="openDialog(package.id)">
+            <fa-icon [icon]="faTrashAlt"></fa-icon>
+          </button>
+          <a class="btn btn-outline-warning btn-sm" ngbTooltip="Edit"
+             placement="top-left"
+             style="margin-left: 5px" href="#">
+            <fa-icon [icon]="faEdit"></fa-icon>
+          </a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

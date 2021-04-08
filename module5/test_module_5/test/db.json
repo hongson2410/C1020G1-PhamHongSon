@@ -1,0 +1,86 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "nameProduct": "Sting",
+      "from": "Việt Nam",
+      "price": "250000",
+      "unit": "Thùng"
+    },
+    {
+      "id": 2,
+      "nameProduct": "Tiger",
+      "from": "Trung Quốc",
+      "price": "220000",
+      "unit": "Thùng"
+    },
+    {
+      "id": 3,
+      "nameProduct": "Oshi",
+      "from": "Thái Lan",
+      "price": "100000",
+      "unit": "Thùng"
+    },
+    {
+      "id": 4,
+      "nameProduct": "Dầu gội",
+      "from": "Indo",
+      "price": "300000",
+      "unit": "Thùng"
+    },
+    {
+      "id": 5,
+      "nameProduct": "Larue",
+      "from": "Việt Nam",
+      "price": "210000",
+      "unit": "Thùng"
+    }
+  ],
+  "packages": [
+    {
+      "id": 1,
+      "code": "LH-0001",
+      "product": {
+        "id": 1,
+        "nameProduct": "Sting",
+        "from": "Việt Nam",
+        "price": "250000",
+        "unit": "Thùng"
+      },
+      "quantity": 5,
+      "ngayNhapHang": "2020/12/28",
+      "ngaySanXuat": "2020/09/10",
+      "ngayHetHan": "2021/09/10"
+    },
+    {
+      "code": "LH-0003",
+      "product": {
+        "id": 3,
+        "nameProduct": "Oshi",
+        "from": "Thái Lan",
+        "price": "100000",
+        "unit": "Thùng"
+      },
+      "quantity": "5",
+      "ngayNhapHang": "2020-12-27T17:00:00.000Z",
+      "ngaySanXuat": "2020-09-09T17:00:00.000Z",
+      "ngayHetHan": "2021-04-07T17:00:00.000Z",
+      "id": 3
+    },
+    {
+      "code": "LH-0004",
+      "product": {
+        "id": 2,
+        "nameProduct": "Tiger",
+        "from": "Trung Quốc",
+        "price": "220000",
+        "unit": "Thùng"
+      },
+      "quantity": "5",
+      "ngayNhapHang": "2021-04-06T17:00:00.000Z",
+      "ngaySanXuat": "2021-04-05T17:00:00.000Z",
+      "ngayHetHan": "2021-04-05T17:00:00.000Z",
+      "id": 4
+    }
+  ]
+}

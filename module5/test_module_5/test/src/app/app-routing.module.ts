@@ -12,9 +12,14 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { PackageListComponent } from './components/packages/package-list/package-list.component';
+import { PackageAddComponent } from './components/packages/package-add/package-add.component';
+import { PackageDeleteComponent } from './components/packages/package-delete/package-delete.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'package-list', component: PackageListComponent},
+  {path: 'package-add', component: PackageAddComponent},
 
   {path: '**', component: PageNotFoundComponent}
 ];
@@ -37,7 +42,10 @@ const routes: Routes = [
   exports: [RouterModule],
   declarations: [
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PackageListComponent,
+    PackageAddComponent,
+    PackageDeleteComponent
   ]
 })
 export class AppRoutingModule {

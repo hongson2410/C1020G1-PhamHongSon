@@ -5,7 +5,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-// import {EmployeeDeleteDialogComponent} from './components/employees/employee-delete-dialog/employee-delete-dialog.component';
+import {PackageDeleteComponent} from './components/packages/package-delete/package-delete.component';
 
 @NgModule({
   imports: [
@@ -25,7 +25,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     BrowserAnimationsModule
   ],
   providers: [MatDatepickerModule],
-  // entryComponents: [EmployeeDeleteDialogComponent]
+  entryComponents: [PackageDeleteComponent]
 })
 
 export class MaterialModule {
