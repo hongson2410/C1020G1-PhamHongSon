@@ -1,0 +1,77 @@
+<div class="col-lg-6 mt-3">
+  <div class="central-meta postbox">
+    <span class="create-post">Create post</span>
+    <div class="new-postbox">
+      <div class="newpst-input ml-3">
+        <form method="post">
+          <div class="attachments">
+            <ul>
+              <li>
+                <i class="fa fa-image"></i>
+                <label class="fileContainer">
+                  <input type="file" id="upload_file" name="upload_file[]" onchange="preview_image();" multiple/>
+                </label>
+              </li>
+              <li>
+                <i class="fa fa-video-camera"></i>
+                <label class="fileContainer">
+                  <input type="file">
+                </label>
+              </li>
+              <li>
+                <i class="fa fa-camera"></i>
+                <label class="fileContainer">
+                  <input type="file">
+                </label>
+              </li>
+              <li>
+                <div class="add-smiles">
+                  <span class="em em-expressionless" title="add icon"></span>
+                  <div class="smiles-bunch">
+                    <i class="em em---1"></i>
+                    <i class="em em-smiley"></i>
+                    <i class="em em-anguished"></i>
+                    <i class="em em-laughing"></i>
+                    <i class="em em-angry"></i>
+                    <i class="em em-astonished"></i>
+                    <i class="em em-blush"></i>
+                    <i class="em em-disappointed"></i>
+                    <i class="em em-worried"></i>
+                    <i class="em em-kissing_heart"></i>
+                    <i class="em em-rage"></i>
+                    <i class="em em-orange_book"></i>
+                    <i class="em em-chicken"></i>
+                    <i class="em em-children_crossing"></i>
+                    <i class="em em-baby_chick"></i>
+                    <i class="em em-baby_symbol"></i>
+                    <i class="em em-panda_face"></i>
+                    <i class="em em-stuck_out_tongue"></i>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <select class="fa form-control">
+                  <option class="fa" value="public">
+                    &#xf0ac; &nbsp; Public
+                  </option>
+                  <option class="fa" value="friend">
+                    &#xf0c0; &nbsp; Friend
+                  </option>
+                  <option class="fa" value="onlyMe">
+                    &#xf023; &nbsp; Only Me
+                  </option>
+                </select>
+              </li>
+            </ul>
+          </div>
+          <textarea rows="2" class="fa" style="height: 100px" placeholder="Share some what you are thinking?"></textarea>
+          <div id="image_preview" class="mb-3 ml-3 w-100"></div>
+        </form>
+      </div>
+      <button class="post-btn" type="submit" data-ripple="">Post</button>
+    </div>
+  </div>
+</div>
+
+
+
